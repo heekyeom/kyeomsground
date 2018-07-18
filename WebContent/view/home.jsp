@@ -20,7 +20,7 @@
 			<div class="col-lg-4 col-sm-6 portfolio-item">
 				<div class="card h-100">
 					<a href="#"><img class="card-img-top"
-						src="http://cafefiles.naver.net/MjAxNzAxMDdfMTYw/MDAxNDgzNzc1MTg5ODEw.TUDIRO8YcGqQfuiIvkQCKfSWotVxP0EwpNvqBqEaiy8g.bJ8jggxy52shNkI9unciIQGQlBtt_WGC_Mr83SfehPgg.JPEG.gj5630/externalFile.jpg"
+						src="http://tourimage.interpark.com/BBS/Tour/FckUpload/201311/6352057291459937563.jpg"
 						alt=""></a>
 					<div class="card-body">
 						<h4 class="card-title">
