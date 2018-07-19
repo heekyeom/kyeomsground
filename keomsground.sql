@@ -17,39 +17,39 @@ CREATE TABLE KG_USER(
 );
 
 CREATE TABLE KG_CATEGORY(
-		C_NAME                        		VARCHAR2(20)		 NULL ,
-		C_COLOR                       		VARCHAR2(20)		 NULL ,
-		C_IMGNAME                     		VARCHAR2(30)		 NULL 
+		C_NAME VARCHAR2(20) NULL,
+		C_COLOR VARCHAR2(20) NULL,
+		C_IMGNAME VARCHAR2(30) NULL 
 );
 
 CREATE TABLE KG_FACILITY(
-		F_NUM                         		NUMBER(30)		 NULL ,
-		C_NAME                        		VARCHAR2(20)		 NULL ,
-		F_NAME                        		VARCHAR2(30)		 NULL ,
-		F_ADDRESS                     		VARCHAR2(30)		 NULL ,
-		F_TEL                         		VARCHAR2(20)		 NULL ,
-		F_PRICE                       		NUMBER(30)		 DEFAULT 0		 NULL ,
-		F_MAX                         		NUMBER(20)		 NULL ,
-		F_OPENTIME                    		DATE		 NULL ,
-		F_CLOSETIME                   		DATE		 NULL ,
-		F_MAXTIME                     		DATE		 NULL ,
-		F_IMGNAME                     		VARCHAR2(30)		 NULL 
+		F_NUM NUMBER(30) NULL,
+		C_NAME VARCHAR2(20) NULL,
+		F_NAME VARCHAR2(30) NULL,
+		F_ADDRESS VARCHAR2(30) NULL,
+		F_TEL VARCHAR2(20) NULL,
+		F_PRICE NUMBER(30) DEFAULT 0 NULL,
+		F_MAX NUMBER(20) NULL,
+		F_OPENTIME DATE NULL,
+		F_CLOSETIME DATE NULL,
+		F_MAXTIME DATE NULL,
+		F_IMGNAME VARCHAR2(30) NULL 
 );
 
 CREATE TABLE KG_RESERVATION(
-		R_NUM                         		NUMBER(30)		 NULL ,
-		R_NAME                        		VARCHAR2(30)		 NULL ,
-		U_ID                          		VARCHAR2(20)		 NOT NULL,
-		F_NUM                         		NUMBER(30)		 NOT NULL,
-		R_DATE                        		DATE		 NULL ,
-		R_STARTTIME                   		DATE		 NULL ,
-		R_ENDTIME                     		DATE		 NULL ,
-		R_TYPE                        		VARCHAR2(10)		 NULL 
+		R_NUM NUMBER(30) NULL,
+		R_TITLE VARCHAR2(30) NULL,
+		U_ID VARCHAR2(20) NOT NULL,
+		F_NUM NUMBER(30) NOT NULL,
+		R_DATE DATE NULL,
+		R_STARTTIME DATE NULL,
+		R_ENDTIME DATE NULL,
+		R_TYPE VARCHAR2(10) NULL 
 );
 
 CREATE TABLE KG_SCHEDULE(
-		U_ID                          		VARCHAR2(20)		 NULL ,
-		R_NUM                         		NUMBER(30)		 NULL 
+		U_ID VARCHAR2(20) NULL,
+		R_NUM NUMBER(30) NULL 
 );
 
 

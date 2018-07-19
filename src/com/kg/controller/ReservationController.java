@@ -38,15 +38,18 @@ public class ReservationController {
 		
 		// 원래는 여기서 DB를 통해서 데이터를 가져와야함!
 		//var data = [{data:[10,40,30,50,60]}];
-		JSONArray js = new JSONArray();
-		JSONObject jo = new JSONObject();
-		JSONArray joa = new JSONArray();
+		JSONArray jsArray = new JSONArray();
+		JSONObject jsObject = new JSONObject();
 		
-		joa.add(20); joa.add(50); joa.add(30); joa.add(80); joa.add(40); joa.add(70);
-		jo.put("data", joa);
-		js.add(jo);
+		//id: 999,
+		//url: 'http://google.com/', 
+		jsObject.put("title", "All Day Event");
+		jsObject.put("start", "2018-07-19T16:00:00");
+		jsObject.put("end", "2018-07-19T20:00:00");
+		jsObject.put("color", "RED");
+		jsArray.add(jsObject);
 		
-		out.println(js.toJSONString());
+		out.println(jsArray.toJSONString());
 		
 		out.close();
 	}

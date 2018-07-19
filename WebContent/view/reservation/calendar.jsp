@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 
-
 <link rel='stylesheet' href='fullcalendar/fullcalendar.css' />
 <script src='fullcalendar/lib/jquery.min.js'></script>
 <script src='fullcalendar/lib/moment.min.js'></script>
@@ -48,11 +47,12 @@ $(function() {
 	    	    alert('Resource ID: ' + resourceObj.id);
 
 	      }, */
-	      /* select: function(startDate, endDate, jsEvent, view) {
+	      select: function(startDate, endDate, jsEvent, view) {
 	          //alert('selected ' + startDate.format() + ' to ' + endDate.format());
 	          alert(startDate);
 	          alert(endDate);
-	      }, */
+	          $('#btn_reservation').click();
+	      },
 	      eventClick: function(calEvent, jsEvent, view) {
 
 	    	    alert('Event: ' + calEvent.title);
@@ -60,67 +60,11 @@ $(function() {
 	    	    alert('View: ' + view.name);
 
 	    	    // change the border color just for fun
-	    	    $(this).css('border-color', 'red');
+	    	    $(this).css('border-color', 'yellow');
 
 	      },
+	      events: data
 	      
-	      events: [ 
-	        { 
-	          title: 'All Day Event', 
-	          start: '2018-07-01', 
-	        }, 
-	        { 
-	          title: 'Long Event', 
-	          start: '2018-07-07', 
-	          end: '2018-07-10' 
-	        }, 
-	        { 
-	          id: 999, 
-	          title: 'Repeating Event', 
-	          start: '2018-07-09T16:00:00' 
-	        }, 
-	        { 
-	          id: 999, 
-	          title: 'Repeating Event', 
-	          start: '2018-07-16T16:00:00' 
-	        }, 
-	        { 
-	          title: 'Conference', 
-	          start: '2018-07-11', 
-	          end: '2018-07-13' 
-	        }, 
-	        { 
-	          title: 'Meeting', 
-	          start: '2018-07-12T10:30:00', 
-	          end: '2018-07-12T12:30:00' 
-	        }, 
-	        { 
-	          title: 'Lunch', 
-	          start: '2018-07-12T12:00:00' 
-	        }, 
-	        { 
-	          title: 'Meeting', 
-	          start: '2018-07-12T14:30:00' 
-	        }, 
-	        { 
-	          title: 'Happy Hour', 
-	          start: '2018-07-12T17:30:00' 
-	        }, 
-	        { 
-	          title: 'Dinner', 
-	          start: '2018-07-12T20:00:00' 
-	        }, 
-	        { 
-	          title: 'Birthday Party', 
-	          start: '2018-07-13T07:00:00', 
-	          end: '2018-07-13T09:00:00' 
-	        }, 
-	        { 
-	          title: 'Click for Google', 
-	          url: 'http://google.com/', 
-	          start: '2018-07-28' 
-	        } 
-	      ] 
 	    });
 	}
 
@@ -140,4 +84,54 @@ $(function() {
 </script>
 
 	<div id='calendar'></div>
+	<button id="btn_reservation" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" hidden="hidden"></button>
 
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+       <h4 class="modal-title" id="myModalLabel">예약하기</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+       
+      </div>
+      <div class="modal-body">
+        
+	<div class="row">
+        <div class="col-md-10  card mx-auto">
+            <form action="" method="post" id="fileForm" role="form">
+
+              <div class="form-group">
+                <label for="username"><span class="req">* </span>예약자명:</label> 
+                    <input class="form-control" type="text" name="username" id = "txt" onkeyup = "Validate(this)" placeholder="최소 6자리 이상 " required />  
+                        
+                        <label for="username"><span class="req">* </span> 사용자 초대:  </label> 
+                    <input class="form-control" type="text" name="username" id = "txt" onkeyup = "Validate(this)" placeholder="최소 6자리 이상 " required />  
+                        <div id="errLast"></div>
+                        
+            </div>
+
+            <div class="form-group"> 	 
+                <label for="firstname"><span class="req">* </span>  팀명 : </label>
+                    <input class="form-control" type="text" name="firstname" id = "txt" onkeyup = "Validate(this)" required /> 
+                        <div id="errFirst"></div>    
+            </div>
+
+ 			<div class="form-group">
+                <label for="password"><span class="req">* </span> 예약시간: </label>
+                    <input required name="password" type="password" class="form-control inputpass" minlength="4" maxlength="16"  id="pass1" /> </p>
+            </div>
+            
+            </form><!-- ends register form -->
+
+        </div>
+   
+</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+        <button type="button" class="btn btn-primary">예약하기</button>
+      </div>
+    </div>
+  </div>
+</div>

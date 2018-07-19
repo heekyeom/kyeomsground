@@ -4,11 +4,15 @@ PUBLIC "-//mybatis.org/DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		
+		<typeAlias type="com.kg.vo.User" alias="user"/>
+		<typeAlias type="com.kg.vo.Reservation" alias="reservation"/>
+		<!-- <typeAlias type="com.kg.vo.Facility" alias="facility"/> --><!-- 아직없음 -->
 	</typeAliases>
 	
 	<mappers>
-		
+		<mapper resource="com/config/usermapper.xml"/>
+		<mapper resource="com/config/reservationmapper.xml"/>
+		<!-- <mapper resource="com/config/facilitymapper.xml"/> -->
 	</mappers>
 </configuration>
 

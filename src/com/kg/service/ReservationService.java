@@ -16,27 +16,27 @@ public class ReservationService implements Service<Reservation, Integer> {
 	
 	@Override
 	public void register(Reservation t) throws Exception {
-		
+		dao.insert(t);
 	}
 
 	@Override
 	public void modify(Reservation t) throws Exception {
-		
+		dao.update(t);
 	}
 
 	@Override
 	public void remove(Integer v) throws Exception {
-		
+		dao.delete(v);
 	}
 
 	@Override
 	public Reservation get(Integer v) throws Exception {
-		return null;
+		return dao.select(v);
 	}
 
 	@Override
 	public ArrayList<Reservation> get() throws Exception {
-		return null;
+		return dao.select();
 	}
 
 }

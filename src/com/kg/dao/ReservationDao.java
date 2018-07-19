@@ -17,27 +17,27 @@ public class ReservationDao implements Dao<Reservation, Integer> {
 	
 	@Override
 	public void insert(Reservation t) throws Exception {
-		
+		mapper.insert(t);
 	}
 
 	@Override
 	public void update(Reservation t) throws Exception {
-		
+		mapper.update(t);
 	}
 
 	@Override
 	public void delete(Integer v) throws Exception {
-		
+		mapper.delete(v);
 	}
 
 	@Override
 	public Reservation select(Integer v) throws Exception {
-		return null;
+		return mapper.select(v);
 	}
 
 	@Override
 	public ArrayList<Reservation> select() throws Exception {
-		return null;
+		return mapper.selectall();
 	}
 
 }

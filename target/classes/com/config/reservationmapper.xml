@@ -4,20 +4,20 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kg.mapper.ReservationMapper">
 	
-	<select id="select" parameterType="Integer" resultType="Reservation">
+	<select id="select" parameterType="Integer" resultType="reservation">
 		SELECT * FROM kg_reservation WHERE r_num=#{obj}
 	</select>
-	<select id="selectall" resultType="Reservation">
+	<select id="selectall" resultType="reservation">
 		SELECT * FROM kg_reservation
 	</select>
-	<insert id="insert" parameterType="Reservation"> <!-- 여기부터 아직 -->
-		INSERT INTO kg_reservation VALUES (#{id},#{pwd},#{name})
+	<insert id="insert" parameterType="reservation">
+		INSERT INTO kg_reservation VALUES (reservation_seq.NEXTVAL, #{r_title}, #{u_id}, #{f_num}, #{r_date}, #{r_starttime}, #{r_endtime}, #{r_type})
 	</insert>
-	<update id="update" parameterType="Reservation">
-		UPDATE T_USER SET PWD=#{pwd},NAME=#{name} WHERE ID=#{id}
+	<update id="update" parameterType="reservation">
+		UPDATE kg_reservation SET R_TITLE=#{r_title},F_NUM=#{f_num},R_DATE=#{r_date},R_STARTTIME=#{r_starttime},R_ENDTIME=#{r_endtime},R_TYPE=#{r_type} WHERE R_NUM=#{r_num}
 	</update>
 	<delete id="delete" parameterType="Integer">
-		DELETE FROM T_USER WHERE ID=#{obj}
+		DELETE FROM kg_reservation WHERE R_NUM=#{obj}
 	</delete>
 	
 </mapper>
