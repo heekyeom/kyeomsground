@@ -43,16 +43,6 @@ public class MainController {
 		return mv;
 	}
 
-	// 운동장 클릭시 보여줄 화면.(예약 캘린더)
-	@RequestMapping("/calendar.kg")
-	public ModelAndView facilitydetail() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("main");
-		mv.addObject("centerpage", "calendar");
-
-		return mv;
-	}
-
 	// 운동장 예약 클릭시 보여줄 화면
 	@RequestMapping("/reservation.kg")
 	public ModelAndView reservation() {

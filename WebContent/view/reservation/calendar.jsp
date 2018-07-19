@@ -16,10 +16,11 @@
 <script>
 
 $(function() {
-
+	
+	function drawCalendar(data) {
+		
 	  // page is now ready, initialize the calendar...
 
-	  
 	  $('#calendar').fullCalendar({ 
 	      header: { 
 	        left: 'prev,next today', 
@@ -35,10 +36,11 @@ $(function() {
 	      selectable: true,
 	      selectHelper: true,
 	      //width: 650,
-	      height: 650,
-	      //contentHeight: 600,
+	      height: 701,
+	      slotDuration: '01:00:00',
 	      /* minTime: '00:00:00',
 	      maxTime: '24:00:00', */
+	      //contentHeight: 600,
 	      
 	      /* dayClick: function(date, jsEvent, view, resourceObj) {
 
@@ -66,7 +68,6 @@ $(function() {
 	    	    $(this).css('border-color', 'red');
 
 	      },
-	      
 	      
 	      events: [ 
 	        { 
@@ -116,7 +117,8 @@ $(function() {
 	        }, 
 	        { 
 	          title: 'Birthday Party', 
-	          start: '2018-07-13T07:00:00' 
+	          start: '2018-07-13T07:00:00', 
+	          end: '2018-07-13T09:00:00' 
 	        }, 
 	        { 
 	          title: 'Click for Google', 
@@ -125,11 +127,20 @@ $(function() {
 	        } 
 	      ] 
 	    });
+	}
 
 
-	  
+	$.ajax({
+		url : 'calendarimpl.kg',
+		success : function(data) {
+			drawCalendar(data);
+		},
+		error : function() {
+			alert('error');
+		}
+	});  
 
-	});
+});
 
 </script>
 </head>

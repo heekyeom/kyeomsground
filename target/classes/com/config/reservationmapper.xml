@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kg.mapper.ReservationMapper">
+	
+	<select id="select" parameterType="Integer" resultType="Reservation">
+		SELECT * FROM kg_reservation WHERE r_num=#{obj}
+	</select>
+	<select id="selectall" resultType="Reservation">
+		SELECT * FROM kg_reservation
+	</select>
+	<insert id="insert" parameterType="Reservation"> <!-- 여기부터 아직 -->
+		INSERT INTO kg_reservation VALUES (#{id},#{pwd},#{name})
+	</insert>
+	<update id="update" parameterType="Reservation">
+		UPDATE T_USER SET PWD=#{pwd},NAME=#{name} WHERE ID=#{id}
+	</update>
+	<delete id="delete" parameterType="Integer">
+		DELETE FROM T_USER WHERE ID=#{obj}
+	</delete>
+	
+</mapper>
+
+
+
+
+
+
