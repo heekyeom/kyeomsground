@@ -22,17 +22,17 @@ public class UserService implements Service<User, String>{
 
 	@Override
 	public void modify(User t) throws Exception {
-		
+		dao.update(t);
 	}
 
 	@Override
 	public void remove(String v) throws Exception {
-		
+		dao.delete(v);
 	}
 
 	@Override
 	public User get(String v) throws Exception {
-		return null;
+		return dao.select(v);
 	}
 
 	@Override
