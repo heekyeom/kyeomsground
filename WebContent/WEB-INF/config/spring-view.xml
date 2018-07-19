@@ -47,6 +47,6 @@
  	</bean>
  	<!-- 5. Mapper Setting -->
  	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
- 		<property name="basePackage" value="com.hw.mapper"/>
+ 		<property name="basePackage" value="com.kg.mapper"/>
  	</bean>
 </beans>
