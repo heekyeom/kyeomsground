@@ -22,17 +22,17 @@ public class UserDao implements Dao<User, String> {
 
 	@Override
 	public void update(User t) throws Exception {
-
+		mapper.update(t);
 	}
 
 	@Override
 	public void delete(String v) throws Exception {
-
+		mapper.delete(v);
 	}
 
 	@Override
 	public User select(String v) throws Exception {
-		return null;
+		return mapper.select(v);
 	}
 
 	@Override
