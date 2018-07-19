@@ -1,18 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<!DOCTYPE>
-<html>
-<head>
-<meta charset="EUC-KR">
 
-<link rel='stylesheet' href='../../fullcalendar/fullcalendar.css' />
-<script src='../../fullcalendar/lib/jquery.min.js'></script>
-<script src='../../fullcalendar/lib/moment.min.js'></script>
-<script src='../../fullcalendar/fullcalendar.js'></script>
-<script src='../../fullcalendar/locale-all.js'></script>
 
-<title>Reservation Page</title>
-<style></style>
+<link rel='stylesheet' href='fullcalendar/fullcalendar.css' />
+<script src='fullcalendar/lib/jquery.min.js'></script>
+<script src='fullcalendar/lib/moment.min.js'></script>
+<script src='fullcalendar/fullcalendar.js'></script>
+<script src='fullcalendar/locale-all.js'></script>
+
 <script>
 
 $(function() {
@@ -143,9 +138,6 @@ $(function() {
 });
 
 </script>
-</head>
-<body>
+
 	<div id='calendar'></div>
 
-</body>
-</html>
