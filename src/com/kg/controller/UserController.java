@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.kg.service.ReservationService;
 import com.kg.service.UserService;
+import com.kg.vo.Reservation;
 import com.kg.vo.User;
 
 @Controller
@@ -129,10 +130,11 @@ public class UserController {
 	@RequestMapping("/mypage.kg")
 	public ModelAndView mypage() {
 		ModelAndView mv = new ModelAndView();
+		
 		mv.setViewName("main");
+	
 		
-		
-		
+		mv.addObject("mypagecenterpage", "myschedule");
 		mv.addObject("centerpage", "user/mypage");
 		return mv;
 	}
@@ -145,6 +147,14 @@ public class UserController {
 		mv.addObject("centerpage", "myschedule");
 
 		return mv;
+	}
+	
+	//ajax
+	@RequestMapping("/myscheduleimpl.kg")
+	public void myscheduleimpl(HttpServletResponse response) {
+	
+		
+
 	}
 	
 	@RequestMapping("/usergetall.kg")
