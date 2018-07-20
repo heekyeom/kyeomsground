@@ -76,6 +76,7 @@ public class MainController {
 	// 관리자 화면으로 이동
 	@RequestMapping("/manager.kg")
 	public ModelAndView manager() {
+		System.out.println("main manager.kg call");
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("manager/managermain");
 		return mv;

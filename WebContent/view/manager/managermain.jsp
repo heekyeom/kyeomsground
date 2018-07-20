@@ -21,13 +21,14 @@
 	rel="stylesheet" type="text/css">
 <!-- Custom styles for this template-->
 <link href="view/manager/css/sb-admin.css" rel="stylesheet">
+<link href="view/manager/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
 	<!-- Navigation-->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
 		id="mainNav">
-		<a class="navbar-brand" href="index.html">관리자 페이지</a>
+		<a class="navbar-brand" href="index.html">KYEOM's Ground</a>
 		<button class="navbar-toggler navbar-toggler-right" type="button"
 			data-toggle="collapse" data-target="#navbarResponsive"
 			aria-controls="navbarResponsive" aria-expanded="false"
@@ -164,7 +165,7 @@
 					<jsp:include page="${managercenterpage}.jsp"></jsp:include>
 				</c:when>
 				<c:otherwise>
-					<jsp:include page="index.jsp"></jsp:include>
+					<jsp:include page="managerhome.jsp"></jsp:include>
 				</c:otherwise>
 			</c:choose>
 		</div>
@@ -191,7 +192,7 @@
 					<h5 class="modal-title" id="exampleModalLabel">로그아웃 하시겠습니다.</h5>
 					<button class="close" type="button" data-dismiss="modal"
 						aria-label="Close">
-						<span aria-hidden="true">x</span>
+						<span aria-hidden="true">X</span>
 					</button>
 				</div>
 				<div class="modal-body">로그아웃을 하면 메인 페이지로 이동됩니다..</div>
@@ -210,6 +211,12 @@
 	<script src="view/manager/vendor/jquery-easing/jquery.easing.min.js"></script>
 	<!-- Custom scripts for all pages-->
 	<script src="view/manager/js/sb-admin.min.js"></script>
+	
+	<script src="view/manager/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="view/manager/vendor/datatables/dataTables.bootstrap4.js"></script>
+    <!-- Custom scripts for all pages-->
+    <!-- Custom scripts for this page-->
+    <script src="view/manager/js/sb-admin-datatables.min.js"></script>
 	<!-- Custom scripts for this page-->
 	<!-- Toggle between fixed and static navbar-->
 	<script>

@@ -12,8 +12,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.kg.service.FacilityService;
 import com.kg.service.ReservationService;
 import com.kg.service.UserService;
+import com.kg.vo.Facility;
 import com.kg.vo.User;
 
 @Controller
@@ -23,6 +25,9 @@ public class ManagerController {
 
 	@Resource(name="rservice")
 	ReservationService rservice;
+	
+	@Resource(name="fservice")
+	FacilityService fservicce;
 	
 	// 로그인 완료 클릭시 처리할 코드
 	@RequestMapping("/facilityaddimpl.kg")
@@ -91,17 +96,25 @@ public class ManagerController {
 	public ModelAndView categorymanage() {
 		ModelAndView mv = new ModelAndView();
 		
-		mv.setViewName("manager/mangermain");
+		mv.setViewName("manager/managermain");
 	
-		mv.addObject("managercenterpage", "manager/categorytables");
+		mv.addObject("managercenterpage", "categorytables");
 		return mv;
 	}
 	// 로그인후 마이스케쥴 클릭시 보여줄 화면
 	@RequestMapping("/facilitymanage.kg")
 	public ModelAndView facilitymanage() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("manager/mangermain");
-		mv.addObject("managercenterpage", "manager/facilitytables");
+		mv.setViewName("manager/managermain");
+		mv.addObject("managercenterpage", "facilitytables");
+		
+		ArrayList<Facility> list;
+		try {
+			list=fservicce.get();
+			mv.addObject("facilitylist", list);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		return mv;
 	}
@@ -110,8 +123,8 @@ public class ManagerController {
 	@RequestMapping("/usermanage.kg")
 	public ModelAndView usermanage() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("manager/mangermain");
-		mv.addObject("managercenterpage", "manager/usertables");
+		mv.setViewName("manager/managermain");
+		mv.addObject("managercenterpage", "usertables");
 
 		return mv;
 	}
