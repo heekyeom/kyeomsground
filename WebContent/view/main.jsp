@@ -38,7 +38,7 @@
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
 					<c:choose>
-						<c:when test="${user ==null}">
+						<c:when test="${user == null}">
 							<li class="nav-item active"><a class="nav-link"
 								href="main.kg">Home <span class="sr-only">(current)</span>
 							</a></li>
@@ -53,8 +53,16 @@
 							<li class="nav-item active"><a class="nav-link"
 								href="main.kg">Home <span class="sr-only">(current)</span>
 							</a></li>
-							<li class="nav-item"><a class="nav-link" href="mypage.kg">mypage</a>
-							</li>
+							<c:choose>
+								<c:when test="${user.u_ismanager =='TRUE' }">
+									<li class="nav-item"><a class="nav-link" href="mypage.kg">서비스관리</a>
+									</li>
+								</c:when>
+								<c:otherwise>
+									<li class="nav-item"><a class="nav-link" href="mypage.kg">mypage</a>
+									</li>
+								</c:otherwise>
+							</c:choose>
 							<li class="nav-item"><a class="nav-link" data-toggle="modal"
 								data-target="#logoutModal">Logout</a></li>
 						</c:otherwise>

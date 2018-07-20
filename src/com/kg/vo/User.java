@@ -64,7 +64,7 @@ public class User {
 		this.u_email = u_email;
 	}
 
-	public String isU_ismanager() {
+	public String getU_ismanager() {
 		return u_ismanager;
 	}
 
