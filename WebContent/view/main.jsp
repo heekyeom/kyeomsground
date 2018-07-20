@@ -34,21 +34,23 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a class="nav-link" href="#">Home
+					<li class="nav-item active"><a class="nav-link" href="main.kg">Home
 							<span class="sr-only">(current)</span>
 					</a></li>
 					<c:choose>
 						<c:when test="${login ==null}">
-							<li class="nav-item"><a class="nav-link" href="#">Login</a>
+							<li class="nav-item"><a class="nav-link" data-toggle="modal"
+								data-target="#loginModal">Login</a>
 							</li>
-							<li class="nav-item"><a class="nav-link" href="calendar.kg">Register</a>
+							<li class="nav-item"><a class="nav-link" href="register.kg">Register</a>
 							</li>
 						</c:when>
 						<c:otherwise>
 							<li class="nav-item"><a class="nav-link" href="#">대여확인</a></li>
-							<li class="nav-item"><a class="nav-link" href="#">마이페이지</a>
+							<li class="nav-item"><a class="nav-link" href="mypage.kg">마이페이지</a>
 							</li>
-							<li class="nav-item"><a class="nav-link" href="#">Logout</a>
+							<li class="nav-item"><a class="nav-link" data-toggle="modal"
+								data-target="#logoutModal">Logout</a>
 							</li>
 						</c:otherwise>
 					</c:choose>
@@ -75,6 +77,14 @@
 		</div>
 		<!-- /.container -->
 	</footer>
+	
+	<!-- login model -->
+	<jsp:include page="login.jsp"></jsp:include>
+	
+	
+	<!-- logout model -->
+	<jsp:include page="logout.jsp"></jsp:include>
+	
 	<!-- Bootstrap core JavaScript -->
 	<script
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"

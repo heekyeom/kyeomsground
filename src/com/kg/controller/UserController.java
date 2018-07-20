@@ -69,16 +69,19 @@ public class UserController {
 
 	// 회원가입 완료 클릭시 처리할 코드
 	@RequestMapping("/registerimpl.kg")
-	public void registerimpl(User user, HttpServletResponse response) {
+	public void registerimpl(User user,HttpServletResponse response) {
 		response.setContentType("charset=euc-kr");
 		PrintWriter out=null;
+		System.out.println(user);
 		
 		try {
 			out=response.getWriter();
 			service.register(user);
+			System.out.println("가입 성공");
 			out.println("1");
 			
 		} catch (Exception e) {
+			System.out.println("가입 실패");
 			out.println("0");
 		} finally {
 			out.close();

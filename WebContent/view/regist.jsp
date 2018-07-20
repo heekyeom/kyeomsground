@@ -2,37 +2,69 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <!------ Include the above in your HEAD tag ---------->
+<script src='fullcalendar/lib/jquery.min.js'></script>
+<script>
+$(function(){
+	$('#registersubmit').click(function(){
+		var c=confirm('가입 하시겠습니까?');
+		if(c==true){
+			
+			var queryString = $("form[id=fileForm]").serialize() ;
+
+			console.log(queryString);
+			$.ajax({
+				url:'registerimpl.kg',
+				type:'post',
+				dataType:'json',
+				data: queryString,
+				success:function(data){
+					if(data=='1'){
+						location.href='main.kg';
+					}else{
+						alert('회원가입에 실패했습니다.');
+					}
+				},
+				error:function(){
+					alert('회원가입에 실패');
+				}
+			});
+			
+		};
+	});
+})
+</script>
+
 
 <div class="container">
 	<div class="row">
         <div class="col-md-6  card mx-auto">
-            <form action="" method="post" id="fileForm" role="form">
+            <form id="fileForm" role="form">
             <fieldset><legend class="text-center"> 겸그라운드  <span class="req">회원가입</span></legend>
 
               <div class="form-group">
                 <label for="username"><span class="req">* </span> 아이디:  </label> 
-                    <input class="form-control" type="text" name="username" id = "txt" onkeyup = "Validate(this)" placeholder="최소 6자리 이상 " required />  
+                    <input class="form-control" type="text" name="u_id" id = "txt" placeholder="최소 6자리 이상 " required />  
                         <div id="errLast"></div>
             </div>
 
             <div class="form-group"> 	 
                 <label for="firstname"><span class="req">* </span>  이름 : </label>
-                    <input class="form-control" type="text" name="firstname" id = "txt" onkeyup = "Validate(this)" required /> 
+                    <input class="form-control" type="text" name="u_name" id = "txt"  required /> 
                         <div id="errFirst"></div>    
             </div>
 
  			<div class="form-group">
                 <label for="password"><span class="req">* </span> 비밀번호: </label>
-                    <input required name="password" type="password" class="form-control inputpass" minlength="4" maxlength="16"  id="pass1" /> </p>
+                    <input required name="u_pwd" type="password" class="form-control inputpass" minlength="4" maxlength="16"  id="pass1" /> </p>
 
                 <label for="password"><span class="req">* </span>  비밀번호 확인: </label>
-                    <input required name="password" type="password" class="form-control inputpass" minlength="4" maxlength="16" placeholder="비밀번호를 동일하게 입력하세요."  id="pass2" onkeyup="checkPass(); return false;" />
+                    <input required name="password" type="password" class="form-control inputpass" minlength="4" maxlength="16" placeholder="비밀번호를 동일하게 입력하세요."  id="pass2" />
                         <span id="confirmMessage" class="confirmMessage"></span>
             </div>
             
             <div class="form-group">
                 <label for="email"><span class="req">* </span> 이메일: </label> 
-                    <input class="form-control" required type="text" name="email" id = "email"  onchange="email_validate(this.value);" />   
+                    <input class="form-control" required type="text" name="u_email" id = "email" />   
                         <div class="status" id="status"></div>
             </div>
 
@@ -43,7 +75,7 @@
             
              <div class="form-group">
             <label for="phonenumber"><span class="req">* </span> 전화번호: </label>
-                    <input required type="text" name="phonenumber" id="phone" class="form-control phone" maxlength="28" onkeyup="validatephone(this);" placeholder="not used for marketing"/> 
+                    <input required type="text" name="u_tel" id="phone" class="form-control phone" maxlength="28" placeholder="not used for marketing"/> 
             </div>
 
             <div class="form-group">
@@ -56,17 +88,12 @@
             </div>
 
             <div class="form-group card mx-auto">
-                <input class="btn btn-success" type="submit" name="submit_reg" value="가입하기">
+                <input class="btn btn-success" type="button" id="registersubmit" name="submit_reg" value="가입하기">
             </div>
                      
 
             </fieldset>
             </form><!-- ends register form -->
-
-
         </div>
-   
-
-
 	</div>
 </div>

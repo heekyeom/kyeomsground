@@ -32,6 +32,15 @@ public class MainController {
 
 		return mv;
 	}
+	// 로그아웃 클릭시 보여줄 화면.<-- 팝업으로 할 가능성 900%
+		@RequestMapping("/register.kg")
+		public ModelAndView register() {
+			ModelAndView mv = new ModelAndView();
+			mv.setViewName("main");
+			mv.addObject("centerpage", "regist");
+
+			return mv;
+		}
 
 	// 카테고리 클릭시 보여줄 운동장 리스트
 	@RequestMapping("/facilities.kg")
