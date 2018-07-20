@@ -10,11 +10,14 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kg.service.FacilityService;
 import com.kg.service.ReservationService;
 import com.kg.service.UserService;
+import com.kg.util.FileSave;
+import com.kg.vo.Category;
 import com.kg.vo.Facility;
 import com.kg.vo.User;
 
@@ -31,60 +34,48 @@ public class ManagerController {
 	
 	// 로그인 완료 클릭시 처리할 코드
 	@RequestMapping("/facilityaddimpl.kg")
-	public void facilityaddimpl(HttpServletRequest request, HttpServletResponse response) {
-		HttpSession session = request.getSession();
+	public void facilityaddimpl(Facility facility, HttpServletResponse response) {
 		response.setContentType("charset=euc-kr");
 		PrintWriter out = null;
 
-		String id = request.getParameter("id");
-		String pwd = request.getParameter("pwd");
-
-		System.out.println(id + " " + pwd);
-		// db에 id에 해당하는 유저정보를 가져옴.
+		System.out.println(facility);
 		User user = null;
+		
 		try {
-			user = service.get(id);
+			fservicce.register(facility);
 			out = response.getWriter();
-			System.out.println("[loginimpl]get user: " + user);
-			// 해당 유저정보의 pw와 입력한 pw를 비교.
-			if (user != null && pwd.equals(user.getU_pwd())) {
-				session.setAttribute("user", user);
-				out.println("1");
-			} else {
-				out.println("0");
-			}
-
+			
+		
+			out.println("1");
+			
 		} catch (Exception e) {
+			out.println("0");
 			e.printStackTrace();
 		}
 
 		out.close();
 	}
 	@RequestMapping("/categoryaddimpl.kg")
-	public void categoryaddimpl(HttpServletRequest request, HttpServletResponse response) {
-		HttpSession session = request.getSession();
+	public void categoryaddimpl(Category category, HttpServletResponse response) {
 		response.setContentType("charset=euc-kr");
 		PrintWriter out = null;
-
-		String id = request.getParameter("id");
-		String pwd = request.getParameter("pwd");
-
-		System.out.println(id + " " + pwd);
-		// db에 id에 해당하는 유저정보를 가져옴.
-		User user = null;
+		MultipartFile mf=category.getImg();
+		String imgname=mf.getOriginalFilename();
+		category.setImgname(imgname);
+		
+		FileSave.save("C:\\team5\\kyeomsground\\WebContent\\imgs\\category", mf, imgname);
+		System.out.println(category);
+		
+		
 		try {
-			user = service.get(id);
+			
 			out = response.getWriter();
-			System.out.println("[loginimpl]get user: " + user);
-			// 해당 유저정보의 pw와 입력한 pw를 비교.
-			if (user != null && pwd.equals(user.getU_pwd())) {
-				session.setAttribute("user", user);
-				out.println("1");
-			} else {
-				out.println("0");
-			}
-
+			
+		
+			out.println("1");
+			
 		} catch (Exception e) {
+			out.println("0");
 			e.printStackTrace();
 		}
 
