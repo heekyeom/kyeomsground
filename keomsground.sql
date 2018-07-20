@@ -71,3 +71,5 @@ ALTER TABLE KG_SCHEDULE ADD CONSTRAINT IDX_KG_SCHEDULE_FK1 FOREIGN KEY (R_NUM) R
 
 CREATE SEQUENCE facility_seq;
 CREATE SEQUENCE reservation_seq;
+
+insert into kg_user values ('kg', 'kg', '°ü¸®ÀÚ', '010-1234-5678', 'kg@kg.com','TRUE');

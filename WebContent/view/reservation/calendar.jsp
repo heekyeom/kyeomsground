@@ -23,17 +23,17 @@ $(function() {
            center: 'title', 
            right: 'month,agendaWeek,agendaDay,listWeek' 
          }, 
-         //defaultDate: '2018-03-12', 현재 날짜로 바꿔 주려면 new Date() 사용한다.
          navLinks: true, // can click day/week names to navigate views 
-         editable: true, 
+         editable: false,
          eventLimit: true, // allow "more" link when too many events 
          defaultView: 'agendaWeek',
          locale: 'kr',
          selectable: true,
          selectHelper: true,
          //width: 650,
-         height: 701,
+         //height: 701,
          slotDuration: '01:00:00',
+         slotLabelFormat: 'h(:mm)a',
          /* minTime: '00:00:00',
          maxTime: '24:00:00', */
          //contentHeight: 600,
@@ -109,59 +109,68 @@ $(function() {
                   <form action="" method="post" id="fileForm" role="form">
 
                      <div class="form-group">
-                        <label for="username"><span class="req">* </span>예약자ID:</label> <input
-                           class="form-control" type="text" name="username" id="txt2"
+                        <label for="username"><span class="req">* </span>
+                        예약자</label> <input
+                           class="form-control" type="text" name="username" id="u_name"
                            onkeyup="Validate(this)" placeholder="예약자명 " value="${user.u_name}" readonly="readonly" required />
 
                         <label for="username">
                         <span class="req">* </span> 
-                           예약시설 : </label>
+                           예약시설 </label>
                        <input class="form-control" type="text" 
-                       name="username" id="txt3" 
+                       name="username" id="f_name" 
                        onkeyup="Validate(this)" placeholder="예약시설이 자동 " value="${facility.f_name}" readonly="readonly" required />
                         <div id="errLast"></div>
 
                      </div>
 
                      <div class="form-group">
-                        <label for="firstname"><span class="req">* </span> 예약명 :
+                        <label for="firstname"><span class="req">* </span>
+                         예약명
                         </label> <input class="form-control" type="text" name="firstname"
-                           id="txt1" onkeyup="Validate(this)" required />
+                           id="r_title" onkeyup="Validate(this)" required />
                         <div id="errFirst"></div>
                      </div>
 
                      <div class="form-group">
-                        <label for="password"><span class="req">* </span> 시설이용가능시간:
+                        <label for="password"><span class="req">* </span>
+                         시설이용가능시간
                         </label> <input name="firstname" type="text"
                            class="form-control inputpass" minlength="4" maxlength="16"
-                           id="pass1" value="${facilities.f_time}" readonly="readonly"/>
+                           id="f_time" value="${facilities.f_time}" readonly="readonly"/>
                      </div>
                      
                      <div class="form-group">
-                        <label for="password"><span class="req">* </span> 예약시간:
+                        <label for="password"><span class="req">* </span>
+                         예약시간
                         </label> <input required name="password" type="text"
                            class="form-control inputpass" minlength="4" maxlength="16"
-                           id="pass1" value="${reservation.r_time}" readonly="readonly"/>
+                           id="r_time" value="${reservation.r_time}" readonly="readonly"/>
                      </div>
                      
                      <div class="form-group">
-                        <label for="password"><span class="req">* </span> 공개/비공개여부 :
-                        </label> <input required name="password" type="radio"
-                           class="form-control inputpass" minlength="4" maxlength="16"
-                           id="pass1" />
+                      <span class="req">* </span>
+                       경기 방식 선택
+                         <fieldset>
+                             <div>
+                                 <input type="radio" id="r_type_public" name="type" value="true" checked />
+                                 <label for="r_type_public">
+                                 공개</label>&nbsp;&nbsp;&nbsp;
+                                 <input type="radio" id="r_type_private" name="type" value="false" />
+                                 <label for="r_type_private">
+                                 비공개</label>
+                             </div>
+                         </fieldset>
                      </div>
 <!--  -->
                <div class="form-group">
-         
-                        <label for="firstname"><span class="req">* </span> 초대 :
+                        <label for="firstname"><span class="req">* </span> 초대
                         </label> <input class="form-control" type="text" name="firstname"
                            id="widget2" onkeyup="Validate(this)" />
                         <div id="errFirst"></div>
                      </div>
-         
                <div class="markup">
          </div>
-   
 
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script><!-- 검색기능library -->
     <script src="./inputosaurus/inputosaurus.js"></script><!-- inputsaurus에서 가져오기 -->
@@ -176,16 +185,15 @@ $(function() {
       });
    </script>
 <!--  -->
+         <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" >예약하기</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+         </div>
                   </form>
                   <!-- ends register form -->
 
                </div>
-
             </div>
-         </div>
-         <div class="modal-footer">
-            <button type="button" class="btn btn-primary" >예약하기</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
          </div>
       </div>
    </div>

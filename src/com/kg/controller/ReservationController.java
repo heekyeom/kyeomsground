@@ -43,6 +43,7 @@ public class ReservationController {
 		
 		//id: 999,
 		//url: 'http://google.com/', 
+		jsObject.put("r_num", "3");
 		jsObject.put("title", "All Day Event");
 		jsObject.put("start", "2018-07-19T16:00:00");
 		jsObject.put("end", "2018-07-19T20:00:00");
