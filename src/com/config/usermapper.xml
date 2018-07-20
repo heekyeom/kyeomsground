@@ -22,7 +22,7 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	</select>
 
 	<insert id="insert" parameterType="user">
-		INSERT INTO KG_USER(U_ID,U_PWD,U_NAM,U_TEL,U_EMAIL) VALUES
+		INSERT INTO KG_USER(U_ID,U_PWD,U_NAME,U_TEL,U_EMAIL) VALUES
 		(#{u_id},#{u_pwd},#{u_name},#{u_tel},#{u_email})
 	</insert>
 
