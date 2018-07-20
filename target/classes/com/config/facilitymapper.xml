@@ -2,15 +2,28 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kg.mapper.Facilitymapper">
-	
+<mapper namespace="com.kg.mapper.FacilityMapper">
+
+<resultMap type="facility" id="facilityResult">
+		<result column="C_NAME" property="C_NAME" />
+		<result column="F_NAME" property="F_NAME" />
+		<result column="F_ADDRESS" property="F_ADDRESS" />
+		<result column="F_TEL" property="F_TEL" />
+		<result column="F_PRICE" property="F_PRICE" />
+		<result column="F_MAX" property="F_MAX" />
+		<result column="F_OPENTIME" property="F_OPENTIME" />
+		<result column="F_CLOSETIME" property="F_CLOSETIME" />
+		<result column="F_MAXTIME" property="F_MAXTIME" />
+		<result column="F_IMGNAME" property="F_IMGNAME" />
+	</resultMap>
+
 	<select id="select" parameterType="Integer" resultType="facility">
 		SELECT * FROM kg_facility WHERE r_num=#{obj}
 	</select>
 	<select id="selectall" resultType="facility">
 		SELECT * FROM kg_facility
 	</select>
-	<select id="selecttype" parameterType="String"  resultType="facility">
+	<select id="selecttype" parameterType="String"  resultMap="facilityResult">
 		SELECT * FROM kg_facility WHERE C_NAME=#{type}
 	</select>
 	<insert id="insert" parameterType="facility">

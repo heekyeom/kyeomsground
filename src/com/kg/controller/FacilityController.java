@@ -78,10 +78,13 @@ public class FacilityController {
 	public ModelAndView selectFacilityimpl(String type) {
 
 		ModelAndView mv = new ModelAndView();
-
+		System.out.println(">>>>>>>>>>>>>" + type);
 		mv.setViewName("main");
 		try {
 			ArrayList<Facility> list = service.get(type);
+			
+			 System.out.println(list.toString()); 
+			
 			mv.addObject("flist", list);
 			mv.addObject("centerpage", "facility");
 
