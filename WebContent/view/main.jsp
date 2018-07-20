@@ -11,12 +11,13 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
 	integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
 	crossorigin="anonymous">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">	
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <link href="css/3-col-portfolio.css" rel="stylesheet">
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		crossorigin="anonymous"></script>
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 
 <script src="js/kguser.js"></script>
@@ -36,26 +37,26 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a class="nav-link" href="main.kg">Home
-							<span class="sr-only">(current)</span>
-					</a></li>
 					<c:choose>
 						<c:when test="${user ==null}">
+							<li class="nav-item active"><a class="nav-link"
+								href="main.kg">Home <span class="sr-only">(current)</span>
+							</a></li>
 							<li class="nav-item"><a class="nav-link" data-toggle="modal"
-								data-target="#loginModal">Login</a>
-							</li>
+								data-target="#loginModal">Login</a></li>
 							<li class="nav-item"><a class="nav-link" href="register.kg">Register</a>
 							</li>
 						</c:when>
 						<c:otherwise>
-							<li class="nav-item"><a class="nav-link" href="#">${user.u_name } 님 환영합니다.</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">${user.u_name }
+									님 환영합니다.</a></li>
+							<li class="nav-item active"><a class="nav-link"
+								href="main.kg">Home <span class="sr-only">(current)</span>
+							</a></li>
 							<li class="nav-item"><a class="nav-link" href="mypage.kg">mypage</a>
 							</li>
-							<li class="nav-item"><a class="nav-link" href="calendar.kg">myschedule</a>
-							</li>
 							<li class="nav-item"><a class="nav-link" data-toggle="modal"
-								data-target="#logoutModal">Logout</a>
-							</li>
+								data-target="#logoutModal">Logout</a></li>
 						</c:otherwise>
 					</c:choose>
 				</ul>
@@ -81,14 +82,14 @@
 		</div>
 		<!-- /.container -->
 	</footer>
-	
+
 	<!-- login model -->
 	<jsp:include page="login.jsp"></jsp:include>
-	
-	
+
+
 	<!-- logout model -->
 	<jsp:include page="logout.jsp"></jsp:include>
-	
+
 	<!-- Bootstrap core JavaScript -->
 	<script
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"

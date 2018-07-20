@@ -43,11 +43,11 @@ public class MainController {
 		}
 
 	// 카테고리 클릭시 보여줄 운동장 리스트
-	@RequestMapping("/facilities.kg")
-	public ModelAndView facilities() {
+	@RequestMapping("/facility.kg")
+	public ModelAndView facility() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("main");
-		mv.addObject("centerpage", "facilities");
+		mv.addObject("centerpage", "facility");
 
 		return mv;
 	}

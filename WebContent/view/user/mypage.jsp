@@ -28,7 +28,7 @@
 						<jsp:include page="${mypagecenterpage}.jsp"></jsp:include>
 					</c:when>
 					<c:otherwise>
-						<jsp:include page="../reservation/calendar.jsp"></jsp:include>
+						<jsp:include page="myschedule.jsp"></jsp:include>
 					</c:otherwise>
 				</c:choose>
 			</div>
