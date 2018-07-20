@@ -55,7 +55,7 @@
 							</a></li>
 							<c:choose>
 								<c:when test="${user.u_ismanager =='TRUE' }">
-									<li class="nav-item"><a class="nav-link" href="mypage.kg">서비스관리</a>
+									<li class="nav-item"><a class="nav-link" href="manager.kg">서비스관리</a>
 									</li>
 								</c:when>
 								<c:otherwise>
