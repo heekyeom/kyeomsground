@@ -51,7 +51,7 @@ $(function() {
          
        });
    }
-
+   
    var u_idForm = $("form[id=idForm]").serialize();
 
    $.ajax({
@@ -64,8 +64,8 @@ $(function() {
       error : function() {
          alert('error');
       }
-   });  
-
+   });
+   
 });
 
 </script>
@@ -159,14 +159,31 @@ $(function() {
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script><!-- °Ë»ö±â´Élibrary -->
     <script src="./inputosaurus/inputosaurus.js"></script><!-- inputsaurus¿¡¼­ °¡Á®¿À±â -->
    <script>
-      $('#widget2').inputosaurus({
-         width : '350px',
-         autoCompleteSource : ['±èÈñ°â', '¼Õ¿µ¿ì', '¼­ÅÂÇÑ', 'À±¼®Çö', 'new york','aaaa','¤±¤±¤±','±è¼Õ¼­À±'],
-         activateFinalResult : true,
-         change : function(ev){
-            $('#widget2_reflect').val(ev.target.value);
-         }
-      });
+   
+	function usergetAll(userlist) {
+		
+		var data = userlist.split('"');
+		
+	      $('#widget2').inputosaurus({
+	         width : '350px',
+	         autoCompleteSource : data,
+	         activateFinalResult : true,
+	         change : function(ev){
+	            $('#widget2_reflect').val(ev.target.value);
+	         }
+	      });
+    }
+	
+	$.ajax({
+	      url : 'usergetall.kg',
+	      success : function(data) {
+	    	  usergetAll(data);
+	      },
+	      error : function() {
+	         alert('error');
+	      }
+	   });
+   
    </script>
 <!--  -->
          <div class="modal-footer">

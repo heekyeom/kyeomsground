@@ -28,7 +28,7 @@ public class UserController {
 	@Resource(name="rservice")
 	ReservationService rservice;
 	
-	// ·Î±×ÀÎ ¿Ï·á Å¬¸¯½Ã Ã³¸®ÇÒ ÄÚµå
+	// ë¡œê·¸ì¸ ì™„ë£Œ í´ë¦­ì‹œ ì²˜ë¦¬í•  ì½”ë“œ
 	@RequestMapping("/loginimpl.kg")
 	public void login(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
@@ -38,13 +38,13 @@ public class UserController {
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
 
-		// db¿¡ id¿¡ ÇØ´çÇÏ´Â À¯ÀúÁ¤º¸¸¦ °¡Á®¿È.
+		// dbì— idì— í•´ë‹¹í•˜ëŠ” ìœ ì €ì •ë³´ë¥¼ ê°€ì ¸ì˜´.
 		User user = null;
 		try {
 			user = service.get(id);
 			out = response.getWriter();
 			System.out.println("[loginimpl]get user: " + user);
-			// ÇØ´ç À¯ÀúÁ¤º¸ÀÇ pw¿Í ÀÔ·ÂÇÑ pw¸¦ ºñ±³.
+			// í•´ë‹¹ ìœ ì €ì •ë³´ì˜ pwì™€ ì…ë ¥í•œ pwë¥¼ ë¹„êµ.
 			if (user != null && pwd.equals(user.getU_pwd())) {
 				session.setAttribute("user", user);
 				out.println("1");
@@ -59,7 +59,7 @@ public class UserController {
 		out.close();
 	}
 
-	// ·Î±×¾Æ¿ô ¿Ï·á Å¬¸¯½Ã Ã³¸®ÇÒ ÄÚµå
+	// ë¡œê·¸ì•„ì›ƒ ì™„ë£Œ í´ë¦­ì‹œ ì²˜ë¦¬í•  ì½”ë“œ
 	@RequestMapping("/logoutimpl.kg")
 	public ModelAndView logout(HttpServletRequest request) {
 		ModelAndView mv = new ModelAndView();
@@ -72,7 +72,7 @@ public class UserController {
 		return mv;
 	}
 
-	// È¸¿ø°¡ÀÔ ¿Ï·á Å¬¸¯½Ã Ã³¸®ÇÒ ÄÚµå
+	// íšŒì›ê°€ì… ì™„ë£Œ í´ë¦­ì‹œ ì²˜ë¦¬í•  ì½”ë“œ
 	@RequestMapping("/registerimpl.kg")
 	public void registerimpl(User user, HttpServletResponse response) {
 		response.setContentType("charset=euc-kr");
@@ -82,18 +82,18 @@ public class UserController {
 		try {
 			out = response.getWriter();
 			service.register(user);
-			System.out.println("°¡ÀÔ ¼º°ø");
+			System.out.println("ê°€ì… ì„±ê³µ");
 			out.println("1");
 
 		} catch (Exception e) {
-			System.out.println("°¡ÀÔ ½ÇÆĞ");
+			System.out.println("ê°€ì… ì‹¤íŒ¨");
 			out.println("0");
 		} finally {
 			out.close();
 		}
 	}
 
-	// ¸¶ÀÌÆäÀÌÁö ¼öÁ¤ ¿Ï·á Å¬¸¯½Ã Ã³¸®ÇÒ ÄÚµå
+	// ë§ˆì´í˜ì´ì§€ ìˆ˜ì • ì™„ë£Œ í´ë¦­ì‹œ ì²˜ë¦¬í•  ì½”ë“œ
 	@RequestMapping("/modifyuserimpl.kg")
 	public ModelAndView modifyuserimpl(User user) {
 		ModelAndView mv = new ModelAndView();
@@ -109,7 +109,7 @@ public class UserController {
 		return mv;
 	}
 
-	// ¸¶ÀÌÆäÀÌÁö ¼öÁ¤ ¿Ï·á Å¬¸¯½Ã Ã³¸®ÇÒ ÄÚµå
+	// ë§ˆì´í˜ì´ì§€ ìˆ˜ì • ì™„ë£Œ í´ë¦­ì‹œ ì²˜ë¦¬í•  ì½”ë“œ
 	@RequestMapping("/userdeleteimpl.kg")
 	public ModelAndView userdeleteimpl(HttpServletRequest request) {
 		ModelAndView mv = new ModelAndView();
@@ -128,7 +128,7 @@ public class UserController {
 		return mv;
 	}
 
-	// ·Î±×ÀÎÈÄ ¸¶ÀÌ ÆäÀÌÁö Å¬¸¯½Ã º¸¿©ÁÙ È­¸é
+	// ë¡œê·¸ì¸í›„ ë§ˆì´ í˜ì´ì§€ í´ë¦­ì‹œ ë³´ì—¬ì¤„ í™”ë©´
 	@RequestMapping("/mypage.kg")
 	public ModelAndView mypage() {
 		ModelAndView mv = new ModelAndView();
@@ -139,7 +139,7 @@ public class UserController {
 		return mv;
 	}
 
-	// ·Î±×ÀÎÈÄ ¸¶ÀÌ½ºÄÉÁì Å¬¸¯½Ã º¸¿©ÁÙ È­¸é
+	// ë¡œê·¸ì¸í›„ ë§ˆì´ìŠ¤ì¼€ì¥´ í´ë¦­ì‹œ ë³´ì—¬ì¤„ í™”ë©´
 	@RequestMapping("/myschedule.kg")
 	public ModelAndView myschedule() {
 		ModelAndView mv = new ModelAndView();
@@ -181,19 +181,18 @@ public class UserController {
 	}
 	
 	@RequestMapping("/usergetall.kg")
-	public void usergetall(HttpServletResponse response) {
+	public void usergetall(HttpServletResponse response) throws Exception {
 		response.setContentType("charset=euc-kr");
-		PrintWriter out = null;
+		PrintWriter out = response.getWriter();
 
-		ArrayList<User> list=null;
-
-		try {
-			list = service.get();
-			out=response.getWriter();
-			out.println(list);
-		} catch (Exception e) {
-			e.printStackTrace();
+		ArrayList<User> list = service.get();
+		JSONArray jsArray = new JSONArray();
+		
+		for (User user : list) {
+			jsArray.add(user.getU_id());
 		}
+			
+		out.println(jsArray.toJSONString());
 
 		out.close();
 	}
