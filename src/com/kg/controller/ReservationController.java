@@ -36,6 +36,8 @@ public class ReservationController {
 		response.setContentType("text/json;charset=euc-kr");
 		PrintWriter out = response.getWriter();
 		
+		//service.getMySchedule(u_id);
+		
 		// 원래는 여기서 DB를 통해서 데이터를 가져와야함!
 		//var data = [{data:[10,40,30,50,60]}];
 		JSONArray jsArray = new JSONArray();

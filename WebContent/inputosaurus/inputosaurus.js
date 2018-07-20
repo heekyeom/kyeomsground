@@ -16,6 +16,8 @@
  */
 
 
+var inviteList = [];
+
 (function($) {
 
 	var inputosaurustext = {
@@ -392,6 +394,7 @@
 					self._chosenValues.push(obj);
 					self._renderTags();
 					//이부분으로 친구받음 alert('추가된 친구 : '+obj.value);
+					inviteList.push(obj.value);
 				}
 			});
 			self._setValue(self._buildValue());
