@@ -2,6 +2,7 @@ package com.kg.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
@@ -25,9 +26,6 @@ public class FacilityController {
 	@Resource(name = "fservice")
 	FacilityService service;
 
-	
-	
-	
 	// 대여 공간 추가
 	@RequestMapping("/addFacility.kg")
 	public ModelAndView addFacilityimpl(Facility facility) {
@@ -53,9 +51,9 @@ public class FacilityController {
 
 	// 대여 공간 수정
 	@RequestMapping("/updateFacility.kg")
-	public ModelAndView updateFacilityimpl( ) {
+	public ModelAndView updateFacilityimpl() {
 
-		ModelAndView mv = new ModelAndView(); 
+		ModelAndView mv = new ModelAndView();
 		return mv;
 	}
 
@@ -63,8 +61,8 @@ public class FacilityController {
 	@RequestMapping("/removeFacility.kg")
 	public ModelAndView removeFacilityimpl(int num) {
 
-		ModelAndView mv = new ModelAndView(); 
-		
+		ModelAndView mv = new ModelAndView();
+
 		try {
 			service.remove(num);
 			mv.addObject("centerpage", "home");
@@ -75,25 +73,28 @@ public class FacilityController {
 		return mv;
 
 	}
-	
-	// 대여 공간 불러오기
-		@RequestMapping("/facilities.kg")
-		public ModelAndView selectFacilityimpl(Facility facility, String type) {
 
-			ModelAndView mv = new ModelAndView();
+	@RequestMapping("/facility.kg")
+	public ModelAndView selectFacilityimpl(String type) {
+
+		ModelAndView mv = new ModelAndView();
+		System.out.println(">>>>>>>>>>>>>" + type);
+		mv.setViewName("main");
+		try {
+			ArrayList<Facility> list = service.get(type);
 			
-		 	try {
-		 		mv.addObject("flist", service.get(type));
-		 		mv.addObject("centerpage", "facilities");
-				
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				mv.addObject("centerpage", "home");
-			}
+			 System.out.println(list.toString()); 
+			
+			mv.addObject("flist", list);
+			mv.addObject("centerpage", "facility");
 
-			return mv;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			mv.addObject("centerpage", "home");
 		}
-	
+
+		return mv;
+	}
 
 }
