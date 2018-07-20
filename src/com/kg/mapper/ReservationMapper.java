@@ -10,4 +10,5 @@ public interface ReservationMapper {
 	public void update(Reservation obj);
 	public Reservation select(int obj);
 	public ArrayList<Reservation> selectall();
+	public ArrayList<Reservation> selectMySchedule(String u_id);
 }

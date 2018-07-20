@@ -39,5 +39,9 @@ public class ReservationDao implements Dao<Reservation, Integer> {
 	public ArrayList<Reservation> select() throws Exception {
 		return mapper.selectall();
 	}
+	
+	public ArrayList<Reservation> selectMySchedule(String u_id) throws Exception {
+		return mapper.selectMySchedule(u_id);
+	}
 
 }

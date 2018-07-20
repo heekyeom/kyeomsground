@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import javax.annotation.Resource;
 
-import com.kg.frame.Dao;
+import com.kg.dao.ReservationDao;
 import com.kg.frame.Service;
 import com.kg.vo.Reservation;
 
@@ -12,7 +12,7 @@ import com.kg.vo.Reservation;
 public class ReservationService implements Service<Reservation, Integer> {
 
 	@Resource(name="rdao")
-	Dao<Reservation, Integer> dao;
+	ReservationDao dao;
 	
 	@Override
 	public void register(Reservation t) throws Exception {
@@ -37,6 +37,10 @@ public class ReservationService implements Service<Reservation, Integer> {
 	@Override
 	public ArrayList<Reservation> get() throws Exception {
 		return dao.select();
+	}
+	
+	public ArrayList<Reservation> getMySchedule(String u_id) throws Exception {
+		return dao.selectMySchedule(u_id);
 	}
 
 }
