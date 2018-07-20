@@ -72,23 +72,4 @@ public class MainController {
 		return mv;
 	}
 	
-	//로그인후 마이 페이지 클릭시 보여줄 화면
-	@RequestMapping("/mypage.kg")
-	public ModelAndView mypage() {
-		ModelAndView mv=new ModelAndView();
-		mv.setViewName("main");
-		mv.addObject("centerpage", "user/mypage");
-		
-		return mv;
-	}
-	
-	//로그인후 마이스케쥴 클릭시 보여줄 화면
-	@RequestMapping("/myschedule.kg")
-	public ModelAndView myschedule() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("main");
-		mv.addObject("centerpage", "myschedule");
-
-		return mv;
-	}
 }

@@ -12,7 +12,7 @@
 				id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile"
 				role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
 			<a class="nav-link" id="v-pills-messages-tab" data-toggle="pill"
-				href="#v-pills-messages" role="tab" aria-controls="v-pills-messages"
+				href="" role="tab" aria-controls="v-pills-messages"
 				aria-selected="false">나의 일정</a> <a class="nav-link"
 				id="v-pills-settings-tab" data-toggle="pill"
 				href="#v-pills-settings" role="tab" aria-controls="v-pills-settings"
@@ -23,14 +23,15 @@
 		<div class="tab-content" id="v-pills-tabContent">
 			<div class="tab-pane fade show active" id="v-pills-home"
 				role="tabpanel" aria-labelledby="v-pills-home-tab">
-				<c:choose>
+				<%-- <c:choose>
 					<c:when test="${mypagecenterpage != null}">
 						<jsp:include page="${mypagecenterpage}.jsp"></jsp:include>
 					</c:when>
 					<c:otherwise>
 						<jsp:include page="myschedule.jsp"></jsp:include>
 					</c:otherwise>
-				</c:choose>
+				</c:choose> --%>
+				<jsp:include page="${mypagecenterpage}.jsp"></jsp:include>
 			</div>
 		</div>
 	</div>
