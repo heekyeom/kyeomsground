@@ -42,15 +42,15 @@ public class MainController {
 			return mv;
 		}
 
-	// 카테고리 클릭시 보여줄 운동장 리스트
-	@RequestMapping("/facility.kg")
-	public ModelAndView facility() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("main");
-		mv.addObject("centerpage", "facility");
-
-		return mv;
-	}
+//	// 카테고리 클릭시 보여줄 운동장 리스트
+//	@RequestMapping("/facility.kg")
+//	public ModelAndView facility() {
+//		ModelAndView mv = new ModelAndView();
+//		mv.setViewName("main");
+//		mv.addObject("centerpage", "facility");
+//
+//		return mv;
+//	}
 
 	// 운동장 예약 클릭시 보여줄 화면
 	@RequestMapping("/reservation.kg")
