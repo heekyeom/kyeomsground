@@ -77,7 +77,7 @@ public class MainController {
 	public ModelAndView mypage() {
 		ModelAndView mv=new ModelAndView();
 		mv.setViewName("main");
-		mv.addObject("centerpage", "mypage");
+		mv.addObject("centerpage", "user/mypage");
 		
 		return mv;
 	}

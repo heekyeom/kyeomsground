@@ -13,19 +13,19 @@
 					<span aria-hidden="true">×</span>
 				</button>
 			</div>
-			<form class="form-signin">
-				<span id="reauth-email" class="reauth-email"></span> <input
-					type="email" id="inputEmail" class="form-control"
-					placeholder="Email address" required autofocus> <input
-					type="password" id="inputPassword" class="form-control"
-					placeholder="Password" required>
+			<form class="form-signin" id="loginForm">
+				<span id="reauth-email" class="reauth-email"></span> 
+				<input type="text" id="inputId" class="form-control" name="id"
+					placeholder="ID" required autofocus> 
+				<input type="password" id="inputPassword" class="form-control"
+					placeholder="Password" name="pwd" required>
 				<div id="remember" class="checkbox">
-					<label> <input type="checkbox" value="remember-me">
+				<label><input type="checkbox" value="remember-me">
 						자동로그인
-					</label>
+				</label>
 				</div>
 				<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-				<a class="btn btn-primary" href="login.html">Login</a>
+				<button class="btn btn-primary" type ="button" id="loginsubmit">Login</button>
 			</form>
 		</div>
 	</div>

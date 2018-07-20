@@ -2,37 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <!------ Include the above in your HEAD tag ---------->
-<script src='fullcalendar/lib/jquery.min.js'></script>
-<script>
-$(function(){
-	$('#registersubmit').click(function(){
-		var c=confirm('가입 하시겠습니까?');
-		if(c==true){
-			
-			var queryString = $("form[id=fileForm]").serialize() ;
-
-			console.log(queryString);
-			$.ajax({
-				url:'registerimpl.kg',
-				type:'post',
-				dataType:'json',
-				data: queryString,
-				success:function(data){
-					if(data=='1'){
-						location.href='main.kg';
-					}else{
-						alert('회원가입에 실패했습니다.');
-					}
-				},
-				error:function(){
-					alert('회원가입에 실패');
-				}
-			});
-			
-		};
-	});
-})
-</script>
+<!-- <script src='fullcalendar/lib/jquery.min.js'></script> -->
 
 
 <div class="container">

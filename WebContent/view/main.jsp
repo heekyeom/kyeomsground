@@ -17,7 +17,9 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 
+<script src="js/kguser.js"></script>
 
 <title>Insert title here</title>
 </head>
@@ -26,7 +28,7 @@
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container">
-			<a class="navbar-brand" href="#">겸's GROUND</a>
+			<a class="navbar-brand" href="#">KYEOM's GROUND</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarResponsive" aria-controls="navbarResponsive"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -38,7 +40,7 @@
 							<span class="sr-only">(current)</span>
 					</a></li>
 					<c:choose>
-						<c:when test="${login ==null}">
+						<c:when test="${user ==null}">
 							<li class="nav-item"><a class="nav-link" data-toggle="modal"
 								data-target="#loginModal">Login</a>
 							</li>
@@ -46,8 +48,10 @@
 							</li>
 						</c:when>
 						<c:otherwise>
-							<li class="nav-item"><a class="nav-link" href="#">대여확인</a></li>
-							<li class="nav-item"><a class="nav-link" href="mypage.kg">마이페이지</a>
+							<li class="nav-item"><a class="nav-link" href="#">${user.u_name } 님 환영합니다.</a></li>
+							<li class="nav-item"><a class="nav-link" href="mypage.kg">mypage</a>
+							</li>
+							<li class="nav-item"><a class="nav-link" href="calendar.kg">myschedule</a>
 							</li>
 							<li class="nav-item"><a class="nav-link" data-toggle="modal"
 								data-target="#logoutModal">Logout</a>

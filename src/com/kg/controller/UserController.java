@@ -33,14 +33,15 @@ public class UserController {
 		String id=request.getParameter("id");
 		String pwd=request.getParameter("pwd");
 		
+		System.out.println(id+" "+pwd);
 		//db에 id에 해당하는 유저정보를 가져옴.
 		User user=null;
 		try {
 			user=service.get(id);
 			out=response.getWriter();
-			
+			System.out.println("[loginimpl]get user: "+user);
 			//해당 유저정보의 pw와 입력한 pw를 비교.
-			if(user==null && pwd.equals(user.getU_pwd())){
+			if(user!=null && pwd.equals(user.getU_pwd())){
 				session.setAttribute("user", user);
 				out.println("1");
 			}else {
@@ -63,7 +64,7 @@ public class UserController {
 		
 		session.invalidate();
 		
-		mv.addObject("centerpage", "main");
+		mv.addObject("centerpage", "home");
 		return mv;
 	}
 
