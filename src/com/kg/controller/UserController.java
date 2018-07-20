@@ -1,6 +1,7 @@
 package com.kg.controller;
 
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.annotation.Resource;
@@ -8,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -35,7 +38,6 @@ public class UserController {
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
 
-		System.out.println(id + " " + pwd);
 		// db에 id에 해당하는 유저정보를 가져옴.
 		User user = null;
 		try {
@@ -132,8 +134,6 @@ public class UserController {
 		ModelAndView mv = new ModelAndView();
 		
 		mv.setViewName("main");
-	
-		
 		mv.addObject("mypagecenterpage", "myschedule");
 		mv.addObject("centerpage", "user/mypage");
 		return mv;
@@ -151,10 +151,33 @@ public class UserController {
 	
 	//ajax
 	@RequestMapping("/myscheduleimpl.kg")
-	public void myscheduleimpl(HttpServletResponse response) {
+	public void myscheduleimpl(HttpServletResponse response, String u_id) throws Exception {
 	
+		response.setContentType("text/json;charset=euc-kr");
+		PrintWriter out = response.getWriter();
+		ArrayList<Reservation> rlist = rservice.getMySchedule(u_id);
 		
-
+		JSONArray jsArray = new JSONArray();
+		SimpleDateFormat sdformat1 = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sdformat2 = new SimpleDateFormat("HH:00:00");
+		
+		for (Reservation reservation : rlist) {
+			
+			JSONObject jsObject = new JSONObject();
+			jsObject.put("r_num", reservation.getR_num());
+			jsObject.put("title", reservation.getR_title());
+			jsObject.put("u_id", reservation.getU_id());
+			jsObject.put("f_num", reservation.getF_num());
+			jsObject.put("start", sdformat1.format(reservation.getR_starttime())+"T"+sdformat2.format(reservation.getR_starttime()));
+			jsObject.put("end", sdformat1.format(reservation.getR_endtime())+"T"+sdformat2.format(reservation.getR_endtime()));
+			jsObject.put("r_type", reservation.getR_type());
+			jsObject.put("color", reservation.getR_color());
+			jsArray.add(jsObject);
+		}
+		
+		out.println(jsArray.toJSONString());
+		
+		out.close();
 	}
 	
 	@RequestMapping("/usergetall.kg")

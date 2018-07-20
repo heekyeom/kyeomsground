@@ -11,7 +11,7 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 		SELECT * FROM kg_reservation
 	</select>
 	<select id="selectMySchedule" parameterType="String" resultType="reservation">
-		SELECT * FROM kg_reservation WHERE U_ID=#{u_id}
+		SELECT r.r_num, r.r_title, r.u_id, r.f_num, r.r_date, r.r_starttime, r.r_endtime, r.r_type, c.c_color as r_color FROM kg_reservation r, kg_facility f, kg_category c WHERE r.f_num=f.f_num and f.c_name=c.c_name and r.u_id=#{u_id}
 	</select>
 	<insert id="insert" parameterType="reservation">
 		INSERT INTO kg_reservation VALUES (reservation_seq.NEXTVAL, #{r_title}, #{u_id}, #{f_num}, #{r_date}, #{r_starttime}, #{r_endtime}, #{r_type})

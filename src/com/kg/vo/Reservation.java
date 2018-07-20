@@ -12,10 +12,11 @@ public class Reservation {
 	private Date r_starttime;
 	private Date r_endtime;
 	private String r_type;
+	private String r_color;
 	
 	public Reservation() {
 	}
-	public Reservation(String r_title, String u_id, int f_num, Date r_date, Date r_starttime, Date r_endtime, String r_type) {
+	public Reservation(String r_title, String u_id, int f_num, Date r_date, Date r_starttime, Date r_endtime, String r_type, String r_color) {
 		this.r_title = r_title;
 		this.u_id = u_id;
 		this.f_num = f_num;
@@ -23,8 +24,9 @@ public class Reservation {
 		this.r_starttime = r_starttime;
 		this.r_endtime = r_endtime;
 		this.r_type = r_type;
+		this.r_color = r_color;
 	}
-	public Reservation(int r_num, String r_title, String u_id, int f_num, Date r_date, Date r_starttime, Date r_endtime, String r_type) {
+	public Reservation(int r_num, String r_title, String u_id, int f_num, Date r_date, Date r_starttime, Date r_endtime, String r_type, String r_color) {
 		this.r_num = r_num;
 		this.r_title = r_title;
 		this.u_id = u_id;
@@ -33,6 +35,7 @@ public class Reservation {
 		this.r_starttime = r_starttime;
 		this.r_endtime = r_endtime;
 		this.r_type = r_type;
+		this.r_color = r_color;
 	}
 	
 	public int getR_num() {
@@ -83,12 +86,18 @@ public class Reservation {
 	public void setR_type(String r_type) {
 		this.r_type = r_type;
 	}
+	public String getR_color() {
+		return r_color;
+	}
+	public void setR_color(String r_color) {
+		this.r_color = r_color;
+	}
 	
 	@Override
 	public String toString() {
 		return "Reservation [r_num=" + r_num + ", r_title=" + r_title + ", u_id=" + u_id + ", f_num=" + f_num
 				+ ", r_date=" + r_date + ", r_starttime=" + r_starttime + ", r_endtime=" + r_endtime + ", r_type="
-				+ r_type + "]";
+				+ r_type + ", r_color=" + r_color + "]";
 	}
 	
 	@Override
@@ -96,6 +105,7 @@ public class Reservation {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + f_num;
+		result = prime * result + ((r_color == null) ? 0 : r_color.hashCode());
 		result = prime * result + ((r_date == null) ? 0 : r_date.hashCode());
 		result = prime * result + ((r_endtime == null) ? 0 : r_endtime.hashCode());
 		result = prime * result + r_num;
@@ -115,6 +125,11 @@ public class Reservation {
 			return false;
 		Reservation other = (Reservation) obj;
 		if (f_num != other.f_num)
+			return false;
+		if (r_color == null) {
+			if (other.r_color != null)
+				return false;
+		} else if (!r_color.equals(other.r_color))
 			return false;
 		if (r_date == null) {
 			if (other.r_date != null)

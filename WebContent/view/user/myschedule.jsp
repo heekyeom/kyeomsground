@@ -12,7 +12,7 @@
 <script>
 
 $(function() {
-   
+	
    function drawCalendar(data) {
       
      // page is now ready, initialize the calendar...
@@ -52,9 +52,12 @@ $(function() {
        });
    }
 
+   var u_idForm = $("form[id=idForm]").serialize();
 
    $.ajax({
-      url : 'calendarimpl.kg',
+      url : 'myscheduleimpl.kg',
+      dataType: 'json',
+      data : u_idForm,
       success : function(data) {
          drawCalendar(data);
       },
@@ -173,6 +176,9 @@ $(function() {
          <input type="hidden" id="r_num" name="r_num">
                   </form>
                   <!-- ends register form -->
+         <form action="" id="idForm">
+	         <input type="hidden" id="u_id" name="u_id" value="${user.u_id}">
+         </form>
 
                </div>
             </div>
