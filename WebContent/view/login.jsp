@@ -19,11 +19,7 @@
 					placeholder="ID" required autofocus> 
 				<input type="password" id="inputPassword" class="form-control"
 					placeholder="Password" name="pwd" required>
-				<div id="remember" class="checkbox">
-				<label><input type="checkbox" value="remember-me">
-						자동로그인
-				</label>
-				</div>
+				
 				<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
 				<button class="btn btn-primary" type ="button" id="loginsubmit">Login</button>
 			</form>
