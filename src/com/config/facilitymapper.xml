@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kg.mapper.facilitymapper">
+	
+	<select id="select" parameterType="Integer" resultType="facility">
+		SELECT * FROM kg_facility WHERE r_num=#{obj}
+	</select>
+	<select id="selectall" resultType="facility">
+		SELECT * FROM kg_facility
+	</select>
+	<select id="selecttype" parameterType="String"  resultType="facility">
+		SELECT * FROM kg_facility WHERE C_NAME=#{type}
+	</select>
+	<insert id="insert" parameterType="facility">
+		INSERT INTO kg_facility VALUES (reservation_seq.NEXTVAL, #{c_name}, #{f_name}, #{f_address}, #{f_tel}, #{f_price}, #{f_max}, #{f_opentime},#{f_closetime},#{f_maxtime},#{f_imgname})
+	</insert>
+	<update id="update" parameterType="facility">
+		UPDATE kg_facility SET C_NAME=#{c_NAME},F_MANE=#{f_name},F_ADDRESS=#{f_address},F_TEL=#{f_tel},F_PRICE=#{f_price},F_MAX=#{f_max},F_OPENTIME=#{f_opentime},F_CLOSETIME=#{c_closetime},F_MAXTIME=#{f_maxtime},F_IMGNAME=#{f_imgname} WHERE F_NUM=#{f_num} 
+	</update>
+	<delete id="delete" parameterType="Integer">
+		DELETE FROM kg_facility WHERE R_NUM=#{obj}
+	</delete>
+	
+</mapper>
