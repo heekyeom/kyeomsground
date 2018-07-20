@@ -6,12 +6,12 @@ public class User {
 	private String u_name;
 	private String u_tel;
 	private String u_email;
-	private boolean u_ismanager;
+	private String u_ismanager;
 
 	public User() {
 	}
 	
-	public User(String u_id, String u_pwd, String u_name, String u_tel, String u_email, boolean u_ismanager) {
+	public User(String u_id, String u_pwd, String u_name, String u_tel, String u_email, String u_ismanager) {
 		super();
 		this.u_id = u_id;
 		this.u_pwd = u_pwd;
@@ -64,11 +64,11 @@ public class User {
 		this.u_email = u_email;
 	}
 
-	public boolean isU_ismanager() {
+	public String isU_ismanager() {
 		return u_ismanager;
 	}
 
-	public void setU_ismanager(boolean u_ismanager) {
+	public void setU_ismanager(String u_ismanager) {
 		this.u_ismanager = u_ismanager;
 	}
 
@@ -79,20 +79,18 @@ public class User {
 				+ u_tel + ", u_email=" + u_email + ", u_ismanager=" + u_ismanager + "]";
 	}
 
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((u_email == null) ? 0 : u_email.hashCode());
 		result = prime * result + ((u_id == null) ? 0 : u_id.hashCode());
-		result = prime * result + (u_ismanager ? 1231 : 1237);
+		result = prime * result + ((u_ismanager == null) ? 0 : u_ismanager.hashCode());
 		result = prime * result + ((u_name == null) ? 0 : u_name.hashCode());
 		result = prime * result + ((u_pwd == null) ? 0 : u_pwd.hashCode());
 		result = prime * result + ((u_tel == null) ? 0 : u_tel.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -103,7 +101,6 @@ public class User {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		
 		if (u_email == null) {
 			if (other.u_email != null)
 				return false;
@@ -114,7 +111,10 @@ public class User {
 				return false;
 		} else if (!u_id.equals(other.u_id))
 			return false;
-		if (u_ismanager != other.u_ismanager)
+		if (u_ismanager == null) {
+			if (other.u_ismanager != null)
+				return false;
+		} else if (!u_ismanager.equals(other.u_ismanager))
 			return false;
 		if (u_name == null) {
 			if (other.u_name != null)
@@ -133,4 +133,5 @@ public class User {
 			return false;
 		return true;
 	}
+	
 }
