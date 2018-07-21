@@ -3,6 +3,7 @@ package com.kg.controller;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -22,9 +23,9 @@ import com.kg.vo.User;
 
 @Controller
 public class UserController {
+	
 	@Resource(name = "uservice")
 	UserService service;
-
 	@Resource(name="rservice")
 	ReservationService rservice;
 	
@@ -43,7 +44,6 @@ public class UserController {
 		try {
 			user = service.get(id);
 			out = response.getWriter();
-			System.out.println("[loginimpl]get user: " + user);
 			// 해당 유저정보의 pw와 입력한 pw를 비교.
 			if (user != null && pwd.equals(user.getU_pwd())) {
 				session.setAttribute("user", user);
@@ -77,16 +77,13 @@ public class UserController {
 	public void registerimpl(User user, HttpServletResponse response) {
 		response.setContentType("charset=euc-kr");
 		PrintWriter out = null;
-		System.out.println(user);
 
 		try {
 			out = response.getWriter();
 			service.register(user);
-			System.out.println("가입 성공");
 			out.println("1");
 
 		} catch (Exception e) {
-			System.out.println("가입 실패");
 			out.println("0");
 		} finally {
 			out.close();
@@ -132,10 +129,9 @@ public class UserController {
 	@RequestMapping("/mypage.kg")
 	public ModelAndView mypage() {
 		ModelAndView mv = new ModelAndView();
-		
 		mv.setViewName("main");
-		mv.addObject("mypagecenterpage", "myschedule");
 		mv.addObject("centerpage", "user/mypage");
+		mv.addObject("mypagecenterpage", "myschedule"); //여긴 마이페이지 클릭시 보여줄 첫 화면에 따라 바꾸면됨!(일단 달력으로 세팅됨)
 		return mv;
 	}
 
@@ -144,25 +140,27 @@ public class UserController {
 	public ModelAndView myschedule() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("main");
-		mv.addObject("centerpage", "myschedule");
+		mv.addObject("centerpage", "user/mypage");
+		mv.addObject("mypagecenterpage", "myschedule");
 
 		return mv;
 	}
 	
-	//ajax
 	@RequestMapping("/myscheduleimpl.kg")
-	public void myscheduleimpl(HttpServletResponse response, String u_id) throws Exception {
-	
+	public void myscheduleimpl(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		response.setContentType("text/json;charset=euc-kr");
 		PrintWriter out = response.getWriter();
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+		String u_id = user.getU_id();
 		ArrayList<Reservation> rlist = rservice.getMySchedule(u_id);
 		
 		JSONArray jsArray = new JSONArray();
 		SimpleDateFormat sdformat1 = new SimpleDateFormat("yyyy-MM-dd");
 		SimpleDateFormat sdformat2 = new SimpleDateFormat("HH:00:00");
+		SimpleDateFormat sdformat3 = new SimpleDateFormat("HH a", Locale.ENGLISH);
 		
 		for (Reservation reservation : rlist) {
-			
 			JSONObject jsObject = new JSONObject();
 			jsObject.put("r_num", reservation.getR_num());
 			jsObject.put("title", reservation.getR_title());
@@ -170,8 +168,10 @@ public class UserController {
 			jsObject.put("f_num", reservation.getF_num());
 			jsObject.put("start", sdformat1.format(reservation.getR_starttime())+"T"+sdformat2.format(reservation.getR_starttime()));
 			jsObject.put("end", sdformat1.format(reservation.getR_endtime())+"T"+sdformat2.format(reservation.getR_endtime()));
+			jsObject.put("r_time", sdformat3.format(reservation.getR_starttime())+"    ~    "+sdformat3.format(reservation.getR_endtime()));
 			jsObject.put("r_type", reservation.getR_type());
 			jsObject.put("color", reservation.getR_color());
+			jsObject.put("f_name", reservation.getF_name());
 			jsArray.add(jsObject);
 		}
 		
@@ -196,4 +196,11 @@ public class UserController {
 
 		out.close();
 	}
+	
+	@RequestMapping("/myscheduledeleteimpl.kg")
+	public void myscheduledeleteimpl(HttpServletResponse response, int r_num) throws Exception {
+		rservice.remove(r_num);
+		response.sendRedirect("myschedule.kg");
+	}
+	
 }

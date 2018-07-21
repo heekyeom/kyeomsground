@@ -15,8 +15,6 @@ $(function() {
 	
    function drawCalendar(data) {
       
-     // page is now ready, initialize the calendar...
-
      $('#calendar').fullCalendar({ 
          header: { 
            left: 'prev,next today', 
@@ -30,34 +28,29 @@ $(function() {
          locale: 'kr',
          selectable: false,
          selectHelper: false,
-         //width: 650,
-         //height: 701,
          slotDuration: '01:00:00',
          slotLabelFormat: 'h(:mm)a',
          /* minTime: '00:00:00',
          maxTime: '24:00:00', */
-         //contentHeight: 600,
-         
          eventClick: function(calEvent, jsEvent, view) {
-
         	 $('#r_num').val(calEvent.r_num);
+        	 $('#f_name').val(calEvent.f_name);
+        	 $('#r_title').val(calEvent.title);
+        	 $('#r_time').val(calEvent.r_time);
+        	 if(calEvent.r_type == 'public') $('#r_type_public').attr('checked', 'checked');
+        	 else $('#r_type_private').attr('checked', 'checked');
+        	 $('#widget2').val('여기 해결 필요'); // 해당예약 눌렀을때 ajax로 한번 더 갔다와서 보여줘야할듯.
+        	 	// 그리고 가져온 값을 inputosaurus형식으로 보여주는게 쉽지않을것임. 시간없으면 걍 참가자 보여주는건 보통의 input태그로 띄우는게 나을수도
         	 
         	 $('#btn_reservation').click();
-        	 //alert(calEvent.start);
-        	 //alert(calEvent.end);
-
          },
          events: data
          
        });
    }
    
-   var u_idForm = $("form[id=idForm]").serialize();
-
    $.ajax({
       url : 'myscheduleimpl.kg',
-      dataType: 'json',
-      data : u_idForm,
       success : function(data) {
          drawCalendar(data);
       },
@@ -90,7 +83,7 @@ $(function() {
 
             <div class="row">
                <div class="col-md-10  card mx-auto">
-                  <form action="" method="post" id="fileForm" role="form">
+                  <form action="myscheduledeleteimpl.kg" method="post" id="fileForm" role="form">
 
                      <div class="form-group">
                         <label for="username"><span class="req">* </span>
@@ -103,7 +96,7 @@ $(function() {
                            예약시설 </label>
                        <input class="form-control" type="text" 
                        name="username" id="f_name" 
-                       onkeyup="Validate(this)" placeholder="예약시설이 자동 " value="${facility.f_name}" readonly="readonly" required />
+                       onkeyup="Validate(this)" placeholder="예약시설 " readonly="readonly" required />
                         <div id="errLast"></div>
 
                      </div>
@@ -118,18 +111,10 @@ $(function() {
 
                      <div class="form-group">
                         <label for="password"><span class="req">* </span>
-                         시설이용가능시간
-                        </label> <input name="firstname" type="text"
-                           class="form-control inputpass" minlength="4" maxlength="16"
-                           id="f_time" value="${facilities.f_time}" readonly="readonly"/>
-                     </div>
-                     
-                     <div class="form-group">
-                        <label for="password"><span class="req">* </span>
                          예약시간
                         </label> <input required name="password" type="text"
-                           class="form-control inputpass" minlength="4" maxlength="16"
-                           id="r_time" value="${reservation.r_time}" readonly="readonly"/>
+                           class="form-control inputpass" maxlength="16"
+                           id="r_time" readonly="readonly"/>
                      </div>
                      
                      <div class="form-group">
@@ -137,10 +122,10 @@ $(function() {
                        경기 방식 선택
                          <fieldset>
                              <div>
-                                 <input type="radio" id="r_type_public" name="type" value="true" />
+                                 <input type="radio" id="r_type_public" name="type" value="true" disabled="disabled" />
                                  <label for="r_type_public">
                                  공개</label>&nbsp;&nbsp;&nbsp;
-                                 <input type="radio" id="r_type_private" name="type" value="false" />
+                                 <input type="radio" id="r_type_private" name="type" value="false" disabled="disabled" />
                                  <label for="r_type_private">
                                  비공개</label>
                              </div>
@@ -148,7 +133,7 @@ $(function() {
                      </div>
 <!--  -->
                <div class="form-group">
-                        <label for="firstname"><span class="req">* </span> 초대
+                        <label for="firstname"><span class="req">* </span> 참가자
                         </label> <input class="form-control" type="text" name="firstname"
                            id="widget2" onkeyup="Validate(this)" />
                         <div id="errFirst"></div>
@@ -193,9 +178,6 @@ $(function() {
          <input type="hidden" id="r_num" name="r_num">
                   </form>
                   <!-- ends register form -->
-         <form action="" id="idForm">
-	         <input type="hidden" id="u_id" name="u_id" value="${user.u_id}">
-         </form>
 
                </div>
             </div>

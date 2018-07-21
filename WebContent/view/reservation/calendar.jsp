@@ -15,8 +15,6 @@ $(function() {
    
    function drawCalendar(data) {
       
-     // page is now ready, initialize the calendar...
-
      $('#calendar').fullCalendar({ 
          header: { 
            left: 'prev,next today', 
@@ -30,41 +28,19 @@ $(function() {
          locale: 'kr',
          selectable: true,
          selectHelper: true,
-         //width: 650,
-         //height: 701,
          slotDuration: '01:00:00',
          slotLabelFormat: 'h(:mm)a',
          /* minTime: '00:00:00',
          maxTime: '24:00:00', */
-         //contentHeight: 600,
-         
-         /* dayClick: function(date, jsEvent, view, resourceObj) {
-
-              alert('Clicked on: ' + date.format());
-
-              alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-
-              alert('Current view: ' + view.name);
-              
-              alert('Resource ID: ' + resourceObj.id);
-
-         }, */
          select: function(startDate, endDate, jsEvent, view) {
              //alert('selected ' + startDate.format() + ' to ' + endDate.format());
              //alert(startDate);
              //alert(endDate);
              $('#btn_reservation').click();
-             //여기!!
+             // 여기에 예약등록 기능 구현하면됨!
          },
          eventClick: function(calEvent, jsEvent, view) {
-
-              alert('Event: ' + calEvent.title);
-              alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-              alert('View: ' + view.name);
-
-              // change the border color just for fun
-              $(this).css('border-color', 'yellow');
-
+        	 alert('이미 예약된 시설입니다.');
          },
          events: data
          
@@ -72,7 +48,7 @@ $(function() {
    }
 
 
-   $.ajax({
+   $.ajax({						// 여기선 그리고 form안에 입력한것들 취소하면 초기화도 해줘야함!!
       url : 'calendarimpl.kg',
       success : function(data) {
          drawCalendar(data);
@@ -80,7 +56,21 @@ $(function() {
       error : function() {
          alert('error');
       }
-   });  
+   });
+   
+   /* var u_idForm = $("form[id=idForm]").serialize(); // 이 형식이 필요할 일이 있을까..
+
+   $.ajax({
+      url : 'myscheduleimpl.kg',
+      dataType: 'json',
+      data : u_idForm,
+      success : function(data) {
+         drawCalendar(data);
+      },
+      error : function() {
+         alert('error');
+      }
+   }); */
 
 });
 
@@ -175,14 +165,38 @@ $(function() {
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script><!-- 검색기능library -->
     <script src="./inputosaurus/inputosaurus.js"></script><!-- inputsaurus에서 가져오기 -->
    <script>
-      $('#widget2').inputosaurus({
+      /* $('#widget2').inputosaurus({
          width : '350px',
          autoCompleteSource : ['김희겸', '손영우', '서태한', '윤석현', 'new york','aaaa','ㅁㅁㅁ','김손서윤'],
          activateFinalResult : true,
          change : function(ev){
             $('#widget2_reflect').val(ev.target.value);
          }
-      });
+      }); */
+      function usergetAll(userlist) {
+  		
+  		var data = userlist.split('"');
+  		
+  	      $('#widget2').inputosaurus({
+  	         width : '350px',
+  	         autoCompleteSource : data,
+  	         activateFinalResult : true,
+  	         change : function(ev){
+  	            $('#widget2_reflect').val(ev.target.value);
+  	         }
+  	      });
+      }
+  	
+  	  $.ajax({	// 여기서 선택된 경기장의 예약정보를 가져와야지!
+  	      url : 'usergetall.kg',
+  	      success : function(data) {
+  	    	  usergetAll(data);
+  	      },
+  	      error : function() {
+  	         alert('error');
+  	      }
+  	  });
+  	
    </script>
 <!--  -->
          <div class="modal-footer">
@@ -191,7 +205,9 @@ $(function() {
          </div>
                   </form>
                   <!-- ends register form -->
-
+		<%-- <form action="" id="idForm">
+			<input type="hidden" id="u_id" name="u_id" value="${user.u_id}">
+		</form> --%>
                </div>
             </div>
          </div>
