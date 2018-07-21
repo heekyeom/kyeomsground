@@ -85,6 +85,11 @@
 	<!-- Footer -->
 	<footer class="py-5 bg-dark">
 		<div class="container">
+			<p class="m-0 text-white">
+				사업자 등록 번호: 000-0000-0000<br> 대표자명: 겸군 <br> 주소: 서울시 강남구 역삼동
+				멀티캠퍼스 <br> 전화번호: 00-000-0000 (이메일로 연락 주세요) <br> 이메일:
+				abcd1234@abcd.com <br> 통신판매신고번호: 제 0000-서울-0000 호
+			</p>
 			<p class="m-0 text-center text-white">Copyright &copy; Kyeom
 				Company 2018</p>
 		</div>

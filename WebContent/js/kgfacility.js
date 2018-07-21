@@ -10,13 +10,15 @@ function register() {
 
 		console.log(queryString);
 		$.ajax({
-			url : 'facilityaddimpl.kg',
+			url : 'addFacilityimpl.kg',
 			type : 'post',
+			enctype:'multipart/form-data',
+			processData: false,
 			dataType : 'json',
 			data : queryString,
 			success : function(data) {
 				if (data == '1') {
-					location.href = 'main.kg';
+					alert('등록이 완료되었습니다.');
 				} else {
 					alert('Register Fail');
 				}
@@ -29,34 +31,8 @@ function register() {
 	;
 }
 
-function login() {
-	var queryString = $("form[id=loginForm]").serialize();
-
-	console.log(queryString);
-	$.ajax({
-		url : 'loginimpl.kg',
-		type : 'post',
-		dataType : 'json',
-		data : queryString,
-		success : function(data) {
-			if (data == '1') {
-				location.href = 'main.kg';
-			} else {
-				alert('Login Fail');
-			}
-		},
-		error : function() {
-			alert('Login Fail');
-		}
-	});
-}
-
-
-
 $(function() {
 	$('#facilityadd').click(function() {
 		register();
 	});
-
-
 })

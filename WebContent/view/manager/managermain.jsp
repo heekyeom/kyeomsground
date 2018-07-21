@@ -22,6 +22,9 @@
 <!-- Custom styles for this template-->
 <link href="view/manager/css/sb-admin.css" rel="stylesheet">
 <link href="view/manager/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+
+<script src="view/manager/vendor/jquery/jquery.min.js"></script>
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -205,7 +208,6 @@
 		</div>
 	</div>
 	<!-- Bootstrap core JavaScript-->
-	<script src="view/manager/vendor/jquery/jquery.min.js"></script>
 	<script src="view/manager/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<!-- Core plugin JavaScript-->
 	<script src="view/manager/vendor/jquery-easing/jquery.easing.min.js"></script>

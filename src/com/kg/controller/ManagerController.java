@@ -32,29 +32,7 @@ public class ManagerController {
 	@Resource(name="fservice")
 	FacilityService fservicce;
 	
-	// 로그인 완료 클릭시 처리할 코드
-	@RequestMapping("/facilityaddimpl.kg")
-	public void facilityaddimpl(Facility facility, HttpServletResponse response) {
-		response.setContentType("charset=euc-kr");
-		PrintWriter out = null;
-
-		System.out.println(facility);
-		User user = null;
-		
-		try {
-			fservicce.register(facility);
-			out = response.getWriter();
-			
-		
-			out.println("1");
-			
-		} catch (Exception e) {
-			out.println("0");
-			e.printStackTrace();
-		}
-
-		out.close();
-	}
+	
 	@RequestMapping("/categoryaddimpl.kg")
 	public void categoryaddimpl(Category category, HttpServletResponse response) {
 		response.setContentType("charset=euc-kr");
