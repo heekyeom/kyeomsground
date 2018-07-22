@@ -142,8 +142,7 @@ $(function() {
                      
                		 <div class="form-group">
                         <label for="participants"><span class="req">* </span> Âü°¡ÀÚ
-                        </label> <!-- <input class="form-control" type="text" name="firstname"
-                           id="widget2" onkeyup="Validate(this)" /> -->
+                        </label>
                            <input class="form-control" type="text" name="paticipants"
                            id="r_participants" onkeyup="Validate(this)" required readonly="readonly" />
                         <div id="errFirst2"></div>
