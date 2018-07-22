@@ -47,8 +47,7 @@ $(function() {
        });
    }
 
-
-   $.ajax({						// 여기선 그리고 form안에 입력한것들 취소하면 초기화도 해줘야함!!
+   $.ajax({						// 여기 form안에 입력한것들 취소하면 초기화도 해줘야되나?
       url : 'calendarimpl.kg',
       success : function(data) {
          drawCalendar(data);
@@ -165,14 +164,6 @@ $(function() {
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script><!-- 검색기능library -->
     <script src="./inputosaurus/inputosaurus.js"></script><!-- inputsaurus에서 가져오기 -->
    <script>
-      /* $('#widget2').inputosaurus({
-         width : '350px',
-         autoCompleteSource : ['김희겸', '손영우', '서태한', '윤석현', 'new york','aaaa','ㅁㅁㅁ','김손서윤'],
-         activateFinalResult : true,
-         change : function(ev){
-            $('#widget2_reflect').val(ev.target.value);
-         }
-      }); */
       function usergetAll(userlist) {
   		
   		var data = userlist.split('"');
@@ -187,7 +178,7 @@ $(function() {
   	      });
       }
   	
-  	  $.ajax({	// 여기서 선택된 경기장의 예약정보를 가져와야지!
+  	  $.ajax({
   	      url : 'usergetall.kg',
   	      success : function(data) {
   	    	  usergetAll(data);

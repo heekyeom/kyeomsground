@@ -10,4 +10,5 @@ public interface UserMapper {
 	public void update(User obj);
 	public User select(String obj);
 	public ArrayList<User> selectall();
+	public ArrayList<User> getParticipants(int r_num);
 }

@@ -2,9 +2,7 @@
     pageEncoding="EUC-KR"%>
 
 <link rel='stylesheet' href='fullcalendar/fullcalendar.css' />
-<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/themes/cupertino/jquery-ui.css" rel="stylesheet"><!-- 검색결과list UI -->
-<link href="./inputosaurus/inputosaurus.css" rel="stylesheet"><!-- 검색창 UI -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script><!-- 검색기능library -->
+<script src='fullcalendar/lib/jquery.min.js'></script>
 <script src='fullcalendar/lib/moment.min.js'></script>
 <script src='fullcalendar/fullcalendar.js'></script>
 <script src='fullcalendar/locale-all.js'></script>
@@ -39,8 +37,18 @@ $(function() {
         	 $('#r_time').val(calEvent.r_time);
         	 if(calEvent.r_type == 'public') $('#r_type_public').attr('checked', 'checked');
         	 else $('#r_type_private').attr('checked', 'checked');
-        	 $('#widget2').val('여기 해결 필요'); // 해당예약 눌렀을때 ajax로 한번 더 갔다와서 보여줘야할듯.
-        	 	// 그리고 가져온 값을 inputosaurus형식으로 보여주는게 쉽지않을것임. 시간없으면 걍 참가자 보여주는건 보통의 input태그로 띄우는게 나을수도
+        	 var r_num = calEvent.r_num;
+        	 $.ajax({
+        		 url : 'getparticipants.kg',
+        	     data : {'r_num': r_num},
+        	     success : function(data) {
+        	    	 var participants = data.replace(/\,/g, ", ");
+        	    	 $('#r_participants').val(participants);
+        	     },
+        	     error : function() {
+        	         alert('error');
+        	     }
+        	 });
         	 
         	 $('#btn_reservation').click();
          },
@@ -131,45 +139,18 @@ $(function() {
                              </div>
                          </fieldset>
                      </div>
-<!--  -->
-               <div class="form-group">
-                        <label for="firstname"><span class="req">* </span> 참가자
-                        </label> <input class="form-control" type="text" name="firstname"
-                           id="widget2" onkeyup="Validate(this)" />
-                        <div id="errFirst"></div>
+                     
+               		 <div class="form-group">
+                        <label for="participants"><span class="req">* </span> 참가자
+                        </label> <!-- <input class="form-control" type="text" name="firstname"
+                           id="widget2" onkeyup="Validate(this)" /> -->
+                           <input class="form-control" type="text" name="paticipants"
+                           id="r_participants" onkeyup="Validate(this)" required readonly="readonly" />
+                        <div id="errFirst2"></div>
                      </div>
                <div class="markup">
          </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script><!-- 검색기능library -->
-    <script src="./inputosaurus/inputosaurus.js"></script><!-- inputsaurus에서 가져오기 -->
-   <script>
-   
-	function usergetAll(userlist) {
-		
-		var data = userlist.split('"');
-		
-	      $('#widget2').inputosaurus({
-	         width : '350px',
-	         autoCompleteSource : data,
-	         activateFinalResult : true,
-	         change : function(ev){
-	            $('#widget2_reflect').val(ev.target.value);
-	         }
-	      });
-    }
-	
-	$.ajax({
-	      url : 'usergetall.kg',
-	      success : function(data) {
-	    	  usergetAll(data);
-	      },
-	      error : function() {
-	         alert('error');
-	      }
-	   });
-   
-   </script>
 <!--  -->
          <div class="modal-footer">
             <button type="submit" class="btn btn-primary" >예약취소</button>

@@ -39,4 +39,9 @@ public class UserDao implements Dao<User, String> {
 	public ArrayList<User> select() throws Exception {
 		return mapper.selectall();
 	}
+	
+	public ArrayList<User> getParticipants(int r_num) throws Exception {
+		return mapper.getParticipants(r_num);
+	}
+	
 }

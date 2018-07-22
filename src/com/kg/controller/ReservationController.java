@@ -38,13 +38,11 @@ public class ReservationController {
 		
 		//service.getMySchedule(u_id);
 		
-		// 원래는 여기서 DB를 통해서 데이터를 가져와야함!
 		//var data = [{data:[10,40,30,50,60]}];
 		JSONArray jsArray = new JSONArray();
 		JSONObject jsObject = new JSONObject();
 		
 		//id: 999,
-		//url: 'http://google.com/', 
 		jsObject.put("r_num", "3");
 		jsObject.put("title", "All Day Event");
 		jsObject.put("start", "2018-07-19T16:00:00");

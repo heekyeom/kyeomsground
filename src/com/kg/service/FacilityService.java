@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import javax.annotation.Resource;
 
 import com.kg.dao.FacilityDao;
-import com.kg.frame.Dao;
 import com.kg.frame.Service;
 import com.kg.vo.Facility;
 

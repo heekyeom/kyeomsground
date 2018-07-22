@@ -8,7 +8,6 @@ function register() {
 
 		var queryString = $("form[id=fileForm]").serialize();
 
-		console.log(queryString);
 		$.ajax({
 			url : 'registerimpl.kg',
 			type : 'post',
@@ -32,7 +31,6 @@ function register() {
 function login() {
 	var queryString = $("form[id=loginForm]").serialize();
 
-	console.log(queryString);
 	$.ajax({
 		url : 'loginimpl.kg',
 		type : 'post',

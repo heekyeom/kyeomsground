@@ -20,6 +20,10 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	<select id="selectall" resultMap="userResult">
 		SELECT * FROM KG_USER
 	</select>
+	
+	<select id="getParticipants" parameterType="Integer" resultType="user">
+		SELECT u_id FROM kg_schedule WHERE r_num=#{r_num}
+	</select>
 
 	<insert id="insert" parameterType="user">
 		INSERT INTO KG_USER(U_ID,U_PWD,U_NAME,U_TEL,U_EMAIL) VALUES

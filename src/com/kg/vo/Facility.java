@@ -1,7 +1,5 @@
 package com.kg.vo;
 
-import java.util.Date;
-
 import org.springframework.web.multipart.MultipartFile;
 
 public class Facility {
@@ -13,18 +11,16 @@ public class Facility {
 	private String f_tel;
 	private int f_price;
 	private int f_max;
-	private Date f_opentime;
-	private Date f_closetime;
-	private Date f_maxtime;
+	private int f_opentime;
+	private int f_closetime;
+	private int f_maxtime;
 	private String imgname;
 	private MultipartFile img;
 	
 	public Facility() {
 	}
-
 	public Facility(int f_num, String c_name, String f_name, String f_address, String f_tel, int f_price, int f_max,
-			Date f_opentime, Date f_closetime, Date f_maxtime, String imgname, MultipartFile img) {
-		super();
+			int f_opentime, int f_closetime, int f_maxtime, String imgname, MultipartFile img) {
 		this.f_num = f_num;
 		this.c_name = c_name;
 		this.f_name = f_name;
@@ -95,27 +91,27 @@ public class Facility {
 		this.f_max = f_max;
 	}
 
-	public Date getF_opentime() {
+	public int getF_opentime() {
 		return f_opentime;
 	}
 
-	public void setF_opentime(Date f_opentime) {
+	public void setF_opentime(int f_opentime) {
 		this.f_opentime = f_opentime;
 	}
 
-	public Date getF_closetime() {
+	public int getF_closetime() {
 		return f_closetime;
 	}
 
-	public void setF_closetime(Date f_closetime) {
+	public void setF_closetime(int f_closetime) {
 		this.f_closetime = f_closetime;
 	}
 
-	public Date getF_maxtime() {
+	public int getF_maxtime() {
 		return f_maxtime;
 	}
 
-	public void setF_maxtime(Date f_maxtime) {
+	public void setF_maxtime(int f_maxtime) {
 		this.f_maxtime = f_maxtime;
 	}
 
@@ -142,10 +138,5 @@ public class Facility {
 				+ ", f_closetime=" + f_closetime + ", f_maxtime=" + f_maxtime + ", imgname=" + imgname + ", img=" + img
 				+ "]";
 	}
-	
-	
-
-	
-	
 	
 }

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import javax.annotation.Resource;
 
-import com.kg.frame.Dao;
+import com.kg.dao.UserDao;
 import com.kg.frame.Service;
 import com.kg.vo.User;
 
@@ -13,7 +13,7 @@ import com.kg.vo.User;
 public class UserService implements Service<User, String>{
 
 	@Resource(name="udao")
-	Dao<User,String> dao;
+	UserDao dao;
 	
 	@Override
 	public void register(User t) throws Exception {
@@ -38,6 +38,10 @@ public class UserService implements Service<User, String>{
 	@Override
 	public ArrayList<User> get() throws Exception {
 		return dao.select();
+	}
+	
+	public ArrayList<User> getParticipants(int r_num) throws Exception {
+		return dao.getParticipants(r_num);
 	}
 	
 }

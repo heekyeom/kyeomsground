@@ -7,9 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.kg.frame.Dao;
 import com.kg.mapper.FacilityMapper;
-import com.kg.mapper.ReservationMapper;
 import com.kg.vo.Facility;
-import com.kg.vo.Reservation;
 
 @Repository("fdao")
 public class FacilityDao implements Dao<Facility, Integer> {

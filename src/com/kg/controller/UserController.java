@@ -45,6 +45,7 @@ public class UserController {
 			user = service.get(id);
 			out = response.getWriter();
 			// 해당 유저정보의 pw와 입력한 pw를 비교.
+			System.out.println(user);
 			if (user != null && pwd.equals(user.getU_pwd())) {
 				session.setAttribute("user", user);
 				out.println("1");
@@ -201,6 +202,22 @@ public class UserController {
 	public void myscheduledeleteimpl(HttpServletResponse response, int r_num) throws Exception {
 		rservice.remove(r_num);
 		response.sendRedirect("myschedule.kg");
+	}
+	
+	@RequestMapping("/getparticipants.kg")
+	public void getparticipants(HttpServletResponse response, int r_num) throws Exception {
+		response.setContentType("charset=euc-kr");
+		PrintWriter out = response.getWriter();
+		ArrayList<User> participants = service.getParticipants(r_num);
+		JSONArray jsArray = new JSONArray();
+		
+		for (User user : participants) {
+			jsArray.add(user.getU_id());
+		}
+			
+		out.println(jsArray.toJSONString());
+		
+		out.close();
 	}
 	
 }
