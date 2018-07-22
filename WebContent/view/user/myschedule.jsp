@@ -127,7 +127,7 @@ $(function() {
                      
                      <div class="form-group">
                       <span class="req">* </span>
-                       경기 방식 선택
+                       공개 여부
                          <fieldset>
                              <div>
                                  <input type="radio" id="r_type_public" name="type" value="true" disabled="disabled" />
