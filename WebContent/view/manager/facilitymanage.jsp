@@ -60,6 +60,10 @@
 
 						<!-- 오픈 시간 ~ 닫는 시간  -->
 
+						<div class="form-group">
+							<label>종료 시간</label> <input type="number" class="form-control"
+								id="" name="f_maxtime" placeholder="1회 이용 시간">
+						</div>
 						<!-- 최대시간 -->
 
 						<div class="form-group">

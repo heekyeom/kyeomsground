@@ -6,16 +6,19 @@ function register() {
 	var c = confirm('등록 하시겠습니까?');
 	if (c == true) {
 
-		var queryString = $("form[id=facilityform]").serialize();
+		var form=$('#facilityform')[0];
+		var data=new FormData(form);
 
-		console.log(queryString);
+		console.log(data);
 		$.ajax({
-			url : 'addFacilityimpl.kg',
 			type : 'post',
-			enctype:'multipart/form-data',
-			processData: false,
-			dataType : 'json',
-			data : queryString,
+			url : 'addFacilityimpl.kg',
+			data : data,
+			enctype: 'multipart/form-data',
+			dataType: 'json',
+	        processData: false,
+	        contentType: false,
+	        cache: false,
 			success : function(data) {
 				if (data == '1') {
 					alert('등록이 완료되었습니다.');

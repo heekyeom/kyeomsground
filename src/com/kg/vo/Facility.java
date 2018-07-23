@@ -19,6 +19,24 @@ public class Facility {
 	
 	public Facility() {
 	}
+	
+	
+	public Facility(String c_name, String f_name, String f_address, String f_tel, int f_price, int f_max,
+			int f_opentime, int f_closetime, int f_maxtime, String imgname) {
+		super();
+		this.c_name = c_name;
+		this.f_name = f_name;
+		this.f_address = f_address;
+		this.f_tel = f_tel;
+		this.f_price = f_price;
+		this.f_max = f_max;
+		this.f_opentime = f_opentime;
+		this.f_closetime = f_closetime;
+		this.f_maxtime = f_maxtime;
+		this.imgname = imgname;
+	}
+
+
 	public Facility(int f_num, String c_name, String f_name, String f_address, String f_tel, int f_price, int f_max,
 			int f_opentime, int f_closetime, int f_maxtime, String imgname, MultipartFile img) {
 		this.f_num = f_num;
