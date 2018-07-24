@@ -81,7 +81,10 @@ public class ReservationController {
 		
 		int r_num = service.getRnum(reservation.getU_id());
 		reservation.setR_num(r_num);
-
+		
+		reservation.setU_id(reservation.getU_id());
+		service.insertSchedule(reservation);
+		
 		for (String member_id : memberList) {
 			reservation.setU_id(member_id);
 			service.insertSchedule(reservation);
