@@ -41,9 +41,9 @@
 					<c:if test="${facilitylist != null }">
 						<c:forEach var="facility" items="${facilitylist }">
 							<tr>
-								<td>${facility.c_type }</td>
+								<td>${facility.c_name }</td>
 								<td>${facility.f_name }</td>
-								<td>${facility.f_adress }</td>
+								<td>${facility.f_address }</td>
 								<td>${facility.f_tel }</td>
 								<td>${facility.f_opentime }</td>
 								<td>${facility.f_closetime }</td>

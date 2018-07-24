@@ -46,14 +46,11 @@ public class FacilityController {
 			int f_price=Integer.parseInt(mRequest.getParameter("f_price"));
 			
 			String opentime=mRequest.getParameter("f_opentime");
-			time=Integer.parseInt(opentime.substring(0, 2))*100; //opentime을 integer로 변환
-			minute=Integer.parseInt(opentime.substring(3));
-			int f_opentime=time+minute;
+			int f_opentime=Integer.parseInt(opentime.substring(0, 2)); //opentime을 integer로 변환
+		
 			
 			String closetime=mRequest.getParameter("f_closetime");
-			time=Integer.parseInt(closetime.substring(0, 2))*100; //opentime을 integer로 변환
-			minute=Integer.parseInt(closetime.substring(3));
-			int f_closetime=time+minute;
+			int f_closetime=Integer.parseInt(closetime.substring(0, 2)); //opentime을 integer로 변환
 			
 			int f_maxtime=Integer.parseInt(mRequest.getParameter("f_maxtime"));
 			int f_max=Integer.parseInt(mRequest.getParameter("f_max"));

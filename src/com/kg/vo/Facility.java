@@ -14,7 +14,7 @@ public class Facility {
 	private int f_opentime;
 	private int f_closetime;
 	private int f_maxtime;
-	private String imgname;
+	private String f_imgname;
 	private MultipartFile img;
 	
 	public Facility() {
@@ -33,7 +33,7 @@ public class Facility {
 		this.f_opentime = f_opentime;
 		this.f_closetime = f_closetime;
 		this.f_maxtime = f_maxtime;
-		this.imgname = imgname;
+		this.f_imgname = imgname;
 	}
 
 
@@ -49,7 +49,7 @@ public class Facility {
 		this.f_opentime = f_opentime;
 		this.f_closetime = f_closetime;
 		this.f_maxtime = f_maxtime;
-		this.imgname = imgname;
+		this.f_imgname = imgname;
 		this.img = img;
 	}
 
@@ -134,11 +134,11 @@ public class Facility {
 	}
 
 	public String getImgname() {
-		return imgname;
+		return f_imgname;
 	}
 
 	public void setImgname(String imgname) {
-		this.imgname = imgname;
+		this.f_imgname = imgname;
 	}
 
 	public MultipartFile getImg() {
@@ -153,7 +153,7 @@ public class Facility {
 	public String toString() {
 		return "Facility [f_num=" + f_num + ", c_name=" + c_name + ", f_name=" + f_name + ", f_address=" + f_address
 				+ ", f_tel=" + f_tel + ", f_price=" + f_price + ", f_max=" + f_max + ", f_opentime=" + f_opentime
-				+ ", f_closetime=" + f_closetime + ", f_maxtime=" + f_maxtime + ", imgname=" + imgname + ", img=" + img
+				+ ", f_closetime=" + f_closetime + ", f_maxtime=" + f_maxtime + ", imgname=" + f_imgname + ", img=" + img
 				+ "]";
 	}
 	
