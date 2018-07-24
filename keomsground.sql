@@ -71,15 +71,4 @@ ALTER TABLE KG_SCHEDULE ADD CONSTRAINT IDX_KG_SCHEDULE_FK1 FOREIGN KEY (U_ID) RE
 CREATE SEQUENCE facility_seq;
 CREATE SEQUENCE reservation_seq;
 
-
-insert into KG_USER values ('kg', 'kg', 'admin', '010-1234-5678', 'kg@kg.com','TRUE');
-insert into KG_USER values ('gg', 'gg', 'gg', '010-1234-5678', 'gg@gg.com','FALSE');
-insert into KG_USER values ('ggg', 'ggg', 'ggg', '010-1234-5678', 'ggg@ggg.com','FALSE');
-
-insert into KG_CATEGORY values ('FOOTBALL', 'RED', 'football.jpg');
-insert into KG_CATEGORY values ('BASEBALL', 'BLUE', 'baseball.jpg');
-
-insert into KG_FACILITY values (facility_seq.nextval, 'FOOTBALL', 'GSFootballGYM', 'Jamsil', '02-123-4567', 5000, 30, 6, 24, 3, 'football.jpg');
-insert into KG_FACILITY values (facility_seq.nextval, 'BASEBALL', 'KGBaseballGYM', 'Jamsil', '02-123-4567', 5000, 30, 9, 21, 2, 'baseball.jpg');
-
 COMMIT;
