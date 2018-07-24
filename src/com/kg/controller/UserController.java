@@ -90,6 +90,16 @@ public class UserController {
 		}
 	}
 
+	@RequestMapping("/modify.kg")
+	public ModelAndView modify() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("main");
+		mv.addObject("centerpage", "user/mypage");
+		mv.addObject("mypagecenterpage", "../modify");
+		
+		return mv;
+	}
+	
 	// 마이페이지 수정 완료 클릭시 처리할 코드
 	@RequestMapping("/modifyuserimpl.kg")
 	public ModelAndView modifyuserimpl(User user) {

@@ -6,19 +6,19 @@
 	<div class="col-3">
 		<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
 			aria-orientation="vertical">
-			<a class="nav-link active" id="v-pills-home-tab" data-toggle="pill"
-				href="mypage.kg" role="tab" aria-controls="v-pills-home"
-				aria-selected="true">MyPage</a> 
+			<a class="nav-link active" id="v-pills-home-tab" 
+				href="mypage.kg" role="tab" 
+				>MyPage</a> 
 			<a class="nav-link"
-				id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile"
-				role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
-			<a class="nav-link" id="v-pills-messages-tab" data-toggle="pill"
-				href="myschedule.kg" role="tab" aria-controls="v-pills-messages"
-				aria-selected="false">나의 일정</a> 
+				id="v-pills-profile-tab"  href="#v-pills-profile"
+				role="tab">Profile</a>
+			<a class="nav-link" id="v-pills-messages-tab" 
+				href="myschedule.kg" role="tab" 
+				>나의 일정</a> 
 			<a class="nav-link"
-				id="v-pills-settings-tab" data-toggle="pill"
-				href="modify.kg" role="tab" aria-controls="v-pills-settings"
-				aria-selected="false">회원정보</a>
+				id="v-pills-settings-tab" 
+				href="modify.kg" role="tab" 
+				>회원정보</a>
 		</div>
 	</div>
 	<div class="col-9">
