@@ -77,13 +77,13 @@ public class ManagerController {
 		mv.setViewName("manager/managermain");
 		mv.addObject("managercenterpage", "facilitytables");
 		
-		//ArrayList<Category> clist;
+		ArrayList<Category> clist;
 		ArrayList<Facility> flist;
 		try {
 			flist=fservice.get();
-			//clist=cservice.get();
+			clist=cservice.get();
 			mv.addObject("facilitylist", flist);
-			//mv.addObject("categorylist", clist);
+			mv.addObject("categorylist", clist);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
