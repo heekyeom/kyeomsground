@@ -28,8 +28,6 @@ $(function() {
          selectHelper: false,
          slotDuration: '01:00:00',
          slotLabelFormat: 'h(:mm)a',
-         /* minTime: '00:00:00',
-         maxTime: '24:00:00', */
          eventClick: function(calEvent, jsEvent, view) {
         	 $('#r_num').val(calEvent.r_num);
         	 $('#f_name').val(calEvent.f_name);

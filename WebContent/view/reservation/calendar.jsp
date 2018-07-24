@@ -11,7 +11,11 @@
 
 <script>
 
+var time = true;
+var myself = true;
+
 $(function() {
+	
 	
    function drawCalendar(data) {
       
@@ -30,13 +34,14 @@ $(function() {
          selectHelper: true,
          slotDuration: '01:00:00',
          slotLabelFormat: 'h(:mm)a',
-         /* minTime: '00:00:00',
-         maxTime: '24:00:00', */
+         selectOverlap: false,
          select: function(startDate, endDate, jsEvent, view) {
-        	 console.log(startDate);
              $('#r_rstime').val(startDate._i[0]+'년 '+startDate._i[1]+'월 '+startDate._i[2]+'일 '+startDate._i[3]+'시   ~   '+endDate._i[0]+'년 '+endDate._i[1]+'월 '+endDate._i[2]+'일 '+endDate._i[3]+'시');
              $('#r_starttime').val(startDate);
              $('#r_endtime').val(endDate);
+             if((startDate._i[3] > $('#availableStartTime').val()) || (endDate._i[3] < $('#availableEndTime').val()) || (startDate._i[2] != endDate._i[2])) {
+            	 time = false;
+             }
              
              $('#btn_reservation').click();
          },
@@ -66,6 +71,23 @@ $(function() {
 
 function checkAll() {
 	
+	var flag = true;
+	var tlist = $('#widget2').val();
+	var tArr = tlist.split(',');
+	
+	if(time == false) {
+		alert('예약할 수 없는 시간입니다.');
+		flag = false;
+	}
+	for(var i=0; i<tArr.length; i++) {
+		if(tArr[i] == $('#u_id').val()) myself = false;
+	}
+	if(myself == false) {
+		alert('자기 자신은 초대할 수 없습니다.');
+		flag = false;
+	}
+	
+	return flag;
 };
 
 </script>
@@ -90,7 +112,7 @@ function checkAll() {
 
             <div class="row">
                <div class="col-md-10  card mx-auto">
-                  <form action="reservationimpl.kg" onsubmit="checkAll();" method="post" id="fileForm" role="form">
+                  <form action="reservationimpl.kg" onsubmit="return checkAll();" method="post" id="fileForm" role="form">
 
                      <div class="form-group">
                         <label for="username"><span class="req">* </span>
@@ -155,6 +177,8 @@ function checkAll() {
                      </div>
                <div class="markup">
                
+               	   <input type="hidden" id="availableStartTime" name="availableStartTime" value="${facility.f_opentime}">
+               	   <input type="hidden" id="availableEndTime" name="availableEndTime" value="${facility.f_closetime}">
 	               <input type="hidden" id="r_starttime" name="r_starttime">
 	               <input type="hidden" id="r_endtime" name="r_endtime">
 	               <input type="hidden" id="u_id" name="u_id" value="${user.u_id }">

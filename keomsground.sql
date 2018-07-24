@@ -82,11 +82,4 @@ insert into KG_CATEGORY values ('BASEBALL', 'BLUE', 'baseball.jpg');
 insert into KG_FACILITY values (facility_seq.nextval, 'FOOTBALL', 'GSFootballGYM', 'Jamsil', '02-123-4567', 5000, 30, 6, 24, 3, 'football.jpg');
 insert into KG_FACILITY values (facility_seq.nextval, 'BASEBALL', 'KGBaseballGYM', 'Jamsil', '02-123-4567', 5000, 30, 9, 21, 2, 'baseball.jpg');
 
-insert into KG_RESERVATION values (reservation_seq.nextval, '축구예약', 'gg', 1, '2018/07/22', TO_DATE('2018/07/22 09', 'yyyy/MM/dd HH24'), TO_DATE('2018/07/22 12', 'yyyy/MM/dd HH24'), 'public');
-insert into KG_RESERVATION values (reservation_seq.nextval, '야구예약', 'gg', 2, '2018/07/22', TO_DATE('2018/07/22 15', 'yyyy/MM/dd HH24'), TO_DATE('2018/07/22 16', 'yyyy/MM/dd HH24'), 'private');
-
-insert into KG_SCHEDULE values (1, 'gg');
-insert into KG_SCHEDULE values (1, 'ggg');
-insert into KG_SCHEDULE values (2, 'gg');
-
 COMMIT;
