@@ -72,5 +72,13 @@ CREATE SEQUENCE facility_seq;
 CREATE SEQUENCE reservation_seq;
 
 insert into KG_USER values ('admin', 'admin', 'admin', '010-1234-5678', 'kg@kg.com','TRUE');
+insert into KG_CATEGORY values ('SOCCER', '#7200e3','soccer.jpg');
+insert into KG_CATEGORY values ('BASEKETBALL', '#000097','basketball.jpg');
+insert into KG_CATEGORY values ('CURLING', '#00c4c4','curling.jpg');
+insert into KG_CATEGORY values ('BASEBALL', '#e37200','baseball.jpg');
+insert into KG_CATEGORY values ('RUGBY', '#808000','rugby.jpg');
+insert into KG_CATEGORY values ('TENNIS', '#676767','tennis.jpg');
+
+
 
 COMMIT;
