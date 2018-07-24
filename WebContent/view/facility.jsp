@@ -36,7 +36,7 @@
                <h3>시간 : ${item.f_opentime} -${item.f_closetime}</h3>
                <h3>가격: ${f_price}</h3>
                <h3>위치: ${f_address} </h3>
-               <form action="calendar.kg" >
+               <form action="calendar.kg" method="post">
                   <input name="f_num" type="hidden" value="${item.f_num}">
                   <input name="f_name" type="hidden" value="${item.f_name}">
                	  <input name="f_opentime" type="hidden" value="${item.f_opentime}">

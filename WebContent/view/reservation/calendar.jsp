@@ -95,7 +95,7 @@ $(function() {
 
             <div class="row">
                <div class="col-md-10  card mx-auto">
-                  <form action="calendarimpl.kg" method="post" id="fileForm" role="form">
+                  <form action="reservationimpl.kg" method="post" id="fileForm" role="form">
 
                      <div class="form-group">
                         <label for="username"><span class="req">* </span>

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONArray;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kg.service.ReservationService;
+import com.kg.vo.Facility;
+import com.kg.vo.Reservation;
 
 @Controller
 public class ReservationController {
@@ -22,12 +25,13 @@ public class ReservationController {
 	ReservationService service;
 	
 	@RequestMapping("/calendar.kg")
-	public ModelAndView calendar(int f_num) {
-		System.out.println(f_num+" 잘 왔다!");
+	public ModelAndView calendar(Facility facility) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("main");
 		mv.addObject("centerpage", "reservation/calendar");
-		mv.addObject("f_num", f_num);
+		
+		System.out.println("요기! "+facility);
+		//mv.addObject("f_num", f_num);
 		
 		return mv;
 	}
@@ -57,5 +61,13 @@ public class ReservationController {
 		out.close();
 	}
 	
+	@RequestMapping("/reservationimpl.kg")
+	public ModelAndView reservationimpl(HttpServletResponse response, Reservation reservation) throws IOException {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("main");
+		mv.addObject("centerpage", "reservation/calendar");
+		
+		return mv;
+	}
 	
 }
