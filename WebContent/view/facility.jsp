@@ -37,7 +37,12 @@
                <h3>가격: ${f_price}</h3>
                <h3>위치: ${f_address} </h3>
                <form action="calendar.kg" >
-               	  <input name="f_num" type="hidden" value="${item.f_num}">
+                  <input name="f_num" type="hidden" value="${item.f_num}">
+                  <input name="f_name" type="hidden" value="${item.f_name}">
+               	  <input name="f_opentime" type="hidden" value="${item.f_opentime}">
+               	  <input name="f_closetime" type="hidden" value="${item.f_closetime}">
+               	  <input name="f_price" type="hidden" value="${item.f_price}">
+               	   <input name="f_address" type="hidden" value="${item.f_address}">
                   <input type="submit" value="서밋예약"></input>
                </form>
 
