@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 	
 	<script language="JavaScript">
 //<!--
@@ -25,10 +25,10 @@ function CheckEnter(frm, objName, increNum )
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">ทฮฑืภฮ</h5>
+				<h5 class="modal-title" id="exampleModalLabel">๋ก๊ทธ์ธ</h5>
 				<button class="close" type="button" data-dismiss="modal"
 					aria-label="Close">
-					<span aria-hidden="true">กฟ</span>
+					<span aria-hidden="true">ร—</span>
 				</button>
 			</div>
 			<div class="modal-body">

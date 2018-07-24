@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 
 <link href="css/1-col-portfolio.css" rel="stylesheet">
 
@@ -34,7 +34,7 @@
 
 		<c:if test="${flist!= null}">
 			<c:forEach var="item" items="${flist}">
-				<!-- ∞¯∞¯ øÓµøΩ√º≥ «œ≥™ -->
+				<!-- Í≥µÍ≥µ Ïö¥ÎèôÏãúÏÑ§ ÌïòÎÇò -->
 				<div class="row facility-card">
 					<div class="col-md-4">
 						<a href="#"> <img class="img-fluid rounded mb-3 mb-md-0"
@@ -46,11 +46,11 @@
 					<div class="col-md-5">
 
 						<h3>${item.f_name}</h3>
-						<!-- <p>º≥∏Ì~~~~~~~</p> -->
+						<!-- <p>ÏÑ§Î™Ö~~~~~~~</p> -->
 						<br>
-						<h5>Ω√∞£ : ${item.f_opentime} -${item.f_closetime}</h5>
-						<h5>∞°∞›: ${f_price}</h5>
-						<h5>¿ßƒ°: ${f_address}</h5>
+						<h5>ÏãúÍ∞Ñ : ${item.f_opentime} -${item.f_closetime}</h5>
+						<h5>Í∞ÄÍ≤©: ${f_price}</h5>
+						<h5>ÏúÑÏπò: ${f_address}</h5>
 						<br> <br>
 						
 						
@@ -69,10 +69,10 @@
 
 							<c:choose>
 								<c:when test="${user != null }">
-									<input type="submit" value="øπæ‡«œ±‚"></input>
+									<input type="submit" value="ÏòàÏïΩÌïòÍ∏∞"></input>
 								</c:when>
 								<c:otherwise>
-									<input type="button" data-toggle="modal" data-target="#myModal" value="øπæ‡«œ±‚">
+									<input type="button" data-toggle="modal" data-target="#myModal" value="ÏòàÏïΩÌïòÍ∏∞">
 								</c:otherwise>
 							</c:choose>
 
@@ -93,10 +93,10 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">°ø</button>
+          <button type="button" class="close" data-dismiss="modal">√ó</button>
         </div>
         <div class="modal-body">
-          <p>∑Œ±◊¿Œ¿ª «ÿ¡÷ººø‰.</p>
+          <p>Î°úÍ∑∏Ïù∏ÏùÑ Ìï¥Ï£ºÏÑ∏Ïöî.</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

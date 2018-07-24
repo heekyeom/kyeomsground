@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
@@ -49,13 +49,13 @@
 						</c:when>
 						<c:otherwise>
 							<li class="nav-item"><a class="nav-link" href="#">${user.u_name }
-									�� ȯ���մϴ�.</a></li>
+									님 환영합니다.</a></li>
 							<li class="nav-item active"><a class="nav-link"
 								href="main.kg">Home <span class="sr-only">(current)</span>
 							</a></li>
 							<c:choose>
 								<c:when test="${user.u_ismanager =='TRUE' }">
-									<li class="nav-item"><a class="nav-link" href="manager.kg">���񽺰���</a>
+									<li class="nav-item"><a class="nav-link" href="manager.kg">서비스관리</a>
 									</li>
 								</c:when>
 								<c:otherwise>
@@ -86,9 +86,9 @@
 	<footer class="py-5 bg-dark">
 		<div class="container">
 			<p class="m-0 text-white">
-				����� ��� ��ȣ: 000-0000-0000<br> ��ǥ�ڸ�: ������ <br> �ּ�: ����� ������ ���ﵿ
-				��Ƽķ�۽� <br> ��ȭ��ȣ: 010-4154-8930 (�̸��Ϸ� ���� �ּ���) <br> �̸���:
-				on21life@naver.com <br> ����ǸŽŰ���ȣ: �� 0000-����-0000 ȣ
+				사업자 등록 번호: 000-0000-0000<br> 대표자명: 윤석현 <br> 주소: 서울시 강남구 역삼동
+				멀티캠퍼스 <br> 전화번호: 010-4154-8930 (이메일로 연락 주세요) <br> 이메일:
+				on21life@naver.com <br> 통신판매신고번호: 제 0000-서울-0000 호
 			</p>
 			<p class="m-0 text-center text-white">Copyright &copy; Kyeom
 				Company 2018</p>

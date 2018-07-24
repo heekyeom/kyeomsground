@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 <link rel='stylesheet' href='fullcalendar/fullcalendar.css' />
-<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/themes/cupertino/jquery-ui.css" rel="stylesheet"><!-- ∞Àªˆ∞·∞˙list UI -->
-<link href="./inputosaurus/inputosaurus.css" rel="stylesheet"><!-- ∞Àªˆ√¢ UI -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script><!-- ∞Àªˆ±‚¥…library -->
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/themes/cupertino/jquery-ui.css" rel="stylesheet"><!-- Í≤ÄÏÉâÍ≤∞Í≥ºlist UI -->
+<link href="./inputosaurus/inputosaurus.css" rel="stylesheet"><!-- Í≤ÄÏÉâÏ∞Ω UI -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script><!-- Í≤ÄÏÉâÍ∏∞Îä•library -->
 <script src='fullcalendar/lib/moment.min.js'></script>
 <script src='fullcalendar/fullcalendar.js'></script>
 <script src='fullcalendar/locale-all.js'></script>
@@ -38,7 +38,7 @@ $(function() {
          slotLabelFormat: 'h(:mm)a',
          selectOverlap: false,
          select: function(startDate, endDate, jsEvent, view) {
-             $('#r_rstime').val(startDate._i[0]+'≥‚ '+startDate._i[1]+'ø˘ '+startDate._i[2]+'¿œ '+startDate._i[3]+'Ω√   ~   '+endDate._i[0]+'≥‚ '+endDate._i[1]+'ø˘ '+endDate._i[2]+'¿œ '+endDate._i[3]+'Ω√');
+             $('#r_rstime').val(startDate._i[0]+'ÎÖÑ '+startDate._i[1]+'Ïõî '+startDate._i[2]+'Ïùº '+startDate._i[3]+'Ïãú   ~   '+endDate._i[0]+'ÎÖÑ '+endDate._i[1]+'Ïõî '+endDate._i[2]+'Ïùº '+endDate._i[3]+'Ïãú');
              $('#r_starttime').val(startDate);
              $('#r_endtime').val(endDate);
              if((startDate._i[3] > $('#availableStartTime').val()) || (endDate._i[3] < $('#availableEndTime').val()) || (startDate._i[2] != endDate._i[2])) {
@@ -48,7 +48,7 @@ $(function() {
              $('#btn_reservation').click();
          },
          eventClick: function(calEvent, jsEvent, view) {
-        	 alert('¿ÃπÃ øπæ‡µ» Ω√º≥¿‘¥œ¥Ÿ.');
+        	 alert('Ïù¥ÎØ∏ ÏòàÏïΩÎêú ÏãúÏÑ§ÏûÖÎãàÎã§.');
          },
          events: data
          
@@ -78,14 +78,14 @@ function checkAll() {
 	var tArr = tlist.split(',');
 	
 	if(time == false) {
-		alert('øπæ‡«“ ºˆ æ¯¥¬ Ω√∞£¿‘¥œ¥Ÿ.');
+		alert('ÏòàÏïΩÌï† Ïàò ÏóÜÎäî ÏãúÍ∞ÑÏûÖÎãàÎã§.');
 		flag = false;
 	}
 	for(var i=0; i<tArr.length; i++) {
 		if(tArr[i] == $('#u_id').val()) myself = false;
 	}
 	if(myself == false) {
-		alert('¿⁄±‚ ¿⁄Ω≈¿∫ √ ¥Î«“ ºˆ æ¯Ω¿¥œ¥Ÿ.');
+		alert('ÏûêÍ∏∞ ÏûêÏã†ÏùÄ Ï¥àÎåÄÌï† Ïàò ÏóÜÏäµÎãàÎã§.');
 		flag = false;
 	}
 	
@@ -103,7 +103,7 @@ function checkAll() {
    <div class="modal-dialog">
       <div class="modal-content">
          <div class="modal-header">
-            <h4 class="modal-title" id="myModalLabel">¿œ¡§øπæ‡</h4>
+            <h4 class="modal-title" id="myModalLabel">ÏùºÏ†ïÏòàÏïΩ</h4>
             <button type="button" class="close" data-dismiss="modal"
                aria-label="Close">
                <span aria-hidden="true">&times;</span>
@@ -118,23 +118,23 @@ function checkAll() {
 
                      <div class="form-group">
                         <label for="username"><span class="req">* </span>
-                        øπæ‡¿⁄</label> <input
+                        ÏòàÏïΩÏûê</label> <input
                            class="form-control" type="text" name="username" id="u_name"
-                             placeholder="øπæ‡¿⁄∏Ì" value="${user.u_name}" readonly="readonly" required />
+                             placeholder="ÏòàÏïΩÏûêÎ™Ö" value="${user.u_name}" readonly="readonly" required />
 
                         <label for="username">
                         <span class="req">* </span> 
-                           Ω√º≥∏Ì </label>
+                           ÏãúÏÑ§Î™Ö </label>
                        <input class="form-control" type="text" 
                        name="username" id="f_name" 
-                         placeholder="øπæ‡Ω√º≥" value="${facility.f_name}" readonly="readonly" required />
+                         placeholder="ÏòàÏïΩÏãúÏÑ§" value="${facility.f_name}" readonly="readonly" required />
                         <div id="errLast"></div>
 
                      </div>
 
                      <div class="form-group">
                         <label for="firstname"><span class="req">* </span>
-                         øπæ‡∏Ì
+                         ÏòàÏïΩÎ™Ö
                         </label> <input class="form-control" type="text" name="r_title"
                            id="r_title" required />
                         <div id="errFirst"></div>
@@ -142,15 +142,15 @@ function checkAll() {
 
                      <div class="form-group">
                         <label for="password"><span class="req">* </span>
-                         Ω√º≥¿ÃøÎ∞°¥…Ω√∞£
+                         ÏãúÏÑ§Ïù¥Ïö©Í∞ÄÎä•ÏãúÍ∞Ñ
                         </label> <input name="f_time" type="text"
                            class="form-control inputpass" minlength="4" maxlength="16"
-                           id="f_time" value="∏≈¿œ ${facility.f_opentime}Ω√ ∫Œ≈Õ  ~  ${facility.f_closetime}Ω√ ±Ó¡ˆ ¿ÃøÎ∞°¥…" readonly="readonly"/>
+                           id="f_time" value="Îß§Ïùº ${facility.f_opentime}Ïãú Î∂ÄÌÑ∞  ~  ${facility.f_closetime}Ïãú ÍπåÏßÄ Ïù¥Ïö©Í∞ÄÎä•" readonly="readonly"/>
                      </div>
                      
                      <div class="form-group">
                         <label for="password"><span class="req">* </span>
-                         øπæ‡Ω√∞£
+                         ÏòàÏïΩÏãúÍ∞Ñ
                         </label> <input required name="r_rstime" type="text"
                            class="form-control inputpass" minlength="4" maxlength="16"
                            id="r_rstime" readonly="readonly" />
@@ -158,21 +158,21 @@ function checkAll() {
                      
                      <div class="form-group">
                       <span class="req">* </span>
-                       ∞Ê±‚ πÊΩƒ º±≈√
+                       Í≤ΩÍ∏∞ Î∞©Ïãù ÏÑ†ÌÉù
                          <fieldset>
                              <div>
                                  <input type="radio" id="r_type_public" name="r_type" value="public" checked />
                                  <label for="r_type_public">
-                                 ∞¯∞≥</label>&nbsp;&nbsp;&nbsp;
+                                 Í≥µÍ∞ú</label>&nbsp;&nbsp;&nbsp;
                                  <input type="radio" id="r_type_private" name="r_type" value="private" />
                                  <label for="r_type_private">
-                                 ∫Ò∞¯∞≥</label>
+                                 ÎπÑÍ≥µÍ∞ú</label>
                              </div>
                          </fieldset>
                      </div>
 <!--  -->
                <div class="form-group">
-                        <label for="firstname"><span class="req">* </span> √ ¥Î
+                        <label for="firstname"><span class="req">* </span> Ï¥àÎåÄ
                         </label> <div></div> <input class="form-control" type="text" name="widget2"
                            id="widget2"   />
                         <div id="errFirst"></div>
@@ -188,8 +188,8 @@ function checkAll() {
                
         	   </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script><!-- ∞Àªˆ±‚¥…library -->
-    <script src="./inputosaurus/inputosaurus.js"></script><!-- inputsaurusø°º≠ ∞°¡Æø¿±‚ -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script><!-- Í≤ÄÏÉâÍ∏∞Îä•library -->
+    <script src="./inputosaurus/inputosaurus.js"></script><!-- inputsaurusÏóêÏÑú Í∞ÄÏ†∏Ïò§Í∏∞ -->
    <script>
       function usergetAll(userlist) {
   		
@@ -218,8 +218,8 @@ function checkAll() {
    </script>
 <!--  -->
          <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" >øπæ‡«œ±‚</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">√Îº“</button>
+            <button type="submit" class="btn btn-primary" >ÏòàÏïΩÌïòÍ∏∞</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Ï∑®ÏÜå</button>
          </div>
                   </form>
                   <!-- ends register form -->

@@ -45,7 +45,6 @@ public class UserController {
 			user = service.get(id);
 			out = response.getWriter();
 			// 해당 유저정보의 pw와 입력한 pw를 비교.
-			System.out.println(user);
 			if (user != null && pwd.equals(user.getU_pwd())) {
 				session.setAttribute("user", user);
 				out.println("1");

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <style>
 .category-img {
@@ -13,7 +13,7 @@
 
 	<!-- Page Heading -->
 	<h1 class="my-4">
-		KYEOMS GROUND <small>Secondary Text</small>
+		KYEOMS GROUND <small>최적의 장소를 찾으세요. </small>
 	</h1>
 
 
@@ -29,7 +29,7 @@
 							src="imgs/category/${item.c_imgname }" alt=""></a>
 						<div class="card-body">
 							<h4 class="card-title">${item.c_name }</h4>
-							<p class="card-text">���̿��׶��� ���� �� ��� ���� �ü�</p>
+							<p class="card-text">아이엠그라운드 제휴 및 대관 가능 시설</p>
 						</div>
 
 					</div>

@@ -1,6 +1,7 @@
 package com.kg.controller;
 
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Locale;
@@ -27,7 +28,9 @@ public class ReservationController {
 	
 	@RequestMapping("/calendar.kg")
 	public ModelAndView calendar(Facility facility) {
+
 		ModelAndView mv = new ModelAndView();
+		System.out.println(facility);
 		mv.setViewName("main");
 		mv.addObject("centerpage", "reservation/calendar");
 		mv.addObject("facility", facility);

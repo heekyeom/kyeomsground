@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <div class="row">
@@ -7,16 +7,18 @@
 		<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
 			aria-orientation="vertical">
 			<a class="nav-link active" id="v-pills-home-tab" data-toggle="pill"
-				href="#v-pills-home" role="tab" aria-controls="v-pills-home"
-				aria-selected="true">MyPage</a> <a class="nav-link"
+				href="mypage.kg" role="tab" aria-controls="v-pills-home"
+				aria-selected="true">MyPage</a> 
+			<a class="nav-link"
 				id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile"
 				role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
 			<a class="nav-link" id="v-pills-messages-tab" data-toggle="pill"
-				href="" role="tab" aria-controls="v-pills-messages"
-				aria-selected="false">³ªÀÇ ÀÏÁ¤</a> <a class="nav-link"
+				href="myschedule.kg" role="tab" aria-controls="v-pills-messages"
+				aria-selected="false">ë‚˜ì˜ ì¼ì •</a> 
+			<a class="nav-link"
 				id="v-pills-settings-tab" data-toggle="pill"
-				href="#v-pills-settings" role="tab" aria-controls="v-pills-settings"
-				aria-selected="false">È¸¿øÁ¤º¸</a>
+				href="modify.kg" role="tab" aria-controls="v-pills-settings"
+				aria-selected="false">íšŒì›ì •ë³´</a>
 		</div>
 	</div>
 	<div class="col-9">

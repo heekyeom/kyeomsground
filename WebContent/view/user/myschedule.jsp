@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 <link rel='stylesheet' href='fullcalendar/fullcalendar.css' />
 <script src='fullcalendar/lib/jquery.min.js'></script>
@@ -80,7 +80,7 @@ $(function() {
    <div class="modal-dialog">
       <div class="modal-content">
          <div class="modal-header">
-            <h4 class="modal-title" id="myModalLabel">¿œ¡§øπæ‡</h4>
+            <h4 class="modal-title" id="myModalLabel">ÏùºÏ†ïÏòàÏïΩ</h4>
             <button type="button" class="close" data-dismiss="modal"
                aria-label="Close">
                <span aria-hidden="true">&times;</span>
@@ -95,23 +95,23 @@ $(function() {
 
                      <div class="form-group">
                         <label for="username"><span class="req">* </span>
-                        øπæ‡¿⁄</label> <input
+                        ÏòàÏïΩÏûê</label> <input
                            class="form-control" type="text" name="username" id="u_name"
-                           onkeyup="Validate(this)" placeholder="øπæ‡¿⁄∏Ì " value="${user.u_name}" readonly="readonly" required />
+                           onkeyup="Validate(this)" placeholder="ÏòàÏïΩÏûêÎ™Ö " value="${user.u_name}" readonly="readonly" required />
 
                         <label for="username">
                         <span class="req">* </span> 
-                           øπæ‡Ω√º≥ </label>
+                           ÏòàÏïΩÏãúÏÑ§ </label>
                        <input class="form-control" type="text" 
                        name="username" id="f_name" 
-                       onkeyup="Validate(this)" placeholder="øπæ‡Ω√º≥ " readonly="readonly" required />
+                       onkeyup="Validate(this)" placeholder="ÏòàÏïΩÏãúÏÑ§ " readonly="readonly" required />
                         <div id="errLast"></div>
 
                      </div>
 
                      <div class="form-group">
                         <label for="firstname"><span class="req">* </span>
-                         øπæ‡∏Ì
+                         ÏòàÏïΩÎ™Ö
                         </label> <input class="form-control" type="text" name="firstname"
                            id="r_title" onkeyup="Validate(this)" required readonly="readonly" />
                         <div id="errFirst"></div>
@@ -119,7 +119,7 @@ $(function() {
 
                      <div class="form-group">
                         <label for="password"><span class="req">* </span>
-                         øπæ‡Ω√∞£
+                         ÏòàÏïΩÏãúÍ∞Ñ
                         </label> <input required name="password" type="text"
                            class="form-control inputpass" maxlength="16"
                            id="r_time" readonly="readonly"/>
@@ -127,21 +127,21 @@ $(function() {
                      
                      <div class="form-group">
                       <span class="req">* </span>
-                       ∞¯∞≥ ø©∫Œ
+                       Í≥µÍ∞ú Ïó¨Î∂Ä
                          <fieldset>
                              <div>
                                  <input type="radio" id="r_type_public" name="type" value="true" disabled="disabled" />
                                  <label for="r_type_public">
-                                 ∞¯∞≥</label>&nbsp;&nbsp;&nbsp;
+                                 Í≥µÍ∞ú</label>&nbsp;&nbsp;&nbsp;
                                  <input type="radio" id="r_type_private" name="type" value="false" disabled="disabled" />
                                  <label for="r_type_private">
-                                 ∫Ò∞¯∞≥</label>
+                                 ÎπÑÍ≥µÍ∞ú</label>
                              </div>
                          </fieldset>
                      </div>
                      
                		 <div class="form-group">
-                        <label for="participants"><span class="req">* </span> ¬¸∞°¿⁄
+                        <label for="participants"><span class="req">* </span> Ï∞∏Í∞ÄÏûê
                         </label>
                            <input class="form-control" type="text" name="paticipants"
                            id="r_participants" onkeyup="Validate(this)" required readonly="readonly" />
@@ -152,8 +152,8 @@ $(function() {
 
 <!--  -->
          <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" >øπæ‡√Îº“</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">√Îº“</button>
+            <button type="submit" class="btn btn-primary" >ÏòàÏïΩÏ∑®ÏÜå</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Ï∑®ÏÜå</button>
          </div>
          <input type="hidden" id="r_num" name="r_num">
                   </form>
