@@ -27,7 +27,7 @@ import com.oreilly.servlet.MultipartRequest;
 @Controller
 public class ManagerController {
 	private String dir="C:\\team5\\kyeomsground\\WebContent\\imgs\\category";
-	private int size=1024*1024*1024;
+	private int size=1024*1024*10;
 	@Resource(name = "uservice")
 	UserService service;
 
