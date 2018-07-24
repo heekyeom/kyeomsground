@@ -31,6 +31,7 @@ function CheckEnter(frm, objName, increNum )
 					<span aria-hidden="true">¡¿</span>
 				</button>
 			</div>
+			<div class="modal-body">
 			<form class="form-signin" id="loginForm">
 				<span id="reauth-email" class="reauth-email"></span> 
 				<input type="text" id="inputId" class="form-control" name="id"
@@ -41,6 +42,7 @@ function CheckEnter(frm, objName, increNum )
 				<button class="btn btn-secondary" type="button" data-dismiss="modal" style="float:right">Cancel</button>
 				<button class="btn btn-primary" type ="button" id="loginsubmit" style="float:right">Login</button>
 			</form>
+			</div>
 		</div>
 	</div>
 </div>
