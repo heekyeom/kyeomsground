@@ -40,9 +40,10 @@
 					</div>
 				</div>
 				<div class="modal-footer">
+					
+					<button class="btn btn-primary" id="categoryadd" type="submit">추가</button>
 					<button class="btn btn-secondary" type="reset"
 						data-dismiss="modal">취소</button>
-					<button class="btn btn-primary" id="categoryadd" type="submit">추가</button>
 				</div>
 			</form>
 		</div>
