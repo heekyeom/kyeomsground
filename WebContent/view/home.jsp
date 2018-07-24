@@ -13,7 +13,7 @@
 
 	<!-- Page Heading -->
 	<h1 class="my-4">
-		KYEOMS GROUND <small>최적의 장소를 찾으세요. </small>
+		KYEOMS GROUND <small>최고의 장소를 찾으세요. </small>
 	</h1>
 
 
@@ -29,7 +29,7 @@
 							src="imgs/category/${item.c_imgname }" alt=""></a>
 						<div class="card-body">
 							<h4 class="card-title">${item.c_name }</h4>
-							<p class="card-text">아이엠그라운드 제휴 및 대관 가능 시설</p>
+							<p class="card-text">겸스그라운드 제휴 및 대관 가능 시설</p>
 						</div>
 
 					</div>

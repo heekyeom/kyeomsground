@@ -29,7 +29,7 @@
 
 		<!-- Page Heading -->
 		<h1 class="my-4">
-			Page Heading <small>Secondary Text</small>
+			${category } <small>경기장 리스트</small>
 		</h1>
 
 		<c:if test="${flist!= null}">
@@ -48,9 +48,9 @@
 						<h3>${item.f_name}</h3>
 						<!-- <p>설명~~~~~~~</p> -->
 						<br>
-						<h5>시간 : ${item.f_opentime} -${item.f_closetime}</h5>
-						<h5>가격: ${f_price}</h5>
-						<h5>위치: ${f_address}</h5>
+						<h5>시간 : ${item.f_opentime}시 -${item.f_closetime}시</h5>
+						<h5>가격: ${item.f_price} 만원</h5>
+						<h5>위치: ${item.f_address}</h5>
 						<br> <br>
 						
 						

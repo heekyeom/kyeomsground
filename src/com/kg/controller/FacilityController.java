@@ -107,6 +107,7 @@ public class FacilityController {
 			ArrayList<Facility> list = service.get(c_name);
 			
 			mv.addObject("flist", list);
+			mv.addObject("category", c_name);
 			mv.addObject("centerpage", "facility");
 
 		} catch (Exception e) {
