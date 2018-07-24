@@ -7,12 +7,14 @@ PUBLIC "-//mybatis.org/DTD Config 3.0//EN"
 		<typeAlias type="com.kg.vo.User" alias="user"/>
 		<typeAlias type="com.kg.vo.Reservation" alias="reservation"/>
 		<typeAlias type="com.kg.vo.Facility" alias="facility"/>
+		<typeAlias type="com.kg.vo.Category" alias="category"/>
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="com/config/usermapper.xml"/>
 		<mapper resource="com/config/reservationmapper.xml"/>
 		<mapper resource="com/config/facilitymapper.xml"/>
+		<mapper resource="com/config/categorymapper.xml"/>
 	</mappers>
 </configuration>
 

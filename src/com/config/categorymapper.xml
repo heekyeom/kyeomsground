@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kg.mapper.FacilityMapper">
+
+<!-- <resultMap type="facility" id="facilityResult">
+		<result column="C_NAME" property="C_NAME" />
+		<result column="C_COLOR" property="C_COLOR"/>
+		<result column="F_IMGNAME" property="F_IMGNAME" />
+	</resultMap> -->
+
+	<select id="select" parameterType="String" resultType="category">
+		SELECT * FROM kg_category WHERE c_num=#{obj}
+	</select>
+	<select id="selectall" resultType="category">
+		SELECT * FROM kg_category
+	</select>
+
+	<insert id="insert" parameterType="category">
+		INSERT INTO kg_category VALUES (#{c_name}, #{c_color}, #{c_imgname})
+	</insert>
+	
+	<update id="update" parameterType="category">
+		UPDATE kg_category SET ,C_COLOR=#{c_color}, C_IMGNAME=#{c_imgname} WHERE C_NAME=#{c_name} 
+	</update>
+	
+	<delete id="delete" parameterType="String">
+		DELETE FROM kg_category WHERE C_NAME=#{obj}
+	</delete>
+	
+</mapper>

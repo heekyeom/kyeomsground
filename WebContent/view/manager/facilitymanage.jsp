@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	
 <script src="js/kgfacility.js"></script>
 <div class="modal fade" id="facilityAddModal" tabindex="-1"
 	role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -19,7 +21,7 @@
 						<div class="form-group">
 							<label for="exampleInputEmail1"> 시설 타입 </label> <select
 								class="form-control" name="c_name">
-								<option>축구장</option>
+								<option>FOOTBALL</option>
 								<option>농구장</option>
 								<option>테니스장</option>
 								<option>배구장</option>
