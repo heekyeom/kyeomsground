@@ -68,7 +68,7 @@
 								type="hidden" value="${item.f_maxtime}">
 
 							<c:choose>
-								<c:when test="${user.u_ismanager =='TRUE' }">
+								<c:when test="${user == 'TRUE' }">
 									<input type="submit" value="예약하기"></input>
 								</c:when>
 								<c:otherwise>
