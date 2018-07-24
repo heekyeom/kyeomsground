@@ -51,4 +51,8 @@ public class ReservationService implements Service<Reservation, Integer> {
 		dao.insertSchedule(reservation);
 	}
 	
+	public ArrayList<Reservation> getFacilityReservation(int f_num) throws Exception {
+		return dao.getFacilityReservation(f_num);
+	}
+	
 }

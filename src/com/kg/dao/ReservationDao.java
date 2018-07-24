@@ -51,5 +51,9 @@ public class ReservationDao implements Dao<Reservation, Integer> {
 	public void insertSchedule(Reservation reservation) throws Exception {
 		mapper.insertSchedule(reservation);
 	}
+	
+	public ArrayList<Reservation> getFacilityReservation(int f_num) throws Exception {
+		return mapper.getFacilityReservation(f_num);
+	}
 
 }

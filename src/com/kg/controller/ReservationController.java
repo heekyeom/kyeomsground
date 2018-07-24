@@ -1,12 +1,11 @@
 package com.kg.controller;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Locale;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONArray;
@@ -38,19 +37,18 @@ public class ReservationController {
 	
 	@RequestMapping("/calendarimpl.kg")
 	@ResponseBody
-	public void calendarimpl(HttpServletResponse response) throws IOException {
+	public void calendarimpl(HttpServletResponse response, int ff_num) throws Exception {
 		response.setContentType("text/json;charset=euc-kr");
 		PrintWriter out = response.getWriter();
 		
-		//service.getMySchedule(u_id);
+		ArrayList<Reservation> slist = service.getFacilityReservation(ff_num);
 		
 		JSONArray jsArray = new JSONArray();
 		SimpleDateFormat sdformat1 = new SimpleDateFormat("yyyy-MM-dd");
 		SimpleDateFormat sdformat2 = new SimpleDateFormat("HH:00:00");
 		SimpleDateFormat sdformat3 = new SimpleDateFormat("HH a", Locale.ENGLISH);
 		
-		// f_num?
-		/*for (Reservation reservation : rlist) {
+		for (Reservation reservation : slist) {
 			JSONObject jsObject = new JSONObject();
 			jsObject.put("r_num", reservation.getR_num());
 			jsObject.put("title", reservation.getR_title());
@@ -63,7 +61,7 @@ public class ReservationController {
 			jsObject.put("color", reservation.getR_color());
 			jsObject.put("f_name", reservation.getF_name());
 			jsArray.add(jsObject);
-		}*/
+		}
 		
 		out.println(jsArray.toJSONString());
 		
@@ -89,7 +87,7 @@ public class ReservationController {
 			service.insertSchedule(reservation);
 		}
 		
-		response.sendRedirect("main.kg");
+		response.sendRedirect("myschedule.kg");
 	}
 	
 }

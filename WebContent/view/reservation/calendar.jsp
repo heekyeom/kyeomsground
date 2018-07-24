@@ -12,7 +12,7 @@
 <script>
 
 $(function() {
-   
+	
    function drawCalendar(data) {
       
      $('#calendar').fullCalendar({ 
@@ -47,9 +47,13 @@ $(function() {
          
        });
    }
-
-   $.ajax({						// 여기 form안에 입력한것들 취소하면 초기화도 해줘야되나?
+   
+   var u_idForm = $("form[id=idForm]").serialize();
+   
+   $.ajax({
       url : 'calendarimpl.kg',
+      dataType: 'json',
+      data: u_idForm,
       success : function(data) {
          drawCalendar(data);
       },
@@ -58,20 +62,6 @@ $(function() {
       }
    });
    
-   /* var u_idForm = $("form[id=idForm]").serialize(); // 이 형식이 필요할 일이 있을까..
-
-   $.ajax({
-      url : 'myscheduleimpl.kg',
-      dataType: 'json',
-      data : u_idForm,
-      success : function(data) {
-         drawCalendar(data);
-      },
-      error : function() {
-         alert('error');
-      }
-   }); */
-
 });
 
 </script>
@@ -163,8 +153,8 @@ $(function() {
                
 	               <input type="hidden" id="r_starttime" name="r_starttime">
 	               <input type="hidden" id="r_endtime" name="r_endtime">
-	               <input type="hidden" name="u_id" value="${user.u_id }">
-	               <input type="hidden" name="f_num" value="${facility.f_num }">
+	               <input type="hidden" id="u_id" name="u_id" value="${user.u_id }">
+	               <input type="hidden" id="f_num" name="f_num" value="${facility.f_num }">
                
         	   </div>
 
@@ -203,9 +193,9 @@ $(function() {
          </div>
                   </form>
                   <!-- ends register form -->
-		<%-- <form action="" id="idForm">
-			<input type="hidden" id="u_id" name="u_id" value="${user.u_id}">
-		</form> --%>
+		<form action="" id="idForm">
+			<input type="hidden" id="ff_num" name="ff_num" value="${facility.f_num}">
+		</form>
                </div>
             </div>
          </div>
