@@ -32,6 +32,8 @@ $(function() {
          locale: 'kr',
          selectable: true,
          selectHelper: true,
+         width: 'auto',
+         height: 'auto',
          slotDuration: '01:00:00',
          slotLabelFormat: 'h(:mm)a',
          selectOverlap: false,

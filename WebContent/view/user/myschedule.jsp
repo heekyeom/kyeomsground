@@ -26,6 +26,8 @@ $(function() {
          locale: 'kr',
          selectable: false,
          selectHelper: false,
+         width: 'auto',
+         height: 'auto',
          slotDuration: '01:00:00',
          slotLabelFormat: 'h(:mm)a',
          eventClick: function(calEvent, jsEvent, view) {
