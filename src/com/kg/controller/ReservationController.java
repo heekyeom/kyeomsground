@@ -2,6 +2,8 @@ package com.kg.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -29,8 +31,6 @@ public class ReservationController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("main");
 		mv.addObject("centerpage", "reservation/calendar");
-		
-		System.out.println("요기! "+facility);
 		mv.addObject("facility", facility);
 		
 		return mv;
@@ -44,17 +44,26 @@ public class ReservationController {
 		
 		//service.getMySchedule(u_id);
 		
-		//var data = [{data:[10,40,30,50,60]}];
 		JSONArray jsArray = new JSONArray();
-		JSONObject jsObject = new JSONObject();
+		SimpleDateFormat sdformat1 = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sdformat2 = new SimpleDateFormat("HH:00:00");
+		SimpleDateFormat sdformat3 = new SimpleDateFormat("HH a", Locale.ENGLISH);
 		
-		//id: 999,
-		jsObject.put("r_num", "3");
-		jsObject.put("title", "All Day Event");
-		jsObject.put("start", "2018-07-19T16:00:00");
-		jsObject.put("end", "2018-07-19T20:00:00");
-		jsObject.put("color", "RED");
-		jsArray.add(jsObject);
+		// f_num?
+		/*for (Reservation reservation : rlist) {
+			JSONObject jsObject = new JSONObject();
+			jsObject.put("r_num", reservation.getR_num());
+			jsObject.put("title", reservation.getR_title());
+			jsObject.put("u_id", reservation.getU_id());
+			jsObject.put("f_num", reservation.getF_num());
+			jsObject.put("start", sdformat1.format(reservation.getR_starttime())+"T"+sdformat2.format(reservation.getR_starttime()));
+			jsObject.put("end", sdformat1.format(reservation.getR_endtime())+"T"+sdformat2.format(reservation.getR_endtime()));
+			jsObject.put("r_time", sdformat3.format(reservation.getR_starttime())+"    ~    "+sdformat3.format(reservation.getR_endtime()));
+			jsObject.put("r_type", reservation.getR_type());
+			jsObject.put("color", reservation.getR_color());
+			jsObject.put("f_name", reservation.getF_name());
+			jsArray.add(jsObject);
+		}*/
 		
 		out.println(jsArray.toJSONString());
 		
@@ -62,12 +71,25 @@ public class ReservationController {
 	}
 	
 	@RequestMapping("/reservationimpl.kg")
-	public ModelAndView reservationimpl(HttpServletResponse response, Reservation reservation) throws IOException {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("main");
-		mv.addObject("centerpage", "reservation/calendar");
+	public void reservationimpl(HttpServletResponse response, Reservation reservation, String widget2) throws Exception {
 		
-		return mv;
+		reservation.setR_date(reservation.getR_starttime());
+		reservation.getR_starttime().setHours(reservation.getR_starttime().getHours() - 9);
+		reservation.getR_endtime().setHours(reservation.getR_endtime().getHours() - 9);
+		
+		service.register(reservation);
+		
+		String[] memberList = widget2.split(",");
+		
+		int r_num = service.getRnum(reservation.getU_id());
+		reservation.setR_num(r_num);
+
+		for (String member_id : memberList) {
+			reservation.setU_id(member_id);
+			service.insertSchedule(reservation);
+		}
+		
+		response.sendRedirect("main.kg");
 	}
 	
 }
