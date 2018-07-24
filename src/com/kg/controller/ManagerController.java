@@ -39,7 +39,7 @@ public class ManagerController {
 		PrintWriter out = null;
 		MultipartFile mf=category.getImg();
 		String imgname=mf.getOriginalFilename();
-		category.setImgname(imgname);
+		category.setC_imgname(imgname);
 		
 		FileSave.save("C:\\team5\\kyeomsground\\WebContent\\imgs\\category", mf, imgname);
 		System.out.println(category);
@@ -60,7 +60,7 @@ public class ManagerController {
 		out.close();
 	}
 
-	// ·Î±×ÀÎÈÄ ¸¶ÀÌ ÆäÀÌÁö Å¬¸¯½Ã º¸¿©ÁÙ È­¸é
+	// ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½
 	@RequestMapping("/categorymanage.kg")
 	public ModelAndView categorymanage() {
 		ModelAndView mv = new ModelAndView();
@@ -70,7 +70,7 @@ public class ManagerController {
 		mv.addObject("managercenterpage", "categorytables");
 		return mv;
 	}
-	// ·Î±×ÀÎÈÄ ¸¶ÀÌ½ºÄÉÁì Å¬¸¯½Ã º¸¿©ÁÙ È­¸é
+	// ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½
 	@RequestMapping("/facilitymanage.kg")
 	public ModelAndView facilitymanage() {
 		ModelAndView mv = new ModelAndView();
@@ -88,7 +88,7 @@ public class ManagerController {
 		return mv;
 	}
 
-	// ·Î±×ÀÎÈÄ ¸¶ÀÌ½ºÄÉÁì Å¬¸¯½Ã º¸¿©ÁÙ È­¸é
+	// ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½
 	@RequestMapping("/usermanage.kg")
 	public ModelAndView usermanage() {
 		ModelAndView mv = new ModelAndView();
