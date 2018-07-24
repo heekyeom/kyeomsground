@@ -44,12 +44,9 @@ public class ManagerController {
 		FileSave.save("C:\\team5\\kyeomsground\\WebContent\\imgs\\category", mf, imgname);
 		System.out.println(category);
 		
-		
 		try {
-			
 			out = response.getWriter();
-			
-		
+			cservice.register(category);
 			out.println("1");
 			
 		} catch (Exception e) {
