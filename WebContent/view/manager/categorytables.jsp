@@ -14,7 +14,7 @@
 			<div class="card-body">
 				<div class="table-responsive">
 					<button class="btn btn-primary"  data-toggle="modal"
-					data-target="#exampleModal">카테고리추가</button>
+					data-target="#facilityAddModal">카테고리추가</button>
 					<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 						<thead>
 							<tr>
@@ -44,3 +44,4 @@
 			<div class="card-footer small text-muted">Updated yesterday at
 				11:59 PM</div>
 		</div>
+	<jsp:include page="categorymanage.jsp"></jsp:include>
