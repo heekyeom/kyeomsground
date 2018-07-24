@@ -21,10 +21,11 @@
 						<div class="form-group">
 							<label for="exampleInputEmail1"> 시설 타입 </label> <select
 								class="form-control" name="c_name">
-								<option>FOOTBALL</option>
-								<option>농구장</option>
-								<option>테니스장</option>
-								<option>배구장</option>
+								<c:if test="${categorylist != null }">
+								<c:forEach var="item" items="${categorylist }">
+									<option>${item.c_name }</option>
+								</c:forEach>
+								</c:if>
 							</select>
 						</div>
 						<div class="form-group">

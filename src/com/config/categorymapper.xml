@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kg.mapper.FacilityMapper">
+<mapper namespace="com.kg.mapper.CategoryMapper">
 
 <!-- <resultMap type="facility" id="facilityResult">
 		<result column="C_NAME" property="C_NAME" />
