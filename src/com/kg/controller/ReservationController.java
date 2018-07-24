@@ -31,7 +31,7 @@ public class ReservationController {
 		mv.addObject("centerpage", "reservation/calendar");
 		
 		System.out.println("요기! "+facility);
-		//mv.addObject("f_num", f_num);
+		mv.addObject("facility", facility);
 		
 		return mv;
 	}
