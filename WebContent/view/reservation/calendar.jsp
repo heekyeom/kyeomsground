@@ -12,10 +12,8 @@
 <script>
 
 var time = true;
-var myself = true;
 
 $(function() {
-	
 	
    function drawCalendar(data) {
       
@@ -38,10 +36,11 @@ $(function() {
          slotLabelFormat: 'h(:mm)a',
          selectOverlap: false,
          select: function(startDate, endDate, jsEvent, view) {
+        	 time = true;
              $('#r_rstime').val(startDate._i[0]+'년 '+startDate._i[1]+'월 '+startDate._i[2]+'일 '+startDate._i[3]+'시   ~   '+endDate._i[0]+'년 '+endDate._i[1]+'월 '+endDate._i[2]+'일 '+endDate._i[3]+'시');
              $('#r_starttime').val(startDate);
              $('#r_endtime').val(endDate);
-             if((startDate._i[3] > $('#availableStartTime').val()) || (endDate._i[3] < $('#availableEndTime').val()) || (startDate._i[2] != endDate._i[2])) {
+             if((startDate._i[3] < $('#availableStartTime').val()) || (endDate._i[3] > $('#availableEndTime').val()) || (startDate._i[2] != endDate._i[2])) {
             	 time = false;
              }
              
@@ -74,6 +73,7 @@ $(function() {
 function checkAll() {
 	
 	var flag = true;
+	var myself = true;
 	var tlist = $('#widget2').val();
 	var tArr = tlist.split(',');
 	
