@@ -40,8 +40,8 @@ public class FacilityDao implements Dao<Facility, Integer> {
 		return mapper.selectall();
 	}
 
-	public ArrayList<Facility> select(String type) throws Exception {
-		return mapper.selecttype(type);
+	public ArrayList<Facility> select(String c_name) throws Exception {
+		return mapper.selecttype(c_name);
 	}
 	
 

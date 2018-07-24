@@ -36,11 +36,10 @@
                <h3>시간 : ${item.f_opentime} -${item.f_closetime}</h3>
                <h3>가격: ${f_price}</h3>
                <h3>위치: ${f_address} </h3>
-               <form action="" method="">
-                  <input type="button" name="reserve1" value="버튼예약"></input> <input
-                     type="submit" name="reserve2" value="서밋예약"></input>
+               <form action="calendar.kg" >
+               	  <input name="f_num" type="hidden" value="${item.f_num}">
+                  <input type="submit" value="서밋예약"></input>
                </form>
-               <a class="btn btn-primary" href="#">링크버튼예약</a>
 
             </div>
             <br>

@@ -17,7 +17,7 @@
 
 			<div class="col-lg-4 col-sm-6 portfolio-item">
 				<div class="card h-100">
-					<a href="facility.kg?type=soccer"><img class="card-img-top"
+					<a href="facility.kg?c_name=FOOTBALL"><img class="card-img-top"
 						src="http://tourimage.interpark.com/BBS/Tour/FckUpload/201311/6352057291459937563.jpg"
 						alt=""></a>
 					<div class="card-body">

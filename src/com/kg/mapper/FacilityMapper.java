@@ -10,5 +10,5 @@ public interface FacilityMapper {
 	public void update(Facility obj);
 	public Facility select(int obj);
 	public ArrayList<Facility> selectall();
-	public ArrayList<Facility> selecttype(String type);
+	public ArrayList<Facility> selecttype(String c_name);
 }

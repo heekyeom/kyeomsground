@@ -24,7 +24,7 @@ public class FacilityController {
 	@Resource(name = "fservice")
 	FacilityService service;
 
-	// ´ë¿© °ø°£ Ãß°¡
+	// ï¿½ë¿© ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	@RequestMapping("/addFacilityimpl.kg")
 	public void addFacilityimpl(HttpServletRequest request, HttpServletResponse response) {
 		int time=0, minute=0;
@@ -46,11 +46,11 @@ public class FacilityController {
 			int f_price=Integer.parseInt(mRequest.getParameter("f_price"));
 			
 			String opentime=mRequest.getParameter("f_opentime");
-			int f_opentime=Integer.parseInt(opentime.substring(0, 2)); //opentimeÀ» integer·Î º¯È¯
+			int f_opentime=Integer.parseInt(opentime.substring(0, 2)); //opentimeï¿½ï¿½ integerï¿½ï¿½ ï¿½ï¿½È¯
 		
 			
 			String closetime=mRequest.getParameter("f_closetime");
-			int f_closetime=Integer.parseInt(closetime.substring(0, 2)); //opentimeÀ» integer·Î º¯È¯
+			int f_closetime=Integer.parseInt(closetime.substring(0, 2)); //opentimeï¿½ï¿½ integerï¿½ï¿½ ï¿½ï¿½È¯
 			
 			int f_maxtime=Integer.parseInt(mRequest.getParameter("f_maxtime"));
 			int f_max=Integer.parseInt(mRequest.getParameter("f_max"));
@@ -71,7 +71,7 @@ public class FacilityController {
 		
 	}
 
-	// ´ë¿© °ø°£ ¼öÁ¤
+	// ï¿½ë¿© ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping("/updateFacility.kg")
 	public ModelAndView updateFacilityimpl() {
 
@@ -79,7 +79,7 @@ public class FacilityController {
 		return mv;
 	}
 
-	// ´ë¿© °ø°£ Á¦°Å
+	// ï¿½ë¿© ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping("/removeFacility.kg")
 	public ModelAndView removeFacilityimpl(int num) {
 
@@ -97,13 +97,16 @@ public class FacilityController {
 	}
 
 	@RequestMapping("/facility.kg")
-	public ModelAndView selectFacilityimpl(String type) {
+	public ModelAndView selectFacilityimpl(String c_name) {
 
 		ModelAndView mv = new ModelAndView();
-		System.out.println(">>>>>>>>>>>>>" + type);
+		System.out.println(">>>>>>>>>>>>>" + c_name);
 		mv.setViewName("main");
 		try {
-			ArrayList<Facility> list = service.get(type);
+			
+			System.out.println( service.get(c_name));
+			
+			ArrayList<Facility> list = service.get(c_name);
 			
 			 System.out.println(list.toString()); 
 			

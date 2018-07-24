@@ -40,8 +40,8 @@ public class FacilityService implements Service<Facility, Integer> {
 	}
 	
 	
-	public ArrayList<Facility> get(String type) throws Exception {
-		return dao.select(type);
+	public ArrayList<Facility> get(String c_name) throws Exception {
+		return dao.select(c_name);
 	}
 
 }
