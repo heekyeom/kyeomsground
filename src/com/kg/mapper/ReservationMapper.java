@@ -11,4 +11,6 @@ public interface ReservationMapper {
 	public Reservation select(int obj);
 	public ArrayList<Reservation> selectall();
 	public ArrayList<Reservation> selectMySchedule(String u_id);
+	public int getRnum(String u_id);
+	public void insertSchedule(Reservation reservation);
 }

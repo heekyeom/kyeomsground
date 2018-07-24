@@ -33,11 +33,12 @@ $(function() {
          /* minTime: '00:00:00',
          maxTime: '24:00:00', */
          select: function(startDate, endDate, jsEvent, view) {
-             //alert('selected ' + startDate.format() + ' to ' + endDate.format());
-             //alert(startDate);
-             //alert(endDate);
+        	 console.log(startDate);
+             $('#r_rstime').val(startDate._i[0]+'년 '+startDate._i[1]+'월 '+startDate._i[2]+'일 '+startDate._i[3]+'시   ~   '+endDate._i[0]+'년 '+endDate._i[1]+'월 '+endDate._i[2]+'일 '+endDate._i[3]+'시');
+             $('#r_starttime').val(startDate);
+             $('#r_endtime').val(endDate);
+             
              $('#btn_reservation').click();
-             // 여기에 예약등록 기능 구현하면됨!
          },
          eventClick: function(calEvent, jsEvent, view) {
         	 alert('이미 예약된 시설입니다.');
@@ -101,14 +102,14 @@ $(function() {
                         <label for="username"><span class="req">* </span>
                         예약자</label> <input
                            class="form-control" type="text" name="username" id="u_name"
-                           onkeyup="Validate(this)" placeholder="예약자명 " value="${user.u_name}" readonly="readonly" required />
+                             placeholder="예약자명" value="${user.u_name}" readonly="readonly" required />
 
                         <label for="username">
                         <span class="req">* </span> 
-                           예약시설 </label>
+                           시설명 </label>
                        <input class="form-control" type="text" 
                        name="username" id="f_name" 
-                       onkeyup="Validate(this)" placeholder="예약시설이 자동 " value="${facility.f_name}" readonly="readonly" required />
+                         placeholder="예약시설" value="${facility.f_name}" readonly="readonly" required />
                         <div id="errLast"></div>
 
                      </div>
@@ -116,25 +117,25 @@ $(function() {
                      <div class="form-group">
                         <label for="firstname"><span class="req">* </span>
                          예약명
-                        </label> <input class="form-control" type="text" name="firstname"
-                           id="r_title" onkeyup="Validate(this)" required />
+                        </label> <input class="form-control" type="text" name="r_title"
+                           id="r_title" required />
                         <div id="errFirst"></div>
                      </div>
 
                      <div class="form-group">
                         <label for="password"><span class="req">* </span>
                          시설이용가능시간
-                        </label> <input name="firstname" type="text"
+                        </label> <input name="f_time" type="text"
                            class="form-control inputpass" minlength="4" maxlength="16"
-                           id="f_time" value="${facilities.f_time}" readonly="readonly"/>
+                           id="f_time" value="매일 ${facility.f_opentime}시 부터  ~  ${facility.f_closetime}시 까지 이용가능" readonly="readonly"/>
                      </div>
                      
                      <div class="form-group">
                         <label for="password"><span class="req">* </span>
                          예약시간
-                        </label> <input required name="password" type="text"
+                        </label> <input required name="r_rstime" type="text"
                            class="form-control inputpass" minlength="4" maxlength="16"
-                           id="r_time" value="${reservation.r_time}" readonly="readonly"/>
+                           id="r_rstime" readonly="readonly" />
                      </div>
                      
                      <div class="form-group">
@@ -142,10 +143,10 @@ $(function() {
                        경기 방식 선택
                          <fieldset>
                              <div>
-                                 <input type="radio" id="r_type_public" name="type" value="true" checked />
+                                 <input type="radio" id="r_type_public" name="r_type" value="public" checked />
                                  <label for="r_type_public">
                                  공개</label>&nbsp;&nbsp;&nbsp;
-                                 <input type="radio" id="r_type_private" name="type" value="false" />
+                                 <input type="radio" id="r_type_private" name="r_type" value="private" />
                                  <label for="r_type_private">
                                  비공개</label>
                              </div>
@@ -154,12 +155,18 @@ $(function() {
 <!--  -->
                <div class="form-group">
                         <label for="firstname"><span class="req">* </span> 초대
-                        </label> <input class="form-control" type="text" name="firstname"
-                           id="widget2" onkeyup="Validate(this)" />
+                        </label> <div></div> <input class="form-control" type="text" name="widget2"
+                           id="widget2"   />
                         <div id="errFirst"></div>
                      </div>
                <div class="markup">
-         </div>
+               
+	               <input type="hidden" id="r_starttime" name="r_starttime">
+	               <input type="hidden" id="r_endtime" name="r_endtime">
+	               <input type="hidden" name="u_id" value="${user.u_id }">
+	               <input type="hidden" name="f_num" value="${facility.f_num }">
+               
+        	   </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script><!-- 검색기능library -->
     <script src="./inputosaurus/inputosaurus.js"></script><!-- inputsaurus에서 가져오기 -->

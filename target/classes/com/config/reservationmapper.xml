@@ -23,4 +23,11 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 		DELETE FROM kg_reservation WHERE R_NUM=#{obj}
 	</delete>
 	
+	<select id="getRnum" resultType="Integer">
+		SELECT MAX(r_num) FROM kg_reservation WHERE U_ID=#{u_id}
+	</select>
+	<insert id="insertSchedule" parameterType="reservation">
+		INSERT INTO kg_schedule VALUES (#{r_num}, #{u_id})
+	</insert>
+	
 </mapper>
