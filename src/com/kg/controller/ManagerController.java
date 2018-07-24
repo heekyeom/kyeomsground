@@ -4,22 +4,20 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.kg.service.CategoryService;
 import com.kg.service.FacilityService;
 import com.kg.service.ReservationService;
 import com.kg.service.UserService;
 import com.kg.util.FileSave;
 import com.kg.vo.Category;
 import com.kg.vo.Facility;
-import com.kg.vo.User;
 
 @Controller
 public class ManagerController {
@@ -30,7 +28,10 @@ public class ManagerController {
 	ReservationService rservice;
 	
 	@Resource(name="fservice")
-	FacilityService fservicce;
+	FacilityService fservice;
+	
+	@Resource(name="cservice")
+	CategoryService cservice;
 	
 	
 	@RequestMapping("/categoryaddimpl.kg")
@@ -77,10 +78,13 @@ public class ManagerController {
 		mv.setViewName("manager/managermain");
 		mv.addObject("managercenterpage", "facilitytables");
 		
-		ArrayList<Facility> list;
+		ArrayList<Category> clist;
+		ArrayList<Facility> flist;
 		try {
-			list=fservicce.get();
-			mv.addObject("facilitylist", list);
+			flist=fservice.get();
+			clist=cservice.get();
+			mv.addObject("facilitylist", flist);
+			mv.addObject("categorylist", clist);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
