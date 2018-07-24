@@ -5,7 +5,7 @@ function register() {
 	if (c == true) {
 	
 		
-		var form=$('#categoryform');
+		var form=$('#categoryform')[0];
 		var data=new FormData(form);
 		
 		$.ajax({

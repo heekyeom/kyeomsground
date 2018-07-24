@@ -42,40 +42,25 @@ public class ManagerController {
 	
 	@RequestMapping("/categoryaddimpl.kg")
 	public void categoryaddimpl(HttpServletRequest request, HttpServletResponse response) {
-		try {
-			MultipartRequest mRequest=new MultipartRequest(request, dir,size,"UTF-8");
-			System.out.println("[categoryaddimpl] "+mRequest);
-			System.out.println("[categoryaddimpl] "+mRequest.getParameter("c_name"));
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
-		System.out.println();
-		System.out.println("1");
-		Map<String, String[]> list=request.getParameterMap();
-		System.out.println("2");
-		System.out.println(list.isEmpty());
-		
-		
-		
-		response.setContentType("charset=euc-kr");
-		PrintWriter out = null;
-		//MultipartFile mf=category.getImg();
-		//String imgname=mf.getOriginalFilename();
-		//category.setC_imgname(imgname);
-		
-		//FileSave.save("C:\\team5\\kyeomsground\\WebContent\\imgs\\category", mf, imgname);
-		//System.out.println(category);
-		
+		PrintWriter out=null;
 		try {
 			out = response.getWriter();
-			//cservice.register(category);
+			MultipartRequest mRequest=new MultipartRequest(request, dir,size,"UTF-8");
+			String c_name=mRequest.getParameter("c_name");
+			String c_color=mRequest.getParameter("c_color");
+			String c_imgname=mRequest.getOriginalFileName("img");
+			Category category=new Category(c_name,c_color,c_imgname);
+			cservice.register(category);
 			out.println("1");
 			
+		} catch (IOException e1) {
+			out.println("0");
+			e1.printStackTrace();
 		} catch (Exception e) {
 			out.println("0");
 			e.printStackTrace();
 		}
-
+	
 		out.close();
 	}
 
@@ -83,6 +68,14 @@ public class ManagerController {
 	@RequestMapping("/categorymanage.kg")
 	public ModelAndView categorymanage() {
 		ModelAndView mv = new ModelAndView();
+		ArrayList<Category> clist=null;
+		try {
+			clist=cservice.get();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			mv.addObject("categorylist", clist);
+		}
 		
 		mv.setViewName("manager/managermain");
 	

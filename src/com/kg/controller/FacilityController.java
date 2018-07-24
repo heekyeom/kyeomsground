@@ -40,17 +40,18 @@ public class FacilityController {
 			
 			String c_name=mRequest.getParameter("c_name");
 			String f_name=mRequest.getParameter("f_name");
+			System.out.println(f_name);
 			String f_address=mRequest.getParameter("f_address");
 			String f_tel=mRequest.getParameter("f_tel");
 			System.out.println(mRequest.getParameter("f_price"));
 			int f_price=Integer.parseInt(mRequest.getParameter("f_price"));
 			
 			String opentime=mRequest.getParameter("f_opentime");
-			int f_opentime=Integer.parseInt(opentime.substring(0, 2)); //opentime�� integer�� ��ȯ
+			int f_opentime=Integer.parseInt(opentime.substring(0, 2)); //opentime
 		
 			
 			String closetime=mRequest.getParameter("f_closetime");
-			int f_closetime=Integer.parseInt(closetime.substring(0, 2)); //opentime�� integer�� ��ȯ
+			int f_closetime=Integer.parseInt(closetime.substring(0, 2)); //opentime
 			
 			int f_maxtime=Integer.parseInt(mRequest.getParameter("f_maxtime"));
 			int f_max=Integer.parseInt(mRequest.getParameter("f_max"));

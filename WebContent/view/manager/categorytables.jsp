@@ -14,7 +14,7 @@
 	<div class="card-body">
 		<div class="table-responsive">
 			<button class="btn btn-primary" data-toggle="modal"
-				data-target="#facilityAddModal">카테고리추가</button>
+				data-target="#categoryAddModal">카테고리추가</button>
 			<table class="table table-bordered" id="dataTable" width="100%"
 				cellspacing="0">
 				<thead>
@@ -33,7 +33,7 @@
 					<c:if test="${categorylist != null }">
 						<c:forEach var="category" items="${categorylist }">
 							<tr>
-								<td>${category.c_type }</td>
+								<td>${category.c_name }</td>
 								<td>${category.c_color }</td>
 							</tr>
 						</c:forEach>

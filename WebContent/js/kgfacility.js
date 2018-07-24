@@ -22,8 +22,10 @@ function register() {
 			success : function(data) {
 				if (data == '1') {
 					alert('등록이 완료되었습니다.');
+					locate.href="facilitymanage.kg";
 				} else {
 					alert('Register Fail');
+					locate.href="facilitymanage.kg";
 				}
 			},
 			error : function() {
