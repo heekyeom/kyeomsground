@@ -22,10 +22,12 @@ public class ReservationController {
 	ReservationService service;
 	
 	@RequestMapping("/calendar.kg")
-	public ModelAndView calendar() {
+	public ModelAndView calendar(int f_num) {
+		System.out.println(f_num+" 잘 왔다!");
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("main");
 		mv.addObject("centerpage", "reservation/calendar");
+		mv.addObject("f_num", f_num);
 		
 		return mv;
 	}
