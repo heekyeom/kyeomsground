@@ -70,7 +70,8 @@ public class ManagerController {
 		mv.addObject("managercenterpage", "categorytables");
 		return mv;
 	}
-	// �α����� ���̽����� Ŭ���� ������ ȭ��
+	
+	//
 	@RequestMapping("/facilitymanage.kg")
 	public ModelAndView facilitymanage() {
 		ModelAndView mv = new ModelAndView();

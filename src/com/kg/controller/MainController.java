@@ -1,19 +1,40 @@
 package com.kg.controller;
 
+import java.util.ArrayList;
+
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.kg.service.CategoryService;
+import com.kg.vo.Category;
+
 @Controller
 public class MainController {
-
-	// ÃÖÁ¶·Î È¨ÆäÀÌÁö¿¡ Á¢¼Ó½Ã º¸¿©ÁÙ È­¸é.
+	@Resource(name="cservice")
+	CategoryService service;
+	
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½.
 	@RequestMapping("/main.kg")
-	public String main() {
-		return "main";
+	public ModelAndView main() {
+		ModelAndView mv=new ModelAndView();
+		mv.setViewName("main");
+		mv.addObject("centerpage", "home");
+		ArrayList<Category> clist=null;
+		try {
+			clist=service.get();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			mv.addObject("categorylist", clist);
+		}
+		
+		return mv;
 	}
 
-	// ·Î±×ÀÎÅ¬¸¯½Ã º¸¿©ÁÙ È­¸é.<-- ÆË¾÷À¸·Î ÇÒ °¡´É¼º 900%
+	// ï¿½Î±ï¿½ï¿½ï¿½Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½.<-- ï¿½Ë¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½É¼ï¿½ 900%
 	@RequestMapping("/login.kg")
 	public ModelAndView login() {
 		ModelAndView mv = new ModelAndView();
@@ -23,17 +44,8 @@ public class MainController {
 		return mv;
 	}
 
-	// ·Î±×¾Æ¿ô Å¬¸¯½Ã º¸¿©ÁÙ È­¸é.<-- ÆË¾÷À¸·Î ÇÒ °¡´É¼º 900%
-	@RequestMapping("/logout.kg")
-	public ModelAndView logout() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("main");
-		mv.addObject("centerpage", "logout");
 
-		return mv;
-	}
-
-	// ·Î±×¾Æ¿ô Å¬¸¯½Ã º¸¿©ÁÙ È­¸é.<-- ÆË¾÷À¸·Î ÇÒ °¡´É¼º 900%
+	// ï¿½Î±×¾Æ¿ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½.<-- ï¿½Ë¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½É¼ï¿½ 900%
 	@RequestMapping("/register.kg")
 	public ModelAndView register() {
 		ModelAndView mv = new ModelAndView();
@@ -43,7 +55,7 @@ public class MainController {
 		return mv;
 	}
 
-	// // Ä«Å×°í¸® Å¬¸¯½Ã º¸¿©ÁÙ ¿îµ¿Àå ¸®½ºÆ®
+	// // Ä«ï¿½×°ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½îµ¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 	// @RequestMapping("/facility.kg")
 	// public ModelAndView facility() {
 	// ModelAndView mv = new ModelAndView();
@@ -53,7 +65,7 @@ public class MainController {
 	// return mv;
 	// }
 
-	// ¿îµ¿Àå ¿¹¾à Å¬¸¯½Ã º¸¿©ÁÙ È­¸é
+	// ï¿½îµ¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½
 	@RequestMapping("/reservation.kg")
 	public ModelAndView reservation() {
 		ModelAndView mv = new ModelAndView();
@@ -63,7 +75,7 @@ public class MainController {
 		return mv;
 	}
 
-	// °áÁ¦ Å¬¸¯½Ã º¸¿©ÁÙ È­¸é
+	// ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½
 	@RequestMapping("/payment.kg")
 	public ModelAndView payment() {
 		ModelAndView mv = new ModelAndView();
@@ -73,7 +85,7 @@ public class MainController {
 		return mv;
 	}
 
-	// °ü¸®ÀÚ È­¸éÀ¸·Î ÀÌµ¿
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 	@RequestMapping("/manager.kg")
 	public ModelAndView manager() {
 		System.out.println("main manager.kg call");
