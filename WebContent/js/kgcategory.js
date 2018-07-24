@@ -1,18 +1,16 @@
-/**
- * 
- */
 
 function register() {
 	var c = confirm('등록 하시겠습니까?');
+	
 	if (c == true) {
-
-		var form=$('#categoryform')[0];
+	
+		
+		var form=$('#categoryform');
 		var data=new FormData(form);
-
-		console.log(data);
+		
 		$.ajax({
 			type : 'post',
-			url : 'addFacilityimpl.kg',
+			url : 'categoryaddimpl.kg',
 			data : data,
 			enctype: 'multipart/form-data',
 			dataType: 'json',

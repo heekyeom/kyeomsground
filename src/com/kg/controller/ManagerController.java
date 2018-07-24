@@ -1,9 +1,13 @@
 package com.kg.controller;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
@@ -18,9 +22,12 @@ import com.kg.service.UserService;
 import com.kg.util.FileSave;
 import com.kg.vo.Category;
 import com.kg.vo.Facility;
+import com.oreilly.servlet.MultipartRequest;
 
 @Controller
 public class ManagerController {
+	private String dir="C:\\team5\\kyeomsground\\WebContent\\imgs\\category";
+	private int size=1024*1024*1024;
 	@Resource(name = "uservice")
 	UserService service;
 
@@ -34,19 +41,34 @@ public class ManagerController {
 	CategoryService cservice;
 	
 	@RequestMapping("/categoryaddimpl.kg")
-	public void categoryaddimpl(Category category, HttpServletResponse response) {
+	public void categoryaddimpl(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			MultipartRequest mRequest=new MultipartRequest(request, dir,size,"UTF-8");
+			System.out.println("[categoryaddimpl] "+mRequest);
+			System.out.println("[categoryaddimpl] "+mRequest.getParameter("c_name"));
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		System.out.println();
+		System.out.println("1");
+		Map<String, String[]> list=request.getParameterMap();
+		System.out.println("2");
+		System.out.println(list.isEmpty());
+		
+		
+		
 		response.setContentType("charset=euc-kr");
 		PrintWriter out = null;
-		MultipartFile mf=category.getImg();
-		String imgname=mf.getOriginalFilename();
-		category.setC_imgname(imgname);
+		//MultipartFile mf=category.getImg();
+		//String imgname=mf.getOriginalFilename();
+		//category.setC_imgname(imgname);
 		
-		FileSave.save("C:\\team5\\kyeomsground\\WebContent\\imgs\\category", mf, imgname);
-		System.out.println(category);
+		//FileSave.save("C:\\team5\\kyeomsground\\WebContent\\imgs\\category", mf, imgname);
+		//System.out.println(category);
 		
 		try {
 			out = response.getWriter();
-			cservice.register(category);
+			//cservice.register(category);
 			out.println("1");
 			
 		} catch (Exception e) {
