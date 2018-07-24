@@ -100,15 +100,10 @@ public class FacilityController {
 	public ModelAndView selectFacilityimpl(String c_name) {
 
 		ModelAndView mv = new ModelAndView();
-		System.out.println(">>>>>>>>>>>>>" + c_name);
 		mv.setViewName("main");
 		try {
 			
-			System.out.println( service.get(c_name));
-			
 			ArrayList<Facility> list = service.get(c_name);
-			
-			 System.out.println(list.toString()); 
 			
 			mv.addObject("flist", list);
 			mv.addObject("centerpage", "facility");
