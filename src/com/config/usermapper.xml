@@ -37,8 +37,7 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	</update>
 
 	<delete id="delete" parameterType="String">
-		DELETE FROM KG_USER WHERE
-		ID=#{obj}
+		DELETE FROM KG_USER WHERE U_ID=#{obj}
 	</delete>
 
 </mapper>
