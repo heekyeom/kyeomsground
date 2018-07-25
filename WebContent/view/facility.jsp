@@ -18,9 +18,12 @@
 	width: 350px;
 	height: 250px;
 }
+#facility-info{
+	margin-left: 10%;
+}
 </style>
 <script>
-	
+
 </script>
 </head>
 <body>
@@ -42,13 +45,13 @@
 							id="facility-img" hspace=30>
 						</a>
 					</div>
-
-					<div class="col-md-5">
+					
+					<div class="col-md-5" id="facility-info">
 
 						<h3>${item.f_name}</h3>
 						<br>
-						<h5>시간 : ${item.f_opentime}시 -${item.f_closetime}시</h5>
-						<h5>가격: ${item.f_price} 만원</h5>
+						<h5>시간 : ${item.f_opentime}시  ~ ${item.f_closetime}시</h5>
+						<h5>가격: ${item.f_price} 원</h5>
 						<h5>위치: ${item.f_address}</h5>
 						<br> <br>
 						
