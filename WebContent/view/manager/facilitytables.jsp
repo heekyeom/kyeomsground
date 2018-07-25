@@ -25,18 +25,9 @@
 						<th>tel</th>
 						<th>opentime</th>
 						<th>closetime</th>
+						<th>delete</th>
 					</tr>
 				</thead>
-				<tfoot>
-					<tr>
-						<th>type</th>
-						<th>name</th>
-						<th>address</th>
-						<th>tel</th>
-						<th>opentime</th>
-						<th>closetime</th>
-					</tr>
-				</tfoot>
 				<tbody>
 					<c:if test="${facilitylist != null }">
 						<c:forEach var="facility" items="${facilitylist }">
@@ -47,6 +38,7 @@
 								<td>${facility.f_tel }</td>
 								<td>${facility.f_opentime }</td>
 								<td>${facility.f_closetime }</td>
+								<td><a href="deletefacilityimpl.kg?f_num=${facility.f_num }">삭제</a></td>
 							</tr>
 						</c:forEach>
 					</c:if>

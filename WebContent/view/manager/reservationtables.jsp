@@ -24,16 +24,6 @@
 								<th>type</th>
 							</tr>
 						</thead>
-						<tfoot>
-							<tr>
-								<th>facility</th>
-								<th>id</th>
-								<th>date</th>
-								<th>start</th>
-								<th>end</th>
-								<th>type</th>
-							</tr>
-						</tfoot>
 						<tbody>
 							<c:if test="${reservationlist != null }">
 								<c:forEach var="reservation" items="${reservationlist }">

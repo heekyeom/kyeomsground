@@ -23,15 +23,6 @@
 								<th>delete</th>
 							</tr>
 						</thead>
-						<!-- <tfoot>
-							<tr>
-								<th>id</th>
-								<th>name</th>
-								<th>tel</th>
-								<th>email</th>
-								<th>delete</th>
-							</tr>
-						</tfoot> -->
 						<tbody>
 							<c:if test="${userlist != null }">
 								<c:forEach var="user" items="${userlist }">

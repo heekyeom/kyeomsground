@@ -21,20 +21,16 @@
 					<tr>
 						<th>name</th>
 						<th>color</th>
+						<th>delete</th>
 					</tr>
 				</thead>
-				<tfoot>
-					<tr>
-						<th>name</th>
-						<th>color</th>
-					</tr>
-				</tfoot>
 				<tbody>
 					<c:if test="${categorylist != null }">
 						<c:forEach var="category" items="${categorylist }">
 							<tr>
 								<td>${category.c_name }</td>
 								<td>${category.c_color }</td>
+								<td><a href="deletecategoryimpl.kg?c_name=${category.c_name }">삭제</a></td>
 							</tr>
 						</c:forEach>
 					</c:if>
