@@ -78,17 +78,19 @@ public class ReservationController {
 		
 		service.register(reservation);
 		
-		String[] memberList = widget2.split(",");
-		
 		int r_num = service.getRnum(reservation.getU_id());
 		reservation.setR_num(r_num);
 		
 		reservation.setU_id(reservation.getU_id());
 		service.insertSchedule(reservation);
 		
-		for (String member_id : memberList) {
-			reservation.setU_id(member_id);
-			service.insertSchedule(reservation);
+		if(!(widget2.equals("") || widget2 == null)) {
+			String[] memberList = widget2.split(",");
+			
+			for (String member_id : memberList) {
+				reservation.setU_id(member_id);
+				service.insertSchedule(reservation);
+			}
 		}
 		
 		response.sendRedirect("myschedule.kg");

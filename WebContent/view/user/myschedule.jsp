@@ -32,6 +32,7 @@ $(function() {
          slotLabelFormat: 'h(:mm)a',
          eventClick: function(calEvent, jsEvent, view) {
         	 $('#r_num').val(calEvent.r_num);
+        	 $('#u_name').val(calEvent.u_id);
         	 $('#f_name').val(calEvent.f_name);
         	 $('#r_title').val(calEvent.title);
         	 $('#r_time').val(calEvent.r_time);
@@ -49,6 +50,10 @@ $(function() {
         	         alert('error');
         	     }
         	 });
+        	 
+        	 if(calEvent.u_id != $('#u_id').val()) {
+        		 $('#btnsubmit').css('visibility','hidden');
+        	 }
         	 
         	 $('#btn_reservation').click();
          },
@@ -97,7 +102,7 @@ $(function() {
                         <label for="username"><span class="req">* </span>
                         예약자</label> <input
                            class="form-control" type="text" name="username" id="u_name"
-                           onkeyup="Validate(this)" placeholder="예약자명 " value="${user.u_name}" readonly="readonly" required />
+                           onkeyup="Validate(this)" placeholder="예약자명 " readonly="readonly" required />
 
                         <label for="username">
                         <span class="req">* </span> 
@@ -152,10 +157,11 @@ $(function() {
 
 <!--  -->
          <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" >예약취소</button>
+            <button type="submit" class="btn btn-primary" id="btnsubmit" >예약취소</button>
             <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
          </div>
          <input type="hidden" id="r_num" name="r_num">
+         <input type="hidden" id="u_id" name="u_id" value="${user.u_id }">
                   </form>
                   <!-- ends register form -->
 

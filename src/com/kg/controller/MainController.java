@@ -78,7 +78,6 @@ public class MainController {
 	// 관리자화면
 	@RequestMapping("/manager.kg")
 	public ModelAndView manager() {
-		System.out.println("main manager.kg call");
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("manager/managermain");
 		return mv;
