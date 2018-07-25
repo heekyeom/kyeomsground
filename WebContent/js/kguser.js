@@ -1,8 +1,6 @@
-/**
- * 
- */
 
 function register() {
+	
 	var c = confirm('가입 하시겠습니까?');
 	if (c == true) {
 
@@ -58,5 +56,4 @@ $(function() {
 	$('#loginsubmit').click(function() {
 		login();
 	});
-
 })

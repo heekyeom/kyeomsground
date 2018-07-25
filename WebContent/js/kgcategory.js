@@ -1,9 +1,8 @@
 
 function register() {
+	
 	var c = confirm('등록 하시겠습니까?');
-	
 	if (c == true) {
-	
 		
 		var form=$('#categoryform')[0];
 		var data=new FormData(form);

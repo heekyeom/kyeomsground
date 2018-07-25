@@ -3,8 +3,6 @@ package com.kg.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -12,14 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kg.service.CategoryService;
 import com.kg.service.FacilityService;
 import com.kg.service.ReservationService;
 import com.kg.service.UserService;
-import com.kg.util.FileSave;
 import com.kg.vo.Category;
 import com.kg.vo.Facility;
 import com.kg.vo.Reservation;
@@ -67,7 +63,7 @@ public class ManagerController {
 		out.close();
 	}
 
-	// �α����� ���� ������ Ŭ���� ������ ȭ��
+	// 카테고리 관리
 	@RequestMapping("/categorymanage.kg")
 	public ModelAndView categorymanage() {
 		ModelAndView mv = new ModelAndView();
@@ -86,7 +82,7 @@ public class ManagerController {
 		return mv;
 	}
 	
-	//
+	// 시설 관리
 	@RequestMapping("/facilitymanage.kg")
 	public ModelAndView facilitymanage() {
 		ModelAndView mv = new ModelAndView();
@@ -107,7 +103,7 @@ public class ManagerController {
 		return mv;
 	}
 
-	// �α����� ���̽����� Ŭ���� ������ ȭ��
+	// 사용자 관리
 	@RequestMapping("/usermanage.kg")
 	public ModelAndView usermanage() {
 		ModelAndView mv = new ModelAndView();
@@ -126,6 +122,7 @@ public class ManagerController {
 		return mv;
 	}
 	
+	// 예약 관리
 	@RequestMapping("/reservationmanage.kg")
 	public ModelAndView reservationmanage() {
 		ModelAndView mv = new ModelAndView();

@@ -39,7 +39,6 @@ public class FacilityService implements Service<Facility, Integer> {
 		return dao.select();
 	}
 	
-	
 	public ArrayList<Facility> get(String c_name) throws Exception {
 		return dao.select(c_name);
 	}

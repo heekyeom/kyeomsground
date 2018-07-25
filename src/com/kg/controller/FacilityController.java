@@ -1,6 +1,5 @@
 package com.kg.controller;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
@@ -24,34 +23,27 @@ public class FacilityController {
 	@Resource(name = "fservice")
 	FacilityService service;
 
-	// �뿩 ���� �߰�
+	// 시설 추가
 	@RequestMapping("/addFacilityimpl.kg")
 	public void addFacilityimpl(HttpServletRequest request, HttpServletResponse response) {
-		int time=0, minute=0;
-		System.out.println("[addFacilityimpl] ");
 		PrintWriter out=null;		
 		
 		try {
 			out=response.getWriter();
 			
-			System.out.println(request.getContentType());
-			
 			MultipartRequest mRequest=new MultipartRequest(request, dir,size,"UTF-8");
 			
 			String c_name=mRequest.getParameter("c_name");
 			String f_name=mRequest.getParameter("f_name");
-			System.out.println(f_name);
 			String f_address=mRequest.getParameter("f_address");
 			String f_tel=mRequest.getParameter("f_tel");
-			System.out.println(mRequest.getParameter("f_price"));
 			int f_price=Integer.parseInt(mRequest.getParameter("f_price"));
 			
 			String opentime=mRequest.getParameter("f_opentime");
 			int f_opentime=Integer.parseInt(opentime.substring(0, 2)); //opentime
-		
 			
 			String closetime=mRequest.getParameter("f_closetime");
-			int f_closetime=Integer.parseInt(closetime.substring(0, 2)); //opentime
+			int f_closetime=Integer.parseInt(closetime.substring(0, 2)); //closetime
 			
 			int f_maxtime=Integer.parseInt(mRequest.getParameter("f_maxtime"));
 			int f_max=Integer.parseInt(mRequest.getParameter("f_max"));
@@ -62,9 +54,6 @@ public class FacilityController {
 			service.register(facility);
 			
 			out.println("1");
-		} catch (IOException e1) {
-			out.println("0");
-			e1.printStackTrace();
 		} catch (Exception e) {
 			out.println("0");
 			e.printStackTrace();
@@ -72,18 +61,16 @@ public class FacilityController {
 		
 	}
 
-	// �뿩 ���� ����
+	// 시설 수정
 	@RequestMapping("/updateFacility.kg")
 	public ModelAndView updateFacilityimpl() {
-
 		ModelAndView mv = new ModelAndView();
 		return mv;
 	}
 
-	// �뿩 ���� ����
+	// 시설 삭제
 	@RequestMapping("/removeFacility.kg")
 	public ModelAndView removeFacilityimpl(int num) {
-
 		ModelAndView mv = new ModelAndView();
 
 		try {
@@ -99,7 +86,6 @@ public class FacilityController {
 
 	@RequestMapping("/facility.kg")
 	public ModelAndView selectFacilityimpl(String c_name) {
-
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("main");
 		try {
@@ -111,7 +97,6 @@ public class FacilityController {
 			mv.addObject("centerpage", "facility");
 
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			mv.addObject("centerpage", "home");
 		}

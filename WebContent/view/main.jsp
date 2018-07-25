@@ -22,7 +22,7 @@
 
 <script src="js/kguser.js"></script>
 
-<title>Insert title here</title>
+<title>겸스그라운드 메인</title>
 </head>
 <body>
 

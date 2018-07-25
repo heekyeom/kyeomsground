@@ -10,9 +10,7 @@ public class User {
 
 	public User() {
 	}
-	
 	public User(String u_id, String u_pwd, String u_name, String u_tel, String u_email, String u_ismanager) {
-		super();
 		this.u_id = u_id;
 		this.u_pwd = u_pwd;
 		this.u_name = u_name;
@@ -20,58 +18,43 @@ public class User {
 		this.u_email = u_email;
 		this.u_ismanager = u_ismanager;
 	}
-
-
 
 	public String getU_id() {
 		return u_id;
 	}
-
 	public void setU_id(String u_id) {
 		this.u_id = u_id;
 	}
-
 	public String getU_pwd() {
 		return u_pwd;
 	}
-
 	public void setU_pwd(String u_pwd) {
 		this.u_pwd = u_pwd;
 	}
-
 	public String getU_name() {
 		return u_name;
 	}
-
 	public void setU_name(String u_name) {
 		this.u_name = u_name;
 	}
-
-
 	public String getU_tel() {
 		return u_tel;
 	}
-
 	public void setU_tel(String u_tel) {
 		this.u_tel = u_tel;
 	}
-
 	public String getU_email() {
 		return u_email;
 	}
-
 	public void setU_email(String u_email) {
 		this.u_email = u_email;
 	}
-
 	public String getU_ismanager() {
 		return u_ismanager;
 	}
-
 	public void setU_ismanager(String u_ismanager) {
 		this.u_ismanager = u_ismanager;
 	}
-
 
 	@Override
 	public String toString() {
@@ -91,7 +74,6 @@ public class User {
 		result = prime * result + ((u_tel == null) ? 0 : u_tel.hashCode());
 		return result;
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

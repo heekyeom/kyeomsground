@@ -1,13 +1,11 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!------ Include the above in your HEAD tag ---------->
 
 <div class="container">
 	<div class="row">
         <div class="col-md-6  card mx-auto">
             <form action="" method="post" id="fileForm" role="form">
-            <fieldset><legend class="text-center"> 겸그라운드  <span class="req">회원 수정</span></legend>
+            <fieldset><legend class="text-center"> 겸스그라운드  <span class="req">회원 수정</span></legend>
 
  			<fieldset disabled>
               <div class="form-group">
@@ -38,11 +36,6 @@
                         <div class="status" id="status"></div>
             </div>
 
-         
-
-           
-            
-            
              <div class="form-group">
             <label for="phonenumber"><span class="req">* </span> 전화번호: </label>
                     <input required type="text" name="phonenumber" id="phone" class="form-control phone" maxlength="28" onkeyup="validatephone(this);" placeholder="not used for marketing"/> 
@@ -61,15 +54,10 @@
                 <input class="btn btn-success" type="submit" name="submit_reg" value="수정하기">
             </div>
             
-                     
-
             </fieldset>
             </form><!-- ends register form -->
 
-
         </div>
    
-
-
 	</div>
 </div>

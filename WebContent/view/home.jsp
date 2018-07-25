@@ -16,8 +16,6 @@
 		KYEOMS GROUND <small>최고의 장소를 찾으세요. </small>
 	</h1>
 
-
-
 	<div class="row">
 		<c:if test="${categorylist != null }">
 			<c:forEach var="item" items="${categorylist }">

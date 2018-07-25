@@ -38,6 +38,5 @@ public class CategoryService implements Service<Category, String>{
 	public ArrayList<Category> get() throws Exception {
 		return dao.select();
 	}
-	
 
 }

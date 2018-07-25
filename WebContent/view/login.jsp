@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
-	<script language="JavaScript">
-//<!--
+<script language="JavaScript">
+
 function CheckEnter(frm, objName, increNum )
 {
         var keycode = event.keyCode;        
@@ -17,7 +17,7 @@ function CheckEnter(frm, objName, increNum )
             frm[i].focus();
          }
 }
-//-->
+
 </script>
 	
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog"

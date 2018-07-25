@@ -8,10 +8,10 @@ import org.springframework.stereotype.Repository;
 import com.kg.frame.Dao;
 import com.kg.mapper.CategoryMapper;
 import com.kg.vo.Category;
-import com.kg.vo.Facility;
 
 @Repository("cdao")
 public class CategoryDao implements Dao<Category, String>{
+	
 	@Autowired
 	CategoryMapper mapper;
 

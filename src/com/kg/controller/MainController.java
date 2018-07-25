@@ -16,7 +16,7 @@ public class MainController {
 	@Resource(name="cservice")
 	CategoryService service;
 	
-	// ������ Ȩ�������� ���ӽ� ������ ȭ��.
+	// 첫 화면
 	@RequestMapping("/main.kg")
 	public ModelAndView main() {
 		ModelAndView mv=new ModelAndView();
@@ -34,7 +34,7 @@ public class MainController {
 		return mv;
 	}
 
-	// �α���Ŭ���� ������ ȭ��.<-- �˾����� �� ���ɼ� 900%
+	// 로그인화면
 	@RequestMapping("/login.kg")
 	public ModelAndView login() {
 		ModelAndView mv = new ModelAndView();
@@ -45,7 +45,7 @@ public class MainController {
 	}
 
 
-	// �α׾ƿ� Ŭ���� ������ ȭ��.<-- �˾����� �� ���ɼ� 900%
+	// 회원가입화면
 	@RequestMapping("/register.kg")
 	public ModelAndView register() {
 		ModelAndView mv = new ModelAndView();
@@ -55,17 +55,7 @@ public class MainController {
 		return mv;
 	}
 
-	// // ī�װ� Ŭ���� ������ ��� ����Ʈ
-	// @RequestMapping("/facility.kg")
-	// public ModelAndView facility() {
-	// ModelAndView mv = new ModelAndView();
-	// mv.setViewName("main");
-	// mv.addObject("centerpage", "facility");
-	//
-	// return mv;
-	// }
-
-	// ��� ���� Ŭ���� ������ ȭ��
+	// 예약화면
 	@RequestMapping("/reservation.kg")
 	public ModelAndView reservation() {
 		ModelAndView mv = new ModelAndView();
@@ -75,7 +65,7 @@ public class MainController {
 		return mv;
 	}
 
-	// ���� Ŭ���� ������ ȭ��
+	// 결제화면
 	@RequestMapping("/payment.kg")
 	public ModelAndView payment() {
 		ModelAndView mv = new ModelAndView();
@@ -85,7 +75,7 @@ public class MainController {
 		return mv;
 	}
 
-	// ������ ȭ������ �̵�
+	// 관리자화면
 	@RequestMapping("/manager.kg")
 	public ModelAndView manager() {
 		System.out.println("main manager.kg call");

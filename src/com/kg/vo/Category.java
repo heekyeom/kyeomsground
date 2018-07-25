@@ -10,18 +10,13 @@ public class Category {
 	private MultipartFile img;
 
 	public Category() {
-		super();
 	}
-
 	public Category(String c_name, String c_color, String c_imgname) {
-		super();
 		this.c_name = c_name;
 		this.c_color = c_color;
 		this.c_imgname = c_imgname;
 	}
-
 	public Category(String c_name, String c_color, String c_imgname, MultipartFile img) {
-		super();
 		this.c_name = c_name;
 		this.c_color = c_color;
 		this.c_imgname = c_imgname;
@@ -31,31 +26,24 @@ public class Category {
 	public String getC_name() {
 		return c_name;
 	}
-
 	public void setC_name(String c_name) {
 		this.c_name = c_name;
 	}
-
 	public String getC_color() {
 		return c_color;
 	}
-
 	public void setC_color(String c_color) {
 		this.c_color = c_color;
 	}
-
 	public String getC_imgname() {
 		return c_imgname;
 	}
-
 	public void setC_imgname(String c_imgname) {
 		this.c_imgname = c_imgname;
 	}
-
 	public MultipartFile getImg() {
 		return img;
 	}
-
 	public void setImg(MultipartFile img) {
 		this.img = img;
 	}
@@ -76,7 +64,6 @@ public class Category {
 		result = prime * result + ((img == null) ? 0 : img.hashCode());
 		return result;
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

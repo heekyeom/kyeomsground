@@ -19,14 +19,6 @@
 		<div class="tab-content" id="v-pills-tabContent">
 			<div class="tab-pane fade show active" id="v-pills-home"
 				role="tabpanel" aria-labelledby="v-pills-home-tab">
-				<%-- <c:choose>
-					<c:when test="${mypagecenterpage != null}">
-						<jsp:include page="${mypagecenterpage}.jsp"></jsp:include>
-					</c:when>
-					<c:otherwise>
-						<jsp:include page="myschedule.jsp"></jsp:include>
-					</c:otherwise>
-				</c:choose> --%>
 				<jsp:include page="${mypagecenterpage}.jsp"></jsp:include>
 			</div>
 		</div>

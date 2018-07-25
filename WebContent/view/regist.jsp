@@ -1,15 +1,11 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!------ Include the above in your HEAD tag ---------->
-<!-- <script src='fullcalendar/lib/jquery.min.js'></script> -->
-
 
 <div class="container">
 	<div class="row">
         <div class="col-md-6  card mx-auto">
             <form id="fileForm" role="form">
-            <fieldset><legend class="text-center"> 겸그라운드  <span class="req">회원가입</span></legend>
+            <fieldset><legend class="text-center"> 겸스그라운드  <span class="req">회원가입</span></legend>
 
               <div class="form-group">
                 <label for="username"><span class="req">* </span> 아이디:  </label> 
@@ -37,11 +33,6 @@
                     <input class="form-control" required type="text" name="u_email" id = "email" />   
                         <div class="status" id="status"></div>
             </div>
-
-         
-
-           
-            
             
              <div class="form-group">
             <label for="phonenumber"><span class="req">* </span> 전화번호: </label>
@@ -60,7 +51,6 @@
             <div class="form-group card mx-auto">
                 <input class="btn btn-success" type="button" id="registersubmit" name="submit_reg" value="가입하기">
             </div>
-                     
 
             </fieldset>
             </form><!-- ends register form -->

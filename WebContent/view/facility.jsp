@@ -46,7 +46,6 @@
 					<div class="col-md-5">
 
 						<h3>${item.f_name}</h3>
-						<!-- <p>설명~~~~~~~</p> -->
 						<br>
 						<h5>시간 : ${item.f_opentime}시 -${item.f_closetime}시</h5>
 						<h5>가격: ${item.f_price} 만원</h5>
