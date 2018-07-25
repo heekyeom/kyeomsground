@@ -89,7 +89,6 @@ public class ReservationController {
 			
 			for (String member_id : memberList) {
 				reservation.setU_id(member_id);
-				System.out.println(reservation);
 				service.insertSchedule(reservation);
 			}
 		}
