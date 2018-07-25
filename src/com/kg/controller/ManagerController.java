@@ -155,8 +155,40 @@ public class ManagerController {
 			response.sendRedirect("usermanage.kg");
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		}	
+	}
+	
+	@RequestMapping("/deletecategoryimpl.kg")
+	public void deletecategoryimpl(HttpServletResponse response, String c_name) {
 		
+		
+		try {
+			cservice.remove(c_name);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}	
+		
+		try {
+			response.sendRedirect("categorymanage.kg");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}	
+	}
+	
+	@RequestMapping("/deletefacilityimpl.kg")
+	public void deletefacilityimpl(HttpServletResponse response, int f_num) {
+		
+		try {
+			fservice.remove(f_num);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}	
+		
+		try {
+			response.sendRedirect("facilitymanage.kg");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}	
 	}
 	
 }
