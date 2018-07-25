@@ -44,11 +44,11 @@
 						</div>
 
 						<div class="form-group">
-							<label>시설 가격</label> <input type="number" class="form-control"
+							<label>시설 가격</label> <input type="number" class="form-control" min="0" step="10000"
 								id="" name="f_price" placeholder="시설 가격">
 						</div>
 						<div class="form-group">
-							<label>최대인원</label> <input type="number" class="form-control"
+							<label>최대인원</label> <input type="number" min="0" step="1" class="form-control"
 								id="" name="f_max" placeholder="최대인원">
 						</div>
 
@@ -65,13 +65,13 @@
 						<!-- 오픈 시간 ~ 닫는 시간  -->
 
 						<div class="form-group">
-							<label>최대 이용 시간</label> <input type="number" class="form-control"
+							<label>최대 이용 시간</label> <input type="number" class="form-control" min="0"
 								id="" name="f_maxtime" placeholder="1회 이용 시간">
 						</div>
 						<!-- 최대시간 -->
 
 						<div class="form-group">
-							<label for="exampleInputFile">파일 업로드</label> <input type="file"
+							<label for="exampleInputFile">파일 업로드</label> <input type="file" min="0"
 								id="exampleInputFile" name="img">
 						</div>
 					</div>
