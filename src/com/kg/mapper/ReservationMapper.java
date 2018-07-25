@@ -14,4 +14,5 @@ public interface ReservationMapper {
 	public int getRnum(String u_id);
 	public void insertSchedule(Reservation reservation);
 	public ArrayList<Reservation> getFacilityReservation(int f_num);
+	public void removeMe(Reservation reservation);
 }

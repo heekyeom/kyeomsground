@@ -42,14 +42,10 @@ $(function() {
              $('#r_rstime').val(startDate._i[0]+'년 '+startDate._i[1]+'월 '+startDate._i[2]+'일 '+startDate._i[3]+'시   ~   '+endDate._i[0]+'년 '+endDate._i[1]+'월 '+endDate._i[2]+'일 '+endDate._i[3]+'시');
              $('#r_starttime').val(startDate);
              $('#r_endtime').val(endDate);
-             
-             
-             
              if((startDate._i[3] < $('#availableStartTime').val()) || (endDate._i[3] > $('#availableEndTime').val()) || (startDate._i[2] != endDate._i[2])) {
             	 time = false;
              }
-             
-           if(endDate._i[3] - startDate._i[3]> ${facility.f_maxtime}) {
+             if(endDate._i[3] - startDate._i[3]> ${facility.f_maxtime}) {
             	 maxtime = false;
              }
        
@@ -97,8 +93,6 @@ function checkAll() {
 		alert('자기 자신은 초대할 수 없습니다.');
 		flag = false;
 	}
-	
-	
 	if(maxtime == false) {
 		alert('최대사용시간을 초과하였습니다');
 		flag = false;

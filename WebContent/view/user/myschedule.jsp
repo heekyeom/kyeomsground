@@ -51,8 +51,13 @@ $(function() {
         	     }
         	 });
         	 
+        	 $('#me_flag').val(1);
+        	 $('#btnsubmit2').css('display','none');
+        	 
         	 if(calEvent.u_id != $('#u_id').val()) {
-        		 $('#btnsubmit').css('visibility','hidden');
+        		 $('#me_flag').val(0);
+        		 $('#btnsubmit').css('display','none');
+        		 $('#btnsubmit2').css('display','block');
         	 }
         	 
         	 $('#btn_reservation').click();
@@ -77,6 +82,7 @@ $(function() {
 </script>
 
    <div id='calendar'></div>
+   
    <button id="btn_reservation" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" hidden="hidden"></button>
 
 <!-- Modal -->
@@ -158,9 +164,11 @@ $(function() {
 <!--  -->
          <div class="modal-footer">
             <button type="submit" class="btn btn-primary" id="btnsubmit" >예약취소</button>
+            <button type="submit" class="btn btn-primary" id="btnsubmit2" >참여취소</button>
             <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
          </div>
          <input type="hidden" id="r_num" name="r_num">
+         <input type="hidden" id="me_flag" name="me_flag">
          <input type="hidden" id="u_id" name="u_id" value="${user.u_id }">
                   </form>
                   <!-- ends register form -->
