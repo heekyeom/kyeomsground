@@ -140,4 +140,23 @@ public class ManagerController {
 		
 		return mv;
 	}
+	
+	// 매니저에서 회원 탈퇴시키기
+	@RequestMapping("/deleteuserimpl.kg")
+	public void deleteuserimpl(HttpServletResponse response, String u_id) {
+		
+		try {
+			service.remove(u_id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}	
+		
+		try {
+			response.sendRedirect("usermanage.kg");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
 }

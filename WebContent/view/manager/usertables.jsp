@@ -20,16 +20,18 @@
 								<th>name</th>
 								<th>tel</th>
 								<th>email</th>
+								<th>delete</th>
 							</tr>
 						</thead>
-						<tfoot>
+						<!-- <tfoot>
 							<tr>
 								<th>id</th>
 								<th>name</th>
 								<th>tel</th>
 								<th>email</th>
+								<th>delete</th>
 							</tr>
-						</tfoot>
+						</tfoot> -->
 						<tbody>
 							<c:if test="${userlist != null }">
 								<c:forEach var="user" items="${userlist }">
@@ -38,6 +40,7 @@
 										<td>${user.u_name }</td>
 										<td>${user.u_tel }</td>
 										<td>${user.u_email }</td>
+										<td><a href="deleteuserimpl.kg?u_id=${user.u_id }">삭제</a></td>
 									</tr>
 								</c:forEach>
 							</c:if>

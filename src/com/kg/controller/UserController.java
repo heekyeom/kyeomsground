@@ -147,16 +147,14 @@ public class UserController {
 			e.printStackTrace();
 		}	
 		
-		
 		try {
 			response.sendRedirect("main.kg");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 
 	}
-
+	
 	// 로그인후 마이 페이지 클릭시 보여줄 화면
 	@RequestMapping("/mypage.kg")
 	public ModelAndView mypage() {

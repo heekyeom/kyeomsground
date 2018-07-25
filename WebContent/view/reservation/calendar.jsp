@@ -228,7 +228,7 @@ function checkAll() {
 <!--  -->
          <div class="modal-footer">
             <button type="submit" class="btn btn-primary" >예약하기</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+            <button type="button" class="btn btn-default" onclick="location.href='calendar.kg'">취소</button>
          </div>
                   </form>
                   <!-- ends register form -->
