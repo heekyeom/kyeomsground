@@ -17,14 +17,15 @@ function register() {
 	        contentType: false,
 	        cache: false,
 			success : function(data) {
+				console.log(data);
 				if (data == '1') {
 					alert('등록이 완료되었습니다.');
 				} else {
-					alert('Register Fail');
+					alert('등록 실패했습니다.');
 				}
 			},
 			error : function() {
-				alert('Register Fail');
+				alert('등록 에러');
 			}
 		});
 	}

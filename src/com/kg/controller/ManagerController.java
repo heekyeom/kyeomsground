@@ -1,5 +1,6 @@
 package com.kg.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kg.service.CategoryService;
@@ -25,6 +27,7 @@ import com.oreilly.servlet.MultipartRequest;
 @Controller
 public class ManagerController {
 	private String dir="C:\\team5\\kyeomsground\\WebContent\\imgs\\category";
+	private String fdir="C:\\team5\\kyeomsground\\WebContent\\imgs";
 	private int size=1024*1024*10;
 	
 	@Resource(name = "uservice")
@@ -159,10 +162,13 @@ public class ManagerController {
 	}
 	
 	@RequestMapping("/deletecategoryimpl.kg")
-	public void deletecategoryimpl(HttpServletResponse response, String c_name) {
-		
+	public void deletecategoryimpl(HttpServletResponse response, String c_name,String c_imgname) {
 		
 		try {
+			File file = new File(dir+"\\"+c_imgname);
+			if(file.exists()) {
+				file.delete();
+			}
 			cservice.remove(c_name);
 		} catch (Exception e) {
 			e.printStackTrace();

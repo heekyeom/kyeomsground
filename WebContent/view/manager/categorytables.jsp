@@ -30,7 +30,7 @@
 							<tr>
 								<td>${category.c_name }</td>
 								<td>${category.c_color }</td>
-								<td><a href="deletecategoryimpl.kg?c_name=${category.c_name }">삭제</a></td>
+								<td><a href="deletecategoryimpl.kg?c_name=${category.c_name }&c_imgname=${category.c_imgname}">삭제</a></td>
 							</tr>
 						</c:forEach>
 					</c:if>
