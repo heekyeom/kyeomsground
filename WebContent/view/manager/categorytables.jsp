@@ -14,7 +14,7 @@
 	<div class="card-body">
 		<div class="table-responsive">
 			<button class="btn btn-primary" data-toggle="modal"
-				data-target="#categoryAddModal">카테고리추가</button>
+				data-target="#categoryAddModal">카테고리추가</button><br><br>
 			<table class="table table-bordered" id="dataTable" width="100%"
 				cellspacing="0">
 				<thead>
