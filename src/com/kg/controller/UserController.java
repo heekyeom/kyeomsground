@@ -136,10 +136,8 @@ public class UserController {
 
 	// 마이페이지 수정 완료 클릭시 처리할 코드
 	@RequestMapping("/userdeleteimpl.kg")
-	public ModelAndView userdeleteimpl(HttpServletRequest request) {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("main");
-
+	public void userdeleteimpl(HttpServletRequest request, HttpServletResponse response) {
+		
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 		try {
@@ -147,10 +145,16 @@ public class UserController {
 			session.invalidate();
 		} catch (Exception e) {
 			e.printStackTrace();
+		}	
+		
+		
+		try {
+			response.sendRedirect("main.kg");
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
+		
 
-		mv.addObject("centerpage", "main");
-		return mv;
 	}
 
 	// 로그인후 마이 페이지 클릭시 보여줄 화면
