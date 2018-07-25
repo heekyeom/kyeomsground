@@ -6,12 +6,6 @@
 	<div class="col-3">
 		<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
 			aria-orientation="vertical">
-			<a class="nav-link active" id="v-pills-home-tab" 
-				href="mypage.kg" role="tab" 
-				>MyPage</a> 
-			<a class="nav-link"
-				id="v-pills-profile-tab"  href="#v-pills-profile"
-				role="tab">Profile</a>
 			<a class="nav-link" id="v-pills-messages-tab" 
 				href="myschedule.kg" role="tab" 
 				>나의 일정</a> 

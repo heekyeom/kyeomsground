@@ -22,12 +22,15 @@ import com.kg.service.UserService;
 import com.kg.util.FileSave;
 import com.kg.vo.Category;
 import com.kg.vo.Facility;
+import com.kg.vo.Reservation;
+import com.kg.vo.User;
 import com.oreilly.servlet.MultipartRequest;
 
 @Controller
 public class ManagerController {
 	private String dir="C:\\team5\\kyeomsground\\WebContent\\imgs\\category";
 	private int size=1024*1024*10;
+	
 	@Resource(name = "uservice")
 	UserService service;
 
@@ -109,8 +112,35 @@ public class ManagerController {
 	public ModelAndView usermanage() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("manager/managermain");
+		ArrayList<User> list=null;
+		try {
+			list=service.get();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			mv.addObject("userlist", list);
+		}
+		
 		mv.addObject("managercenterpage", "usertables");
 
+		return mv;
+	}
+	
+	@RequestMapping("/reservationmanage.kg")
+	public ModelAndView reservationmanage() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("manager/managermain");
+		mv.addObject("managercenterpage", "reservationtables");
+		
+		ArrayList<Reservation> rlist=null;
+		try {
+			rlist=rservice.get();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			mv.addObject("reservationlist", rlist);
+		}
+		
 		return mv;
 	}
 }

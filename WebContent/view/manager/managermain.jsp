@@ -65,7 +65,7 @@
 						<li><a href="facilitymanage.kg">시설 관리</a></li>
 					</ul></li>
 				<li class="nav-item" data-toggle="tooltip" data-placement="right"
-					title="Charts"><a class="nav-link" href="#"> <i
+					title="Charts"><a class="nav-link" href="reservationmanage.kg"> <i
 						class="fa fa-fw fa-area-chart"></i> <span class="nav-link-text">예약관리</span>
 				</a></li>
 			</ul>

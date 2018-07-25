@@ -75,8 +75,6 @@
 									<input type="button" data-toggle="modal" data-target="#myModal" value="예약하기">
 								</c:otherwise>
 							</c:choose>
-
-
 						</form>
 
 					</div>
