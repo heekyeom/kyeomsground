@@ -1,5 +1,6 @@
 package com.kg.controller;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -7,6 +8,8 @@ import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
 
 import javax.annotation.Resource;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -64,15 +67,20 @@ public class UserController {
 
 	// 로그아웃 완료 클릭시 처리할 코드
 	@RequestMapping("/logoutimpl.kg")
-	public ModelAndView logout(HttpServletRequest request) {
-		ModelAndView mv = new ModelAndView();
+	public void logout(HttpServletRequest request, HttpServletResponse response) {
+		
 		HttpSession session = request.getSession();
-		mv.setViewName("main");
-
 		session.invalidate();
 
-		mv.addObject("centerpage", "home");
-		return mv;
+		RequestDispatcher rd=request.getRequestDispatcher("main.kg");
+		try {
+			rd.forward(request, response);
+		} catch (ServletException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	
 	}
 
 	// 회원가입 완료 클릭시 처리할 코드
