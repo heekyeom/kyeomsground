@@ -38,7 +38,7 @@
 								<td>${facility.f_tel }</td>
 								<td>${facility.f_opentime }</td>
 								<td>${facility.f_closetime }</td>
-								<td><a href="deletefacilityimpl.kg?f_num=${facility.f_num }">삭제</a></td>
+								<td><a href="deletefacilityimpl.kg?f_num=${facility.f_num }&f_imgname=${facility.f_imgname}">삭제</a></td>
 							</tr>
 						</c:forEach>
 					</c:if>

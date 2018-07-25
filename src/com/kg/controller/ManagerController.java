@@ -26,8 +26,8 @@ import com.oreilly.servlet.MultipartRequest;
 
 @Controller
 public class ManagerController {
-	private String dir="C:\\team5\\kyeomsground\\WebContent\\imgs\\category";
-	private String fdir="C:\\team5\\kyeomsground\\WebContent\\imgs";
+	private String dir="C:\\Users\\kyeomsground\\WebContent\\imgs\\category";
+	private String fdir="C:\\Users\\kyeomsground\\WebContent\\imgs";
 	private int size=1024*1024*10;
 	
 	@Resource(name = "uservice")
@@ -182,9 +182,13 @@ public class ManagerController {
 	}
 	
 	@RequestMapping("/deletefacilityimpl.kg")
-	public void deletefacilityimpl(HttpServletResponse response, int f_num) {
-		
+	public void deletefacilityimpl(HttpServletResponse response, int f_num, String f_imgname) {
+		System.out.println(f_imgname);
 		try {
+			File file = new File(fdir+"\\"+f_imgname);
+			if(file.exists()) {
+				file.delete();
+			}
 			fservice.remove(f_num);
 		} catch (Exception e) {
 			e.printStackTrace();
