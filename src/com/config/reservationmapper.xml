@@ -32,7 +32,8 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	<select id="getFacilityReservation" parameterType="Integer" resultType="reservation">
 		SELECT r.r_num, r.r_title, r.u_id, r.f_num, r.r_date, r.r_starttime, r.r_endtime, r.r_type, c.c_color as r_color, f.f_name FROM kg_reservation r, kg_facility f, kg_category c WHERE r.f_num=f.f_num and f.c_name=c.c_name and r.f_num=#{f_num}
 	</select>
-	
-	
+	<delete id="removeMe" parameterType="reservation">
+		DELETE FROM kg_schedule WHERE R_NUM=#{r_num} and U_ID=#{u_id}
+	</delete>
 	
 </mapper>

@@ -55,4 +55,8 @@ public class ReservationService implements Service<Reservation, Integer> {
 		return dao.getFacilityReservation(f_num);
 	}
 	
+	public void removeMe(Reservation reservation) throws Exception {
+		dao.removeMe(reservation);
+	}
+	
 }

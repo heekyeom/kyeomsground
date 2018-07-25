@@ -5,7 +5,6 @@ import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Locale;
-import java.util.concurrent.ConcurrentHashMap;
 
 import javax.annotation.Resource;
 import javax.servlet.RequestDispatcher;
@@ -16,10 +15,8 @@ import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.springframework.jms.listener.SessionAwareMessageListener;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kg.service.ReservationService;
@@ -229,8 +226,16 @@ public class UserController {
 	}
 	
 	@RequestMapping("/myscheduledeleteimpl.kg")
-	public void myscheduledeleteimpl(HttpServletResponse response, int r_num) throws Exception {
-		rservice.remove(r_num);
+	public void myscheduledeleteimpl(HttpServletResponse response, int r_num, String u_id, int me_flag) throws Exception {
+		
+		if(me_flag == 1) {
+			rservice.remove(r_num);
+		} else {
+			Reservation reservation = new Reservation();
+			reservation.setR_num(r_num);
+			reservation.setU_id(u_id);
+			rservice.removeMe(reservation);
+		}
 		response.sendRedirect("myschedule.kg");
 	}
 	
