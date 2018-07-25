@@ -12,6 +12,7 @@
 <script>
 
 var time = true;
+var maxtime = true;
 
 $(function() {
 	
@@ -37,13 +38,21 @@ $(function() {
          selectOverlap: false,
          select: function(startDate, endDate, jsEvent, view) {
         	 time = true;
+        	 maxtime = true;
              $('#r_rstime').val(startDate._i[0]+'년 '+startDate._i[1]+'월 '+startDate._i[2]+'일 '+startDate._i[3]+'시   ~   '+endDate._i[0]+'년 '+endDate._i[1]+'월 '+endDate._i[2]+'일 '+endDate._i[3]+'시');
              $('#r_starttime').val(startDate);
              $('#r_endtime').val(endDate);
+             
+             
+             
              if((startDate._i[3] < $('#availableStartTime').val()) || (endDate._i[3] > $('#availableEndTime').val()) || (startDate._i[2] != endDate._i[2])) {
             	 time = false;
              }
              
+           if(endDate._i[3] - startDate._i[3]> ${facility.f_maxtime}) {
+            	 maxtime = false;
+             }
+       
              $('#btn_reservation').click();
          },
          eventClick: function(calEvent, jsEvent, view) {
@@ -86,6 +95,12 @@ function checkAll() {
 	}
 	if(myself == false) {
 		alert('자기 자신은 초대할 수 없습니다.');
+		flag = false;
+	}
+	
+	
+	if(maxtime == false) {
+		alert('최대사용시간을 초과하였습니다');
 		flag = false;
 	}
 	
@@ -142,10 +157,10 @@ function checkAll() {
 
                      <div class="form-group">
                         <label for="password"><span class="req">* </span>
-                         시설이용가능시간
+                         시설이용가능시간  (최대예약시간: ${facility.f_maxtime} 시간)
                         </label> <input name="f_time" type="text"
                            class="form-control inputpass" minlength="4" maxlength="16"
-                           id="f_time" value="매일 ${facility.f_opentime}시 부터  ~  ${facility.f_closetime}시 까지 이용가능" readonly="readonly"/>
+                           id="f_time" value="매일 ${facility.f_opentime}시 부터  ~  ${facility.f_closetime}시 까지 이용가능 "  readonly="readonly"/>
                      </div>
                      
                      <div class="form-group">
