@@ -8,11 +8,14 @@
 			aria-orientation="vertical">
 			<a class="nav-link" id="v-pills-messages-tab" 
 				href="myschedule.kg" role="tab" 
-				>나의 일정</a> 
+				>나의 일정</a>
+			<a class="nav-link" id="v-pills-messages-tab" 
+				href="profile.kg" role="tab" 
+				>프로필</a> 
 			<a class="nav-link"
 				id="v-pills-settings-tab" 
 				href="modify.kg" role="tab" 
-				>회원정보</a>
+				>회원정보수정</a>
 		</div>
 	</div>
 	<div class="col-9">

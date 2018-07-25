@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Locale;
+import java.util.concurrent.ConcurrentHashMap;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -12,8 +13,10 @@ import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.springframework.jms.listener.SessionAwareMessageListener;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kg.service.ReservationService;
@@ -96,6 +99,16 @@ public class UserController {
 		mv.setViewName("main");
 		mv.addObject("centerpage", "user/mypage");
 		mv.addObject("mypagecenterpage", "../modify");
+		
+		return mv;
+	}
+	
+	@RequestMapping("/profile.kg")
+	public ModelAndView profile() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("main");
+		mv.addObject("centerpage", "user/mypage");
+		mv.addObject("mypagecenterpage", "profile");
 		
 		return mv;
 	}
