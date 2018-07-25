@@ -65,7 +65,7 @@
 							<input name="f_closetime" type="hidden"
 								value="${item.f_closetime}"> <input name="f_maxtime"
 								type="hidden" value="${item.f_maxtime}">
-
+							<input name="f_maxtime" type="hidden" value="${item.f_maxtime}">
 							<c:choose>
 								<c:when test="${user != null }">
 									<input type="submit" value="예약하기"></input>
