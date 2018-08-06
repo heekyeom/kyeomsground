@@ -3,21 +3,13 @@
 PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kg.mapper.UserMapper">
-	<resultMap type="user" id="userResult">
-		<result column="u_id" property="u_id" />
-		<result column="u_pwd" property="u_pwd" />
-		<result column="u_name" property="u_name" />
-		<result column="u_tel" property="u_tel" />
-		<result column="u_email" property="u_email" />
-		<result column="u_ismanager" property="u_ismanager" />
-	</resultMap>
 
 	<select id="select" parameterType="String"
 		resultType="user">
 		SELECT * FROM KG_USER WHERE U_ID=#{obj}
 	</select>
 
-	<select id="selectall" resultMap="userResult">
+	<select id="selectall" resultType="user">
 		SELECT * FROM KG_USER
 	</select>
 	
